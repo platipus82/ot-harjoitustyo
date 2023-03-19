@@ -1,0 +1,97 @@
+kambur@melkki:~/kurssit/ot2023/ot_viikko1$ git log --stat | cat
+commit 62f7de32d0b6d9c4c988a847116fdb41c4478e81
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Sun Mar 19 02:11:00 2023 +0200
+
+    some more updates
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit db63af3aa7ebcfda95e81f696a864f52062655cb
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Sun Mar 19 02:10:10 2023 +0200
+
+    some new modifications
+
+ tiedostoja/file22 | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 4c1522837ebcd20ae3be583432fb888574f536d8
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Sun Mar 19 02:03:38 2023 +0200
+
+    new dir and three new files
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit d5511434222892a36c5f70e9de06ebf55e5b4ecc
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Sun Mar 19 01:56:38 2023 +0200
+
+    updated two files
+
+ eka.txt    | 12 ++++++++++++
+ kolmas.txt |  3 +--
+ 2 files changed, 13 insertions(+), 2 deletions(-)
+
+commit bae20559cfeba431523f22b727f88065ad8ed293
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Sun Mar 19 00:44:07 2023 +0200
+
+    file deleted
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit d2e16c37f53258f04ba6b47193420e638abc44e3
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Fri Mar 17 18:18:11 2023 +0200
+
+    dir lisäys
+
+ stuff/neljas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 3eef82c93681b98b685b372ff7e624b5591d947d
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Fri Mar 17 18:16:20 2023 +0200
+
+    lisäykset kahteen tiedostoon
+
+ kolmas.txt | 2 ++
+ toinen.txt | 1 +
+ 2 files changed, 3 insertions(+)
+
+commit 6bc9a2d896d748b5fbdc51a6157c3d2e80485011
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Fri Mar 17 18:13:34 2023 +0200
+
+    lisäys
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit be139b338a141aff343ae06629890f5cc66dabbb
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Fri Mar 17 18:09:31 2023 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 8b858e82315a97c4cea74d23b7a42a34f061e3d4
+Author: Kambur Oleg <kambur@melkki.cs.helsinki.fi>
+Date:   Fri Mar 17 17:51:52 2023 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+kambur@melkki:~/kurssit/ot2023/ot_viikko1$
