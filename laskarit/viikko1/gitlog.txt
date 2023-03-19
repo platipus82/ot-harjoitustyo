@@ -95,3 +95,7 @@ Date:   Fri Mar 17 17:51:52 2023 +0200
  tiedosto.txt | 0
  1 file changed, 0 insertions(+), 0 deletions(-)
 kambur@melkki:~/kurssit/ot2023/ot_viikko1$
+
+
+
+...ja tämä rivi on tehty githubin kautta...
