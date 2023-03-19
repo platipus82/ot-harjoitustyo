@@ -11,3 +11,6 @@ Muutoksia README.MD tiedostoon voi tehdä sekä suoraan paikallisessa repossa et
 
 ###Epäsynkronointi
 Tämä rivi on tehty paikallisesti
+Tämä rivi on tehty paikallisesti
+Tämä rivi on tehty paikallisesti
+
