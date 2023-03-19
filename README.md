@@ -12,4 +12,5 @@ hello world
 hello world
 
 
-([https://github.com/platipus82/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt])
+[komentorivi.txt](https://github.com/platipus82/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
+[gitlog.txt](https://github.com/platipus82/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
