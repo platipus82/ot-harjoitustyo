@@ -6,7 +6,10 @@ hello world normaalitekstina
 ~hello world strikethrough~
 <sub>hello world subscript </sub> 
 <sup>hello world superscript </sup>
+hello worldCancel changes
 hello world
 hello world
 hello world
-hello world
+
+
+([https://github.com/platipus82/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt])
