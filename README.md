@@ -15,5 +15,5 @@ Tämä rivi on tehty paikallisesti
 Tämä rivi on tehty paikallisesti
 
 ### Viikko 2
-[vaativuusmaarittely.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
+[vaativuusmaarittely.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 [tyoaikakirjanpito.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
