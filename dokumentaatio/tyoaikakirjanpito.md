@@ -2,7 +2,8 @@
 
 | päivä | aika | mitä tein |
 | --- | --- | --- |
-| 28.3 | 3 | suunnittelu ja aloitusdokumentaatio |
+| 27.3 | 2 | suunnittelu |
+| 28.3 | 2 | suunnittelu ja aloitusdokumentaatio |
 
 
 
