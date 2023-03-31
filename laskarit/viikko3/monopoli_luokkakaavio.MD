@@ -1,6 +1,7 @@
 ```mermaid
 classDiagram
-    Pelaaja "*" --> "1" Pelilauta
+    Pelilauta "1" --> "*" Pelaaja 
+    Pelilauta "1" --> "*" Ruutu
 
     class Ruutu{
         seuraava_ruutu
