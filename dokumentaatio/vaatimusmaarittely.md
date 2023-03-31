@@ -1,13 +1,15 @@
 # Sovelluksen tarkoitus 
-...eli pieni tekstuaalinen yleiskuvaus sovelluksesta
+Sovelluksen avulla käyttäjät voivat opetella asioita digitaalisten _opettelukorttien_ avulla (eng. _flashcards_). Kortit on ryhmitelty kokoelmiin. Kun kokoelma luodaan, sille voi asettaa salasanan.  
 
 # Käyttäjät
-...eli tieto erilaisista käyttäjärooleista, joita järjestelmässä on
-Tosin jos sovelluksessasi on vain yhdenlaisia käyttäjiä, ei kohtaa tarvita. Näin lienee tilanne monissa harjoitustöiden aiheissa kuten peleissä.
+Kaikki käyttäjät ovat tasavertaisia ja kaikki toiminnallisuudet näkyvät kaikille. Jos käyttäjä ei tiedä kokoelman salasanaa, se ei aukea. 
 
 # Suunnitellut toiminnallisuudet
-...Toiminnallisuudet voi kuvata ranskalaisina viivoina samaan tapaan kuin referenssiprojektissa
-Referenssiprojektissa on kuvattu perusversion eli jo “kurssin alkupuolella” toteutettavan ydintoiminnallisuuden toiminnallisuudet tarkemmin
+- luo tyhjä opettelukorttikokoelma
+- lisää kokoelmaan opettelukortti tai opettelukortteja
+- avaa kokoelma ja käy läpi sen kortit
 
 # Jatkokehitysideat
-Perusversiota laajentavat jatkokehitysideat ovat omassa listassaan
+- ajastettu läpikäynti missä kullakin kysymyksellä aikaraja
+- vastausmuotona kuva, video tai ääni, jolloin tekstivastauksen sijaan kortti sisältää linkin vastaustiedostoon, joka avataan oletussovelluksella
+- korttien ja kokoelmien väliset suhteet: lisätään kortteihin aihepiirit ja linkit muihin kortteihin, jolloin aiheita voi kerrata kohdennetusti  
