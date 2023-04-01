@@ -1,3 +1,4 @@
+```mermaid
 sequenceDiagram
     participant main
     participant Machine
@@ -6,3 +7,4 @@ sequenceDiagram
     main ->>Machine
     Machine ->>FuelTank: fill 40L
     Machine ->>Engine: start
+```
