@@ -2,7 +2,9 @@
 
 # Harjoitustyö
 ## Kuvaus
-Flashcards sovelluksen avulla käyttäjä pystyy harjoittelemaan ja opettelemaan eri aihepiirejä
+Flashcards sovelluksen avulla käyttäjät voivat opetella asioita digitaalisten opettelukorttien avulla (eng. *flashcards*). Kortit on ryhmitelty kokoelmiin. 
+
+
 
 ## Dokumentaatio
 [vaativuusmaarittely.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
@@ -12,9 +14,16 @@ Flashcards sovelluksen avulla käyttäjä pystyy harjoittelemaan ja opettelemaan
 [changelog.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
 
 ## Asennus ja käyttö
+Ohjelma ei vaadi erillistä asennusta vaan sitä pystyy käyttämään suoraan - Pythonilla. 
 
 ## Komentorivitoiminnot
+Ohjelman pystyy suorittamaan komennolla:
 
+`poetry run invoke start`
+
+tai 
+
+`python3 flashcards.py`
 
 
 # Tehtävät, laskarit ja yleinen perehtyminen
