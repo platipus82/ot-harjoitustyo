@@ -18,7 +18,9 @@ Ohjelma ei vaadi erillistä asennusta vaan sitä pystyy käyttämään suoraan -
 
 ## Komentorivitoiminnot
 Ohjelman pystyy **suorittamaan** komennolla `poetry run invoke start` tai `python3 flashcards.py`
+
 Ohjelman pystyy **testaamaan** pytestin avulla komennolla `poetry run invoke test` tai `python3 flashcards_test.py`
+
 Ohjelman pystyy **suorittamaan** komennolla `poetry run invoke coverage-report` tai `python3 flashcards.py`
 
 
