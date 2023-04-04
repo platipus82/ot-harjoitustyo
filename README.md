@@ -17,3 +17,4 @@ Tämä rivi on tehty paikallisesti
 ### Viikko 2
 [vaativuusmaarittely.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 [tyoaikakirjanpito.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
+[changelog.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
