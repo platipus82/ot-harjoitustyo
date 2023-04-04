@@ -118,7 +118,8 @@ def main():
     #App()
     print(os.getcwd())
     #inp = read_input_file("\src\inputs\Topic1.txt")
-    inp = read_input_file(os.getcwd() + "\src\inputs\Topic1.txt")
+    inppth = os.getcwd() + "/src/inputs/Topic1.txt"
+    inp = read_input_file(inppth)
     #print("Input: ")
     #print(inp)
     kysele(inp)
