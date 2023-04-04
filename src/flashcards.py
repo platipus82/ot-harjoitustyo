@@ -24,32 +24,32 @@ def resource_path(relative_path):
 
 def read_input_file(file_name):        
     try:
-        tiedosto = open(file_name, "r")
-        sarake_otsikot = []
-        rivit = []
+        infile = open(file_name, "r")
+        col_names = []
+        lines = []
         i=0        
-        for rivi in tiedosto:
+        for line in infile:
             #while rivi != "" :          # jokaisella rivilla joka ei ole tyhja...
-            if rivi != "" :
+            if line != "" :
                 #print(rivi)
-                rivit.append(rivi)
+                lines.append(line)
                 #while i==0:
-                #rivi = rivi.rstrip('\n')    # poista rivilta newline merkki
-                #alkiot = rivi.split('\t')
-                #for alkio in alkiot:
-                    #if alkio != "" :
-                        #sarake_otsikot.append(alkio)
+                #line = line.rstrip('\n')    # poista rivilta newline merkki
+                #items = line.split('\t')
+                #for item in items:
+                    #if items != "" :
+                        #col_names.append(item)
                 i += 1
-        #print(sarake_otsikot)
-        sarakkeita = len(sarake_otsikot)
-   #    print("sarakkeita on", sarakkeita)        
-        tiedosto.close
-        return(rivit)
+        #print(col_names)
+        cols = len(col_names)
+   #    print("There are ", cols, " cols")        
+        infile.close
+        return(lines)
             
     except (OSError):
         return False 
     
-def kysele(lst):
+def ask(lst):
     #print(lst)
     for x in lst:
         #print(x)
@@ -60,24 +60,23 @@ def kysele(lst):
         #print(q)
         print(q)
         resp = input("Is your answer ready? Please, press any key to see the correct answer...")
-
         print(a)
         resp = input("Next question? Press any key to continue...")
         
           
-def lue():
+def read():
     while True:
-        luku = input("syötä luku: ")
+        num = input("Give a number: ")
         try:
-            luku = int(luku)
-            if 5 <= luku <= 10:
+            num = int(num)
+            if 5 <= num <= 10:
                 break
             else:
-                print("Syötteen on oltava kokonaisluku väliltä 5...10")
+                print("You must choose an integer between 5 and 10")
 
         except:
-            print("Syötteen on oltava kokonaisluku väliltä 5...10")
-    print(f"syötit luvun: {luku}")
+            print("The number must be an integer between 5 and 10")
+    print(f"You chose number: {num}")
     
     
 class App:
@@ -85,32 +84,32 @@ class App:
         pygame.init()
         random.seed(a=None, version=2)
         
-        # Mitat
-        self.korkeus = 480 #len(self.kartta)
-        self.leveys = 640 #len(self.kartta[0])
+        # Dimensions
+        self.height = 480 #len(self.map)
+        self.width = 640 #len(self.map[0])
 
         # Pisteet
-        self._pisteet = 0
-        self._tasopisteet = 0
-        self.kello = pygame.time.Clock()
-        self.naytto = pygame.display.set_mode((640, 480))
+        self._points = 0
+        self._lvlpoints = 0
+        self.clock = pygame.time.Clock()
+        self.display = pygame.display.set_mode((640, 480))
 
-        self._loppu = False
+        self._end = False
         pygame.display.set_caption("Flashcards")
-        self.silmukka()
+        self.loop()
         
-    def piirra_naytto(self):
-        self.naytto.fill((0, 0, 0))
-        #if self._taso <=5:   self.naytto.fill((0, 0, 0))
-        #else: self.naytto.fill((250, 0, 0))
+    def draw_display(self):
+        self.display.fill((0, 0, 0))
+        #if self._lvl <=5:   self.display.fill((0, 0, 0))
+        #else: self.display.fill((250, 0, 0))
             
         pygame.display.flip()
         
-    def silmukka(self):
+    def loop(self):
         while True:
-            self.piirra_naytto()
+            self.draw_display()
 
-def pelaa():
+def play():
     App()
     
 
@@ -122,10 +121,11 @@ def main():
     inp = read_input_file(inppth)
     #print("Input: ")
     #print(inp)
-    kysele(inp)
+    ask(inp)
     
     pass
 
 main()
 #if __name__ == "__main__":
 #    main()
+
