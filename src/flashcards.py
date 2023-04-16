@@ -1,6 +1,7 @@
+#!/usr/bin/python  
 # -*- coding: utf-8 -*-
 '''
-Created on 10 Apr 2023
+Created on 16 Apr 2023
 
 @author: olegk
 '''
@@ -22,22 +23,23 @@ class App:
         self.get_input_data()
 
     def set_input_dir(self):
-        #self.input_dir = os.getcwd() + "\src\inputs\\"
         self.input_dir = os.getcwd() + "\inputs\\"
+        if not os.path.isdir(self.input_dir):
+            self.input_dir = os.getcwd() + "/src/inputs//"
 
     def set_input_path(self):
-        #self.input_path = os.getcwd() + "\src\inputs\\"
-        self.input_path = os.getcwd() + "\inputs\\"
+        #self.input_path = os.getcwd() + "\inputs\\"
         filelist = os.listdir(self.input_dir)
-        filelist_description = "Currently available files are: "
+        filelist_description = "Currently available files are: " + "\n"
         for i in range(0, len(filelist)):
-            filepart =  str(i) + ": " + filelist[i]
+            filepart =  str(i) + ": " + filelist[i] + "\n"
             filelist_description = filelist_description+filepart
-        #print(filelist_description)
-        filelist_description = filelist_description + ". Please, chose correct input file by typing the corresponding number..."
+        filelist_description = filelist_description + "Please, choose correct input file by typing the corresponding number..."
+        print(filelist_description)
 
         while True:
             num = input(filelist_description)
+            print(num)
             try:
                 num = int(num)
                 if 0 <= num < len(filelist):
@@ -47,8 +49,11 @@ class App:
 
             except:
                 print("You must choose an integer between 0 and " + str(len(filelist)))
-        print(f"You´ve chosen file {filelist[num]} ({num})") 
+        print(f"You have chosen file {filelist[num]} ({num})") 
+
         self.input_path = self.input_dir + "/" + filelist[num]
+        if not os.path.isfile(self.input_path): 
+            self.input_path = self.input_dir + "\\" + filelist[num]
 
     def get_input_data(self): 
             try:
@@ -57,23 +62,12 @@ class App:
                 lines = []
                 i=0        
                 for line in infile:
-                    #while rivi != "" :          # jokaisella rivilla joka ei ole tyhja...
                     if line != "" :
-                        #print(rivi)
                         lines.append(line)
-                        #while i==0:
-                        #line = line.rstrip('\n')    # poista rivilta newline merkki
-                        #items = line.split('\t')
-                        #for item in items:
-                            #if items != "" :
-                                #col_names.append(item)
                         i += 1
-                #print(col_names)
                 cols = len(col_names)
-                #print("There are ", cols, " cols")        
                 infile.close
-                self.data = lines 
-                    
+                self.data = lines                    
             except (OSError):
                 return False 
 
@@ -83,17 +77,12 @@ class Play:
         self.ask()
 
     def ask(self):
-        #print(lst)
         lst = self.game.data
         for i in range(0, len(lst)):
-            #print(i)
             x = lst[i]
             y = x.split(";")
-            #print(x)
-            #print(y)
             q = y[0]
             a = y[1]
-            #print(q)
             print(q)
             resp = input("Is your answer ready? Please, press x for exit or any other key to see the correct answer...")
             if resp=="x":
@@ -101,8 +90,7 @@ class Play:
                 break
             print(a)
             if i!=len(lst)-1:
-                resp = input("Next question? Press x for exit, or any other key to continue...")
-                
+                resp = input("Next question? Press x for exit, or any other key to continue...")                
             else:
                 print("This was the last question! Well done!")
             if resp=="x":
@@ -113,4 +101,3 @@ def main():
     testi = Play()
     
 main()
-    
