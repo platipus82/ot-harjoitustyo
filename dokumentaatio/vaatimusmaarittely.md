@@ -7,9 +7,12 @@ Kaikki käyttäjät ovat tasavertaisia ja kaikki toiminnallisuudet näkyvät kai
 # Suunnitellut toiminnallisuudet
 - luo tyhjä opettelukorttikokoelma
 - lisää kokoelmaan opettelukortti tai opettelukortteja
-- avaa kokoelma ja käy läpi sen kortit
+_%tehty% _- avaa kokoelma ja käy läpi sen kortit
+_%tehty% _- luokka-rakenne
+_%tehty% _- tekstimuotoinen käyttöliittymä
 
 # Jatkokehitysideat
+- graafinen käyttöliittymä
 - ajastettu läpikäynti missä kullakin kysymyksellä aikaraja
 - vastausmuotona kuva, video tai ääni, jolloin tekstivastauksen sijaan kortti sisältää linkin vastaustiedostoon, joka avataan oletussovelluksella
 - korttien ja kokoelmien väliset suhteet: lisätään kortteihin aihepiirit ja linkit muihin kortteihin, jolloin aiheita voi kerrata kohdennetusti  
