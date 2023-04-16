@@ -40,14 +40,12 @@ class App:
 
         while True:
             num = input(filelist_description)
-            print(num)
             try:
                 num = int(num)
                 if 0 <= num < len(filelist):
                     break
                 else:
                     print("You must choose an integer between 0 and " + str(len(filelist)))
-
             except:
                 print("You must choose an integer between 0 and " + str(len(filelist)))
         print(f"You have chosen file {filelist[num]} ({num})") 
