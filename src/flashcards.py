@@ -30,6 +30,7 @@ class App:
     def set_input_path(self):
         #self.input_path = os.getcwd() + "\inputs\\"
         filelist = os.listdir(self.input_dir)
+        filelist = [x for x in filelist if x.endswith(".csv") or x.endswith(".txt") ]
         filelist_description = "Currently available files are: " + "\n"
         for i in range(0, len(filelist)):
             filepart =  str(i) + ": " + filelist[i] + "\n"
