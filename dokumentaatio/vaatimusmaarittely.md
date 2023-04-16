@@ -14,6 +14,7 @@ Kaikki käyttäjät ovat tasavertaisia ja kaikki toiminnallisuudet näkyvät kai
 
 # Jatkokehitysideat
 - graafinen käyttöliittymä
+- input-kansion tiedostoista sovellus näyttää vain .txt ja .csv-päätteisiä tiedostoja  
 - ajastettu läpikäynti missä kullakin kysymyksellä aikaraja
 - vastausmuotona kuva, video tai ääni, jolloin tekstivastauksen sijaan kortti sisältää linkin vastaustiedostoon, joka avataan oletussovelluksella
 - korttien ja kokoelmien väliset suhteet: lisätään kortteihin aihepiirit ja linkit muihin kortteihin, jolloin aiheita voi kerrata kohdennetusti  
