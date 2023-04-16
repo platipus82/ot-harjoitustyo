@@ -15,4 +15,4 @@
 - tekstikäyttöliittymä
 - testattu että toimii Windows- ja Linux ympäristöissä eli tarkistaa toimiiko tiedostopolku ja jos ei toimi niin käyttää vaihtoehtoista syntaksia
 - ohjelman rakenne muutettu luokka-muotoiseksi jatkokehityksen helpottamiseksi
-- 
+- .coveragerc tiedosto lisätty juurihakemistoon ja testien ulkopuolelle määritelty __init__.py-tiedostot, sekä tests- ja inputs-kansioiden sisällöt
