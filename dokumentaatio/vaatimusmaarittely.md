@@ -7,12 +7,9 @@ Kaikki käyttäjät ovat tasavertaisia ja kaikki toiminnallisuudet näkyvät kai
 # Suunnitellut toiminnallisuudet
 - luo tyhjä opettelukorttikokoelma
 - lisää kokoelmaan opettelukortti tai opettelukortteja
-
-_%tehty% _- avaa kokoelma ja käy läpi sen kortit
-
-_%tehty% _- luokka-rakenne
-
-_%tehty% _- tekstimuotoinen käyttöliittymä
+_%tehty% - avaa kokoelma ja käy läpi sen kortit_
+_%tehty% - luokka-rakenne_
+_%tehty% - tekstimuotoinen käyttöliittymä_
 
 # Jatkokehitysideat
 - graafinen käyttöliittymä
