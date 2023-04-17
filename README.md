@@ -12,7 +12,8 @@ Flashcards sovelluksen avulla käyttäjät voivat opetella asioita digitaalisten
 [Työaikakirjanpito](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
 [Muutosloki](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
-[arkkitehtuurikuvaus](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.MD)
+
+[Arkkitehtuurikuvaus](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.MD)
 
 ## Asennus ja käyttö
 Ohjelma ei vaadi erillistä asennusta vaan sitä pystyy käyttämään suoraan - Pythonilla. 
