@@ -10,7 +10,7 @@
 | 15.4 | 4 | Tkinteriin perehtyminen ja kokeilut|
 | 16.4 | 5 | uuden ohjelmaversion testaus virtuaaliympäristössä ja Poetry-lla. Dokumentaation päivitys|
 | 17.4 | 4 | ohjelman muokkaus ohjeistuksen mukaiseksi|
-| KOKONAISAIKA | 27 | |
+| KOKONAISAIKA | 31 | |
 
 
 
