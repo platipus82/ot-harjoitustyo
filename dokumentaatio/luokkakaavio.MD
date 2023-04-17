@@ -4,7 +4,6 @@ classDiagram
     App "1" --> "1" UI
     UI "1" --> "1" App
     class App{
-        aloitusruutu
         input_dir
         input_path 
         data
@@ -14,7 +13,8 @@ classDiagram
         app
     }
     class UI{
-        currently_empty
+        show_output()
+        get_input()
     }
 
 
