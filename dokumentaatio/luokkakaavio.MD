@@ -1,4 +1,4 @@
-**```mermaid
+```mermaid
 classDiagram
     Play "1" --> "1" App 
     App "1" --> "1" UI
@@ -19,4 +19,3 @@ classDiagram
 
 
 ```
-**
