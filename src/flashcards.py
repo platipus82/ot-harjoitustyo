@@ -1,25 +1,42 @@
 #!/usr/bin/python  
 # -*- coding: utf-8 -*-
+
 '''
-Created on 16 Apr 2023
+Created on 17 Apr 2023
 
 @author: olegk
 '''
-import pygame
-import random
-import math
-import time
+
+#import pygame
+#import random
+#import math
+#import time
 
 import sys
 import os
 
 class App:
-    def __init__(self):
+    def __init__(self, use_default_input=True):
+        self.default_input=use_default_input
         self.input_dir = ""
         self.input_path = ""
         self.data = []
+        self.filelist = []
+        self.set_parameters()
+        
+    def set_parameters(self):
+        #print("Function set_parameters")
         self.set_input_dir()
-        self.set_input_path()
+        self.get_input_filelist()
+        
+        if self.default_input==True:
+            #print("self.default_input==True")
+            self.set_input_path_default()
+        else:        
+            #print("self.default_input==False")
+            self.set_input_path()
+        
+        #print("Input path received: " + self.input_path)      
         self.get_input_data()
 
     def set_input_dir(self):
@@ -27,16 +44,34 @@ class App:
         if not os.path.isdir(self.input_dir):
             self.input_dir = os.getcwd() + "/src/inputs//"
 
-    def set_input_path(self):
-        #self.input_path = os.getcwd() + "\inputs\\"
+
+    def get_input_filelist(self):
         filelist = os.listdir(self.input_dir)
         filelist = [x for x in filelist if x.endswith(".csv") or x.endswith(".txt") ]
+        self.filelist = filelist
+        
+    def set_input_path_default(self):      
+        filelist = self.filelist
+        filelist_description = "Currently available files are: " + "\n"
+        for i in range(0, len(filelist)):
+            filepart =  str(i) + ": " + filelist[i] + "\n"
+            filelist_description = filelist_description+filepart
+        filelist_description = filelist_description + "Currently running in default input mode and will use the first available file..."
+        self.input_path = self.input_dir + "/" + self.filelist[0]
+        if not os.path.isfile(self.input_path): 
+            self.input_path = self.input_dir + "\\" + self.filelist[0]
+        filelist_description = filelist_description + self.filelist[0]
+        print(filelist_description)
+        
+    def set_input_path(self):
+        #self.input_path = os.getcwd() + "\inputs\\"
+        filelist = self.filelist
         filelist_description = "Currently available files are: " + "\n"
         for i in range(0, len(filelist)):
             filepart =  str(i) + ": " + filelist[i] + "\n"
             filelist_description = filelist_description+filepart
         filelist_description = filelist_description + "Please, choose correct input file by typing the corresponding number..."
-        print(filelist_description)
+        #print(filelist_description)
 
         while True:
             num = input(filelist_description)
@@ -72,7 +107,7 @@ class App:
 
 class Play:
     def __init__(self):
-        self.game = App()
+        self.game = App(use_default_input=False)
         self.ask()
 
     def ask(self):
@@ -99,4 +134,5 @@ class Play:
 def main():
     testi = Play()
     
-main()
+if __name__ == "__main__":
+    main()  
