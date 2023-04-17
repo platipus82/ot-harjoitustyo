@@ -21,9 +21,10 @@ Ohjelma ei vaadi erillistä asennusta vaan sitä pystyy käyttämään suoraan -
 ## Komentorivitoiminnot
 **Suoritus**
 - Tällä hetkellä ohjelman voi suorittaa komennoilla `python3 flashcards.py` tai Poetryn virtuaaliympäristössä komennoin `poetry run python src/flashcards.py`
-- Tulevaisuudessa ohjelman pystyy suorittamaan komennolla `poetry run invoke start`. Tällä hetkellä se ei vielä ole mahdollista: kehitysympäristönä on Windows eikä siinä toimi pty=True vaihtoehto. Ja virtuaaliympäristössä Poetrya ei voi myöskään käyttää virheen takia. 
+- Tulevaisuudessa ohjelman pystyy suorittamaan komennolla `poetry run invoke start`. Tällä hetkellä se ei vielä ole mahdollista: kehitysympäristönä on Windows eikä siinä toimi pty=True vaihtoehto. Ja virtuaaliympäristössä Poetrya ei voi myöskään käyttää [virheen](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/poetry_virhekuvaus.MD) takia. 
 
-Ohjelman pystyy **testaamaan** pytestin avulla komennolla `poetry run invoke test` tai `python3 flashcards_test.py`
+**Testaus**
+Ohjelman pystyy testaamaan pytestin avulla komennolla `poetry run invoke test` tai `python3 flashcards_test.py`
 
-Ohjelman pystyy **suorittamaan** komennolla `poetry run invoke coverage-report` tai `python3 flashcards.py`
-
+**Testikattavuus**
+Ohjelman testikattavuuden voi kartoittaa komennolla `poetry run invoke coverage`. Html-muotoisen raportin voi tuottaa komennolla `poetry run invoke coverage-report`. Raportti sijoitetaan hakemistoon _htmlcov_
