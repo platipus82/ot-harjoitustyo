@@ -19,7 +19,9 @@ Flashcards sovelluksen avulla käyttäjät voivat opetella asioita digitaalisten
 Ohjelma ei vaadi erillistä asennusta vaan sitä pystyy käyttämään suoraan - Pythonilla. 
 
 ## Komentorivitoiminnot
-Ohjelman pystyy **suorittamaan** komennolla `poetry run invoke start` tai `python3 flashcards.py`
+**Suoritus**
+- Tällä hetkellä ohjelman voi suorittaa komennoilla `python3 flashcards.py` tai Poetryn virtuaaliympäristössä komennoin `poetry run python src/flashcards.py`
+- Tulevaisuudessa ohjelman pystyy suorittamaan komennolla `poetry run invoke start`. Tällä hetkellä se ei vielä ole mahdollista: kehitysympäristönä on Windows eikä siinä toimi pty=True vaihtoehto. Ja virtuaaliympäristössä Poetrya ei voi myöskään käyttää virheen takia. 
 
 Ohjelman pystyy **testaamaan** pytestin avulla komennolla `poetry run invoke test` tai `python3 flashcards_test.py`
 
