@@ -1,7 +1,7 @@
 # Arkkitehtuurikuvaus
 
 ## Sovelluslogiikka
-Sovelluksen rakenne modostuu viidestä luokasta: _Play_, _App_, _UI_, _GUI_ ja _GUI_input_file_selection_
+Sovelluksen rakenne modostuu viidestä luokasta: _Play_, _App_, _UI_, _GUI_ ja _GUI_input_file_selection_. Luokat kuvaavat sovelluksen toiminnallisia kokonaisuuksia ja niiden keskinäiset suhteet voidaan kuvata luokkadiagrammin avulla: 
 Luokkadiagrammi: 
 
 ```mermaid
