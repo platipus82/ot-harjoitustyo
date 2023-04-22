@@ -7,39 +7,28 @@ Flashcards sovelluksen avulla käyttäjät voivat opetella asioita digitaalisten
 
 
 ## Dokumentaatio
-[vaativuusmaarittely.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
+[Vaativuusmaarittely](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/vaatimusmaarittely.md)
 
-[tyoaikakirjanpito.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/tyoaikakirjanpito.md)
 
-[changelog.md](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
+[Muutosloki](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
+
+[Arkkitehtuurikuvaus](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.MD)
 
 ## Asennus ja käyttö
 Ohjelma ei vaadi erillistä asennusta vaan sitä pystyy käyttämään suoraan - Pythonilla. 
 
 ## Komentorivitoiminnot
-Ohjelman pystyy **suorittamaan** komennolla `poetry run invoke start` tai `python3 flashcards.py`
-
-Ohjelman pystyy **testaamaan** pytestin avulla komennolla `poetry run invoke test` tai `python3 flashcards_test.py`
-
-Ohjelman pystyy **suorittamaan** komennolla `poetry run invoke coverage-report` tai `python3 flashcards.py`
+**Suoritus**
+- Tällä hetkellä ohjelman voi suorittaa komennoilla `python3 flashcards.py` tai Poetryn virtuaaliympäristössä komennoin `poetry run python src/flashcards.py`
+- Tulevaisuudessa ohjelman pystyy suorittamaan komennolla `poetry run invoke start`. Tällä hetkellä se ei vielä ole mahdollista: kehitysympäristönä on Windows eikä siinä toimi pty=True vaihtoehto. Ja virtuaaliympäristössä Poetrya ei voi myöskään käyttää [virheen](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/poetry_virhekuvaus.MD) takia. 
 
 
-# Tehtävät, laskarit ja yleinen perehtyminen
-## Tehtävät
-### Viikko 1
-Tekstit voivat olla *kursiivina*, **boldattuna**, tavallisena tekstina, tai ~yliviivattuna~. 
-Tekstit voivat olla myös<sub>alaindeksina</sub> sekä<sup>yläindeksina</sup>
-..ja tekstiin voi liittää linkkejä: 
-[komentorivi.txt](https://github.com/platipus82/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
-[gitlog.txt](https://github.com/platipus82/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
+**Testaus**
 
-Muutoksia README.MD tiedostoon voi tehdä sekä suoraan paikallisessa repossa että gitbubin kansioon. Tämä teksti on lisätty paikalliseen kansioon. 
+Ohjelman pystyy testaamaan pytestin avulla komennolla `poetry run invoke test` tai `python3 flashcards_test.py`
 
-### Epäsynkronointi
-Tämä rivi on tehty paikallisesti
-Tämä rivi on tehty paikallisesti
-Tämä rivi on tehty paikallisesti
 
-### Viikko 2
+**Testikattavuus**
 
-### Viikko 3
+Ohjelman testikattavuuden voi kartoittaa komennolla `poetry run invoke coverage`. Html-muotoisen raportin voi tuottaa komennolla `poetry run invoke coverage-report`. Raportti sijoitetaan hakemistoon _htmlcov_.
