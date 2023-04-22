@@ -23,4 +23,4 @@
 - flashcards-sovelluksen kolmas toimiva versio
 - sovellukselle luotu GUI
 - testattu että toimii Windows- ja Linux ympäristöissä 
-- testattu että toimii myös poetry invoke syntaksilla
+- testattu että toimii myös `poetry invoke` syntaksilla
