@@ -1,11 +1,11 @@
 import unittest
 import os
-from src.flashcards import App
-from src.flashcards import Play
-from src.ui.ui import UI
+#from src.flashcards import App
+#from src.flashcards import Play
+#from src.ui.ui import UI
 
-#from flashcards import App
-#from flashcards import Play
+from flashcards import App
+from flashcards import Play
 #from src.ui import ui
 
 class TestApp(unittest.TestCase):
@@ -34,6 +34,16 @@ class TestApp(unittest.TestCase):
         for r in fl:
             if r!="": empty = False
         self.assertEqual(False, empty)
+
+
+    def test_that_inputfile_is_formatted_correctly(self):
+        pth = self.appi.input_path
+        infile = open(pth)
+        correct = True
+        for line in infile:
+            if line!="":
+                if len(line.split(";"))!=2: correct = False
+        self.assertEqual(True, correct)
 
     #def test_that_inputfile_rows_are_identical(self):
         
