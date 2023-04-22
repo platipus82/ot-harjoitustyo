@@ -1,7 +1,12 @@
 import unittest
 import os
-from src.Flashcards import App
-from src.Flashcards import Play
+from src.flashcards import App
+from src.flashcards import Play
+from src.ui.ui import UI
+
+#from flashcards import App
+#from flashcards import Play
+#from src.ui import ui
 
 class TestApp(unittest.TestCase):
     def setUp(self):
