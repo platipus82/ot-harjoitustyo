@@ -126,39 +126,6 @@ class Play:
         if self.__exit == False:
             self.ask()
 
-    def ask_v1(self):
-        lst = self.game.data
-        for i in range(0, len(lst)):
-            y = lst[i].split(";")
-            question = y[0]
-            answer = y[1]
-            self.__ui.show_output(question)
-            msg_pt1 = "Is your answer ready?"
-            msg_pt2 = "Please, press x for exit "
-            msg_pt3 = "or any other key to see the correct answer..."
-            msg = msg_pt1 + msg_pt2 + msg_pt3
-            #resp = input(msg)
-            resp = self.__ui.ask_for_input(output_text=msg)
-
-            if resp=="x":
-                msg = "GAME OVER"
-                self.__ui.show_output(output_text=msg)
-                break
-            msg = answer
-            self.__ui.show_output(output_text=msg)
-            if i!=len(lst)-1:
-                #resp = input("Next question? Press x for exit, or any other key to continue...")
-                msg = "Next question? Press x for exit, or any other key to continue..."
-                resp = self.__ui.ask_for_input(output_text=msg)
-
-            else:
-                msg = "This was the last question! Well done!"
-                self.__ui.show_output(output_text=msg)
-            if resp=="x":
-                msg = "GAME OVER"
-                self.__ui.show_output(output_text=msg)
-                break
-
     def ask(self):
         lst = self.game.data
         for i in range(0, len(lst)):
