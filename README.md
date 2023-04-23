@@ -16,7 +16,9 @@ Flashcards sovelluksen avulla käyttäjät voivat opetella asioita digitaalisten
 [Arkkitehtuurikuvaus](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/arkkitehtuuri.MD)
 
 ## Asennus ja käyttö
-Ohjelma ei vaadi erillistä asennusta vaan sitä pystyy käyttämään suoraan - Pythonilla. 
+Sovellus ei vaadi erillistä asennusta vaan sitä pystyy käyttämään suoraan - Pythonilla. 
+
+Viimeisin versio (_release_) löytyy [täältä](https://github.com/platipus82/ot-harjoitustyo/releases/tag/viikko5)
 
 ## Komentorivitoiminnot
 **Suoritus**
@@ -32,3 +34,5 @@ Ohjelman pystyy testaamaan pytestin avulla komennolla `poetry run invoke test` t
 **Testikattavuus**
 
 Ohjelman testikattavuuden voi kartoittaa komennolla `poetry run invoke coverage`. Html-muotoisen raportin voi tuottaa komennolla `poetry run invoke coverage-report`. Raportti sijoitetaan hakemistoon _htmlcov_.
+
+
