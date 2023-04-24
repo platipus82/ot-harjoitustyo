@@ -17,7 +17,7 @@ Flashcards sovelluksen avulla käyttäjät voivat opetella asioita digitaalisten
 
 ## Asennus ja käyttö
 1. Ohjelman lataus. Lataa ohjelman viimeisin versio (_release_) [täältä](https://github.com/platipus82/ot-harjoitustyo/releases/tag/viikko5) haluamaasi kansioon.
-2. Python-versio. Ohjelma on toteutettu ja testattu pythonin 3.8-versiolla. Yhteensopivuutta muiden python-versioiden mukaan ei ole testattu. Tarkista oma python-versio komennolla `python3 --version` tai `python --version` ja tarvittaessa päivitä se.
+2. Python-versio. Ohjelma on toteutettu ja testattu pythonin 3.8-versiolla. Yhteensopivuutta muiden python-versioiden kanssa ei ole testattu. Tarkista oma python-versio komennolla `python3 --version` tai `python --version` ja tarvittaessa päivitä se.
 3. Riippuvuuksien asennus. Asenna riippuvuudet ohjelmahakemistoon komennolla `poetry install`
 4. Käynnistä sovellus komennolla `poetry run invoke start`
 
@@ -39,6 +39,7 @@ Ohjelman pystyy testaamaan pytestin avulla komennolla `poetry run invoke test` t
 **Testikattavuus**
 
 Ohjelman testikattavuuden voi kartoittaa komennolla `poetry run invoke coverage`. Html-muotoisen raportin voi tuottaa komennolla `poetry run invoke coverage-report`. Raportti sijoitetaan hakemistoon _htmlcov_.
+
 
 **Tarkistukset (Pylint)**
 
