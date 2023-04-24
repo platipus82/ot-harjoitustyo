@@ -39,5 +39,6 @@ Ohjelman pystyy testaamaan pytestin avulla komennolla `poetry run invoke test` t
 
 Ohjelman testikattavuuden voi kartoittaa komennolla `poetry run invoke coverage`. Html-muotoisen raportin voi tuottaa komennolla `poetry run invoke coverage-report`. Raportti sijoitetaan hakemistoon _htmlcov_.
 
-**Tarkistukset (Pylint)
-Koodin tarkistukset voi suorittaa komennolla `poetry run invoke lint` . Tarkistuksissa käytetään Pylint-moduulia ja se suoritetaan .pylintrc-tiedostossa määriteltyjä sääntöjä noudattaen.
+**Tarkistukset (Pylint)**
+
+Koodin tarkistukset voi suorittaa komennolla `poetry run invoke lint`. Tarkistuksissa käytetään Pylint-moduulia ja se suoritetaan .pylintrc-tiedostossa määriteltyjä sääntöjä noudattaen.
