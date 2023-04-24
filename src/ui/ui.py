@@ -17,6 +17,8 @@ class GUI_input_file_selection:
         self.root = tk.Tk()
         self.root.title("Select a file")
         self.input_path = os.getcwd() + "\src\inputs\\"
+        if not os.path.isfile(self.input_path):
+          self.input_path = os.getcwd() + "/src/inputs/"
         self.input_file_path = ""
 
         # check if the input folder exists and has files
@@ -53,7 +55,10 @@ class GUI_input_file_selection:
         path = filedialog.askdirectory()
         if path:
             os.chdir(path)
-            self.input_path = os.getcwd() + "\src\inputs\\"
+            pth = os.getcwd() + "\src\inputs\\"
+            if not os.path.isfile(pth):
+                pth = os.getcwd() + "/src/inputs/"
+            self.input_path = pth
             self.setup_file_listbox()
             if not self.files:
                 self.file_var = tk.StringVar(value="No files found in the input folder!")
