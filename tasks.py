@@ -1,9 +1,12 @@
 from invoke import task
-
+import os
 @task
 def start(ctx):
-    ctx.run("python src\\flashcards.py", pty=False )                                       # pty=True doesnt work for windows
-
+    #ctx.run("python src\\flashcards.py", pty=False )                                       # pty=True doesnt work for windows
+    pth = "src\\flashcards.py"
+    if not os.path.isfile(pth):
+        pth = "src/flashcards.py"
+    cmnd = ctx.run(cmnd, pty=False)
 @task
 def test(ctx): 
     #ctx.run("python src\\tests\\flashcards_test.py", pty=False )  
