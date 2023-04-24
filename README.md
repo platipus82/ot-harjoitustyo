@@ -23,10 +23,10 @@ Flashcards sovelluksen avulla käyttäjät voivat opetella asioita digitaalisten
 
 ## Komentorivitoiminnot
 **Suoritus**
-Ohjelman voi suorittaa 
-- komennolla `poetry run invoke start` 
-- komennoilla `python3 flashcards.py` 
-- poetryn virtuaaliympäristössä komennoin `poetry run python src/flashcards.py`
+Ohjelman voi suorittaa komennoilla
+- `poetry run invoke start` 
+- `python3 flashcards.py` 
+- `poetry run python src/flashcards.py` poetryn virtuaaliympäristössä 
 
 
 
