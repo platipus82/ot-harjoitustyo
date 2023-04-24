@@ -6,7 +6,9 @@ def start(ctx):
     pth = "src\\flashcards.py"
     if not os.path.isfile(pth):
         pth = "src/flashcards.py"
-    cmnd = ctx.run(cmnd, pty=False)
+    cmnd = "python " + pth
+    ctx.run(cmnd, pty=False)
+
 @task
 def test(ctx): 
     #ctx.run("python src\\tests\\flashcards_test.py", pty=False )  
