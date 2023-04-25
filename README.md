@@ -43,4 +43,4 @@ Ohjelman testikattavuuden voi kartoittaa komennolla `poetry run invoke coverage`
 
 **Tarkistukset (Pylint)**
 
-Koodin tarkistukset voi suorittaa komennolla `poetry run invoke lint`. Tarkistuksissa käytetään Pylint-moduulia ja se suoritetaan .pylintrc-tiedostossa määriteltyjä sääntöjä noudattaen.
+Koodin tarkistukset voi suorittaa komennolla `poetry run invoke lint`. Tarkistuksissa käytetään Pylint-moduulia ja se suoritetaan .pylintrc-[tiedostossa](https://github.com/platipus82/ot-harjoitustyo/blob/main/.pylintrc) määriteltyjä sääntöjä noudattaen.
