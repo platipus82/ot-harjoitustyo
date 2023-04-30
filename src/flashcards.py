@@ -2,16 +2,15 @@
 # -*- coding: utf-8 -*-
 
 '''
-Created on 17 Apr 2023
+Created on 30 Apr 2023
 
 @author: olegk
 '''
 import os
+import random
 #import pygame
-#import random
 #import math
 #import time
-
 #import sys
 
 class App:
@@ -26,6 +25,7 @@ class App:
         self.data = []
         self.filelist = []
         self.set_parameters()
+        self.shuffle_questions()
 
     def set_parameters(self):
         self.set_input_dir()
@@ -92,6 +92,12 @@ class App:
         except OSError:
             return False
 
+    def shuffle_questions(self):
+        lst = self.data
+        random.shuffle(lst)
+        self.data=lst
+
+
 class Play:
     def __init__(self):
         self.__exit = False
@@ -102,6 +108,7 @@ class Play:
             self.ask()
 
     def ask(self):
+        #lst =["1+1=?; 2", "1+1=?; 2", "1+1=?; 2"] 
         lst = self.game.data
         #for i in range(0, len(lst)):
         #    y = lst[i].split(";")
@@ -135,10 +142,11 @@ class Play:
 def main():
     Play()
 
+
 if __name__ == "__main__":
     #import os
     from ui.ui import UI
-    #from ui.ui import GUI
-    #from ui.ui import GUI_input_file_selection
+    from ui.ui import GUI
+    from ui.ui import GUI_input_file_selection
 
     main()
