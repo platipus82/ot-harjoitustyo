@@ -12,7 +12,10 @@
 | 17.4 | 4 | ohjelman muokkaus ohjeistuksen mukaiseksi|
 | 21.4 | 12 | GUI toteutus|
 | 22.4 | 4 | GUI toteutus, testaus, ohjelman muokkaus ohjeistuksen mukaiseksi |
-| KOKONAISAIKA | 47 | |
+| 28.4 | 5 | GUI päivitys, tkinterin testaukset |
+| 29.4 | 4 | ohjelman prosessilogiikan päivitys (kysymysten järjestyksen satunnaistaminen) |
+| 30.4 | 6 | pakkausrakenteen päivitys single responsibility-periaatteen mukaiseksi |
+| KOKONAISAIKA | 62 | |
 
 
 
