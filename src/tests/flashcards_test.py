@@ -4,13 +4,15 @@ import os
 #from src.flashcards import Play
 #from src.ui.ui import UI
 
-from flashcards import App
-from flashcards import Play
-#from src.ui import ui
+#from flashcards import App
+from processes.app import App
+from processes.play import Play
 
 class TestApp(unittest.TestCase):
     def setUp(self):
-        self.appi = App()
+        self.play=Play()
+        self.appi = self.play.game
+        #self.appi = App()
 
     def test_that_inputdir_exists_v2(self):
         pth=self.appi.input_dir
