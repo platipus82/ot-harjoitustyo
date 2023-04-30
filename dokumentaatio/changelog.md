@@ -24,3 +24,12 @@
 - sovellukselle luotu GUI
 - testattu että toimii Windows- ja Linux ympäristöissä 
 - testattu että toimii myös `poetry invoke` syntaksilla
+
+## Viikko 6
+
+- flashcards-sovelluksen neljäs toimiva versio
+- GUI päivitetty niin että ikkuna pysyy samankokoisena ja samassa paikassa
+- sovelluksen prosessia päivitetty niin että kysymykset näytetään satunnaisessa järjestyksessä
+- pakkausta parannettu niin että kukin luokka on omana tiedostonaan, käyttäjävuorovaikutuksesta ja muista prosesseista vastaavat skriptit eriytetty omiin kansioihin 
+- testattu että toimii Windows- ja Linux ympäristöissä 
+- testattu että toimii myös `poetry invoke` syntaksilla
