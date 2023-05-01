@@ -96,11 +96,12 @@ Kun syötetiedosto ja korttipakka on valittu, ohjelma käy läpi pakan kysymykse
 Tämä prosessi voidaan havainnollistaa sekvenssidiagrammin avulla:
 ```mermaid
 sequenceDiagram
-    actor User
+
     Play->>UI: The question is: 1+1=? Proceed or exit?
     UI-->>GUI: The question is: 1+1=? Proceed or exit?
     GUI-->>Window_parameters: what are correct window dimensions?
     Window_parameters-->> GUI: 400 x 300
+    actor User
     GUI-->>User: The question is: 1+1=? Proceed or exit?
     User-->>GUI: Proceed
     GUI-->>UI: Proceed
