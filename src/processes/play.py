@@ -15,7 +15,14 @@ from ui.ui import UI
 
 
 class Play:
+    """Class responsible for initiating the program. """
+
     def __init__(self, use_default_input=True, output_allowed=False):
+        """Class constructor.
+        Arguments: 
+            use_default_input: boolean parameter telling whether we want to proceed with default inputs for testing purposes, or not
+            output_allowed:  boolean parameter telling whether (graphical) output is allowed or should be omitted
+        """
         self.__exit = False
         self.game = App(use_default_input=use_default_input, output_allowed=output_allowed)
         self.__ui = UI(use_default_input=use_default_input, output_allowed=output_allowed)
@@ -24,6 +31,8 @@ class Play:
             self.ask()
 
     def ask(self):
+        """Function looping over questions and asking them."""
+
         lst = self.game.data
         for i, entry in enumerate(lst):
             y = entry.split(";")
