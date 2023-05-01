@@ -42,6 +42,10 @@ classDiagram
     GUI_input_file_selection "1" --> "1" UI
     GUI "1" --> "1" UI
     
+    Window_parameters "1" --> "1" GUI
+    Window_parameters "1" --> "1" GUI_input_file_selection
+    GUI_input_file_selection "1" --> "1" Window_parameters
+    GUI_input_file_selection "1" --> "1" Window_parameters
     class App{
         input_dir
         input_path 
@@ -70,6 +74,11 @@ classDiagram
         choose_file()
         choose_directory()
     }    
+    
+    class Window_parameters{
+        width
+        height 
+    }
 ```
 
 ## Päätoiminnallisuudet
