@@ -15,7 +15,10 @@ from ui.window_parameters import Window_parameters
 
 
 class GUI_input_file_selection:
+    """Class responsible for user interactions via graphical interface during the initiation of the program, and input selection."""
+
     def __init__(self):
+        """Class constructor."""
         self.window = Window_parameters()
         self.root = tk.Tk()
         #self.root = self.window.root()
@@ -61,12 +64,14 @@ class GUI_input_file_selection:
         self.root.mainloop()
 
     def select_file(self):
+        """Function will ask user to choose the correct input file from the list.""" 
         selected_file = self.file_listbox.get(self.file_listbox.curselection())
         self.input_file_path = os.path.join(self.input_path, selected_file)
         self.file_listbox.pack_forget()
         self.root.destroy()
 
     def choose_file(self):
+        """Function will ask user to choose the correct input file.""" 
         path = filedialog.askopenfilename()
         if path:
             self.input_file_path = path
@@ -75,6 +80,8 @@ class GUI_input_file_selection:
             self.root.destroy()
 
     def choose_directory(self):
+        """Function will ask user to choose the alternative directory for input files.""" 
+
         path = filedialog.askdirectory()
         if path:
             os.chdir(path)
