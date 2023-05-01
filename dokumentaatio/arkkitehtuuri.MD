@@ -1,7 +1,16 @@
 # Arkkitehtuurikuvaus
 
+
+## Rakenne
+```mermaid
+classDiagram
+    ui "1" --> "1" processes 
+    processes "1" --> "1" ui 
+    class processes{}
+    class ui{ }
+```
 ## Sovelluslogiikka
-Sovelluksen rakenne modostuu viidestä luokasta: _Play_, _App_, _UI_, _GUI_ ja _GUI_input_file_selection_. Luokat kuvaavat sovelluksen toiminnallisia kokonaisuuksia ja niiden keskinäiset suhteet voidaan kuvata luokkadiagrammin avulla: 
+Sovelluksen rakenne modostuu kuudesta luokasta: _Play_, _App_, _UI_, _GUI_, _GUI_input_file_selection_ ja _Window_parameters_. Luokat kuvaavat sovelluksen toiminnallisia kokonaisuuksia ja niiden keskinäiset suhteet voidaan kuvata luokkadiagrammin avulla: 
 Luokkadiagrammi: 
 
 ```mermaid
