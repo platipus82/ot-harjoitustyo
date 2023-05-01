@@ -2,6 +2,9 @@
 
 
 ## Rakenne
+Ohjelman rakenne on jäsennelty kahteen kerrokseen. Koodin pakkausrakenne on seuraavanlainen:
+
+
 ```mermaid
 classDiagram
     ui "1" --> "1" processes 
@@ -14,6 +17,10 @@ classDiagram
     
     }
 ```
+
+Pakkaus _ui_ sisältää käyttöliittymästä vastaavan koodin, ja pakkaus _processes_ sovelluslogiikasta ja suorituksesta vastaavan koodin. 
+
+
 
 ## Sovelluslogiikka
 Sovelluksen rakenne modostuu kuudesta luokasta: _Play_, _App_, _UI_, _GUI_, _GUI_input_file_selection_ ja _Window_parameters_. Luokat kuvaavat sovelluksen toiminnallisia kokonaisuuksia ja niiden keskinäiset suhteet voidaan kuvata luokkadiagrammin avulla: 
