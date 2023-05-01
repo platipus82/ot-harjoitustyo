@@ -45,7 +45,7 @@ classDiagram
     Window_parameters "1" --> "1" GUI
     Window_parameters "1" --> "1" GUI_input_file_selection
     GUI_input_file_selection "1" --> "1" Window_parameters
-    GUI_input_file_selection "1" --> "1" Window_parameters
+    GUI "1" --> "1" Window_parameters
     class App{
         input_dir
         input_path 
