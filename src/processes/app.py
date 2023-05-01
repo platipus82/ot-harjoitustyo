@@ -19,10 +19,10 @@ class App:
     def __init__(self, use_default_input=True, output_allowed=False):
         """Class constructor.
         Arguments: 
-            use_default_input: boolean parameter telling whether we want to proceed with default inputs for testing purposes, or not
-            output_allowed:  boolean parameter telling whether (graphical) output is allowed or should be omitted
+            use_default_input: boolean. Proceed with default inputs for testing purposes, or not
+            output_allowed:  boolean. Is (graphical) output allowed or not
         """
-        
+
         self.default_input=use_default_input
         self.output_allowed=output_allowed
         self.input_dir = ""
@@ -36,7 +36,7 @@ class App:
         self.shuffle_questions()
 
     def set_parameters(self):
-        """Parameter setter allowing input choice based on arguments received by class constructor."""
+        """Parameter setter allowing input choice based on arguments received by constructor."""
         self.set_input_dir()
         self.get_input_filelist()
 
