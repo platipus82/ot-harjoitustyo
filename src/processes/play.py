@@ -20,8 +20,12 @@ class Play:
     def __init__(self, use_default_input=True, output_allowed=False):
         """Class constructor.
         Arguments: 
-            use_default_input: boolean parameter telling whether we want to proceed with default inputs for testing purposes, or not
-            output_allowed:  boolean parameter telling whether (graphical) output is allowed or should be omitted
+            use_default_input: 
+                - boolean parameter 
+                - tells if proceed with default inputs for testing purposes, or not
+            output_allowed:  
+                - boolean parameter 
+                - tells if (graphical) output is allowed or not
         """
         self.__exit = False
         self.game = App(use_default_input=use_default_input, output_allowed=output_allowed)
