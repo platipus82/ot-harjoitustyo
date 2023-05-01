@@ -11,18 +11,22 @@
 
 ## Korttipakan valinta
 1. Ensimmäisenä avautuu _korttipakan_ eli syötetiedoston valintanäkymä. Näkymässä näkyy _inputs_-kansiossa olevat korttipakat.
+2. 
 #![](./kuvat/nakyma1.JPG)
 
 2a. Valitse haluamasi korttipakka klikkaamalla sen nimikettä ja painamalla _Select_
 ...tai 
 2b. Valitse toinen tiedosto jostain toisesta kansiosta klikkaamalla _Choose another file_ ja valitsemalla avautuneesta valikosta haluamasi syötetiedosto.
+
 #![](./kuvat/nakyma2.JPG)
 
 ## Kysymysten läpikäynti
 1. Nyt olet valinnut korttipakan, ja ohjelma alkaa näyttää yksitellen siinä olevat kysymykset satunnaisessa järjestyksessä. 
+2. 
 #![](./kuvat/nakyma3.JPG)
 
 2. Kunkin kysymyksen kohdalla voit vastata siihen haluamallasi tavalla ja jatkaa painamalla _Proceed_. Silloin sovellus näyttää oikean vastauksen. Voit myös keskeyttää klikkaamalla _Exit_
+
 #![](./kuvat/nakyma4_vastaus.JPG) 
 
 3. Vastaunruudussa voit valita _Proceed_ ja jatkaa ohjelman suoritusta seuraavaan kysymykseen, tai keskeyttää ohjelman suoritus valitsemalla _Exit_.
