@@ -39,7 +39,9 @@ classDiagram
     UI "1" --> "1" App
     UI "1" --> "1" GUI
     UI "1" --> "1" GUI_input_file_selection
+    GUI "1" --> "1" GUI_input_file_selection
     GUI_input_file_selection "1" --> "1" UI
+    GUI_input_file_selection "1" --> "1" GUI
     GUI "1" --> "1" UI
     GUI_input_file_selection "1" --> "1" Window_parameters
     GUI "1" --> "1" Window_parameters
