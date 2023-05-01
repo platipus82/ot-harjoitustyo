@@ -7,6 +7,7 @@ Ohjelman rakenne on jäsennelty kahteen kerrokseen. Koodin pakkausrakenne on seu
 
 ```mermaid
 classDiagram
+    main "1" --> "1" processes 
     ui "1" --> "1" processes 
     processes "1" --> "1" ui 
     class processes{
@@ -16,9 +17,12 @@ classDiagram
     class ui{ 
     
     }
+    
+    class main{ 
+    
+    }
 ```
-
-Pakkaus _ui_ sisältää käyttöliittymästä vastaavan koodin, ja pakkaus _processes_ sovelluslogiikasta ja suorituksesta vastaavan koodin. 
+Pakkaus _ui_ sisältää käyttöliittymästä vastaavan koodin. Pakkaus _processes_ sisältää sovelluslogiikasta ja suorituksesta vastaavan koodin. Pakkaus _main_ sisältää ohjelman käynnistyskoodin joka on eriytetty omaksi skriptiksi _flashcards.py_. 
 
 
 
