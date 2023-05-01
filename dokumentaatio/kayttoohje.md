@@ -7,4 +7,4 @@
 ## Käyttö
 1. Käynnistä sovellus komennolla `poetry run invoke start`
 2. Ensimmäisenä avautuu _korttipakan_ eli syötetiedoston valintanäkymä 
-3. #![](./kuvat/kayttoohje-uusi-kayttaja.png)
+3. #![](./kuvat/nakyma1.JPG)
