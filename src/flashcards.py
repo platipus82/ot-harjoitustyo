@@ -10,6 +10,7 @@ from processes.play import Play
 
 
 def main():
+    """ The main runner function for the app"""
     Play(use_default_input=False, output_allowed=True)
 
 
