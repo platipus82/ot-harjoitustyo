@@ -68,7 +68,7 @@ class GUI:
         return self.result
     
     def ask_for_file(self):
-        """Function will ask user to choose the correct input file.""" 
+        """Function will ask GU-interface to ask user to choose the correct input file.""" 
         pth = GUI_input_file_selection()
         return pth
     
