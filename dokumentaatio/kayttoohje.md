@@ -29,4 +29,4 @@
 
 #![](./kuvat/nakyma4_vastaus.JPG) 
 
-3. Vastaunruudussa voit valita _Proceed_ ja jatkaa ohjelman suoritusta seuraavaan kysymykseen, tai keskeyttää ohjelman suoritus valitsemalla _Exit_.
+3. Vastausruudussa voit valita _Proceed_ ja jatkaa ohjelman suoritusta seuraavaan kysymykseen, tai keskeyttää ohjelman suoritus valitsemalla _Exit_.
