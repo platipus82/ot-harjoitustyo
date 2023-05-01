@@ -3,7 +3,7 @@
 
 '''
 Created on 30 Apr 2023
-@author: olegk
+@author: ok
 '''
 
 from processes.play import Play
