@@ -14,7 +14,15 @@ from ui.ui import UI
 #from ui.gui_input_file_selection import GUI_input_file_selection
 
 class App:
+    """Class responsible for running the program. """
+
     def __init__(self, use_default_input=True, output_allowed=False):
+        """Class constructor.
+        Arguments: 
+            use_default_input: boolean parameter telling whether we want to proceed with default inputs for testing purposes, or not
+            output_allowed:  boolean parameter telling whether (graphical) output is allowed or should be omitted
+        """
+        
         self.default_input=use_default_input
         self.output_allowed=output_allowed
         self.input_dir = ""
@@ -28,6 +36,7 @@ class App:
         self.shuffle_questions()
 
     def set_parameters(self):
+        """Parameter setter allowing input choice based on arguments received by class constructor."""
         self.set_input_dir()
         self.get_input_filelist()
 
@@ -38,17 +47,20 @@ class App:
         self.get_input_data()
 
     def set_input_dir(self):
+        """Function setting input directory."""
         self.input_dir = os.getcwd() + "\inputs\\"
         if not os.path.isdir(self.input_dir):
             self.input_dir = os.getcwd() + "/src/inputs//"
 
 
     def get_input_filelist(self):
+        """Function getting input file list."""
         filelist = os.listdir(self.input_dir)
         filelist = [x for x in filelist if x.endswith(".csv") or x.endswith(".txt") ]
         self.filelist = filelist
 
     def set_input_path_default(self):
+        """Function setting default directory as input directory ."""
         filelist = self.filelist
         filelist_description = "Currently available files are: " + "\n"
         for i, filename in enumerate(filelist):
@@ -71,11 +83,13 @@ class App:
                 return
 
     def set_input_path(self):
+        """Function setting the path for input file"""
         pth= self.__ui.ask_for_input_file() #GUI_input_file_selection()
         self.input_path = pth
 
 
     def get_input_data(self):
+        """Function reading in the input datafile"""
         try:
             with open(self.input_path, "r", encoding="utf-8") as infile:
                 lines = []
@@ -90,6 +104,7 @@ class App:
             return False
 
     def shuffle_questions(self):
+        """Function shuffling the questions into random order."""
         lst = self.data
         random.shuffle(lst)
         self.data=lst

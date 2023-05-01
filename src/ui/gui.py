@@ -13,7 +13,15 @@ import os
 from ui.window_parameters import Window_parameters
 
 class GUI:
+    """Class responsible for user interactions via graphical interface during the execution of the program """
+    
     def __init__(self, use_default_input=True, output_allowed=False):
+        """Class constructor.
+        Arguments: 
+            use_default_input: boolean parameter telling whether we want to proceed with default inputs for testing purposes, or not
+            output_allowed:  boolean parameter telling whether (graphical) output is allowed or should be omitted
+        """
+        
         self.root = tk.Tk()
         self.default_input=use_default_input
         self.output_allowed = output_allowed
@@ -29,6 +37,10 @@ class GUI:
         self.root.geometry(f"{self.width}x{self.height}+{x}+{y}")
     
     def show_output(self, output_text=""):
+        """Function which will show the textual output via tkinter window
+        Arguments:
+            output_text: output text
+        """
         #print("GUI.show_output")
 
         if self.output_allowed == True: 
@@ -37,6 +49,10 @@ class GUI:
 
     
     def ask_for_input(self, output_text):
+        """Function which will show user the text asking for user input. User input will be sent back for processing to the calling function.
+        Arguments:
+            output_text: text which will be showed to the user
+        """
         #print("GUI.ask_for_input")
 
         #root = tk.Tk()
@@ -52,6 +68,7 @@ class GUI:
         return self.result
     
     def ask_for_file(self):
+        """Function will ask GU-interface to ask user to choose the correct input file.""" 
         pth = GUI_input_file_selection()
         return pth
     

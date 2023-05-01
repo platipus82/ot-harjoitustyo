@@ -14,7 +14,10 @@ import os
 
 
 class Window_parameters:
+    """Class responsible for maintaining parameters for graphic interface windows."""
+
     def __init__(self):
+        """Class constructor."""
         #self.root = tk.Tk()
 
         # set window size
