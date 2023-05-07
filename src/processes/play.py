@@ -108,9 +108,9 @@ class Play:
         output_filename_root = infile.replace(".txt", "")
         output_file_name = usr_name + "_" + output_filename_root + "_" + formatted_time + ".txt"       
 
-        print("Output file name: " + output_file_name)
+        #print("Output file name: " + output_file_name)
         output_file_name_full = self.db.db_dir + output_file_name
-        print("Full path to output file: " + output_file_name_full)
+        #print("Full path to output file: " + output_file_name_full)
         
         
        
@@ -129,7 +129,6 @@ class Play:
 
     def save_results(self):
         usr_name = self.__ui.ask_for_text(output_text="Please, type your name")
-        print("User name = " + usr_name)
         #output_file_name = self.__ui.ask_for_text(output_text="Please, type the name for output file")
         infile = self.game.input_file_name
 
@@ -167,9 +166,6 @@ class Play:
             answer = str(answer).strip()
             resp = str(resp).strip()
 
-        
-
-                        
             if resp=="x":
                 msg = "GAME OVER"
                 self.__ui.show_output(output_text=msg)
@@ -187,10 +183,6 @@ class Play:
                 msg_pt3 = "Your answer is incorrect" + "\n"
             msg_pt4 = "Correct answer: " + answer + "\n"
             msg = msg_pt1 + msg_pt2 + msg_pt3 + msg_pt4
-            print(resp)
-            print(answer)
-            print(len(resp))
-            print(len(answer))          
 
             if i!=len(lst)-1:
                 msg = msg + "Next question? "

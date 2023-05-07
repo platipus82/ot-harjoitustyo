@@ -1,2 +1,5 @@
 user;deck;start_time;end_time;elapsed_time;questions_n_total;questions_n_answered;questions_n_correct;questions_percent_correct
 asdf;kertolasku.txt;2023-05-07 03:38:49.172320;2023-05-07 03:39:02.210874;13;169;1;0;0.0
+oka;kertolasku.txt;2023-05-07 03:45:20.261211;2023-05-07 03:45:40.895094;20;169;2;2;1.183431952662722
+af;kertolasku.txt;2023-05-07 03:48:54.560108;2023-05-07 03:49:03.001827;8;169;1;1;0.591715976331361
+dsaf;kertolasku.txt;2023-05-07 03:50:35.159674;2023-05-07 03:50:47.398821;12;169;1;0;0.0

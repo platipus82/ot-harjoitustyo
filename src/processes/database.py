@@ -22,8 +22,8 @@ class Database:
         self.data = []
         if not os.path.isfile(self.db_path):
             self.make_new_db_file()
-        print(self.db_dir)
-        print(self.db_path)
+        #print(self.db_dir)
+        #print(self.db_path)
 
         
     def make_db_dir(self):
