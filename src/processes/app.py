@@ -33,7 +33,15 @@ class App:
         self.data = []
         self.filelist = []
         self.set_parameters()
+        self.input_file_name = self.give_input_filename()
         self.shuffle_questions()
+
+    def give_input_filename(self):
+        x = self.input_path
+        x = x.replace("\\", ";")
+        x = x.replace("/", ";")
+        x = x.split(";")[-1]
+        return x
 
     def set_parameters(self):
         """Parameter setter allowing input choice based on arguments received by constructor."""

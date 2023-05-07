@@ -55,7 +55,15 @@ class UI:
             resp = self.__gu.input_file_path
         return resp
 
+    def ask_for_text(self, output_text=""):
+        #print("UI.ask_for_input")
 
+        resp=None
+        if self.output_allowed == True: 
+            #resp = input(output_text)
+            gu = GUI(use_default_input=False, output_allowed=True)
+            resp = gu.ask_for_text(output_text)
+        return resp
 
 if __name__ == "__main__":
     import os

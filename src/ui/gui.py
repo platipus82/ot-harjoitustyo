@@ -72,9 +72,25 @@ class GUI:
         pth = GUI_input_file_selection()
         return pth
     
+    def ask_for_text(self, output_text):
+        # Create text input window with same dimensions and position as ask_for_input
+        self.root.title("Input")
+        input_label = tk.Label(self.root, text=output_text)
+        input_label.pack()
+        input_entry = tk.Entry(self.root)
+        input_entry.pack()
+        proceed_button = tk.Button(self.root, text="Proceed", command=lambda: self.set_text_result(input_entry.get(), self.root))
+        proceed_button.pack(side="left")
+        exit_button = tk.Button(self.root, text="Exit", command=lambda: self.set_text_result(None, self.root))
+        exit_button.pack(side="right")
+        self.root.wait_window()
+        return self.result
+
     def set_result(self, result, window):
         self.result = result
         window.destroy()
 
-    
+    def set_text_result(self, result, window):
+        self.result = result 
+        window.destroy()
 
