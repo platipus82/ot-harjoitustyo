@@ -14,7 +14,7 @@ from ui.gui_input_file_selection import GUI_input_file_selection
 
 
 class UI:
-    """Class responsible for user interactions. If I/O is allowed, it will activate GUI-class respontical for GUI"""
+    """Class responsible for user interactions. If I/O is allowed, it will activate GUI-class responsible for GUI"""
 
     def __init__(self, use_default_input=True, output_allowed=False):
         """Class constructor.
