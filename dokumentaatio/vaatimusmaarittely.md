@@ -5,18 +5,21 @@ Sovelluksen avulla käyttäjät voivat opetella asioita digitaalisten _opetteluk
 Kaikki käyttäjät ovat tasavertaisia ja kaikki toiminnallisuudet näkyvät kaikille. Jos käyttäjä ei tiedä kokoelman salasanaa, se ei aukea. 
 
 # Suunnitellut toiminnallisuudet
-- kysymysten läpikäynti satunnaisessa järjestyksessä
-- luo tyhjä opettelukorttikokoelma
-- lisää kokoelmaan opettelukortti tai opettelukortteja
-- _tehty - graafinen käyttöliittymä_
-- _tehty - avaa kokoelma ja käy läpi sen kortit_
-- _tehty - luokka-rakenne_
-- _tehty - tekstimuotoinen käyttöliittymä_
+- _tehty_ kysymysten läpikäynti satunnaisessa järjestyksessä
+- _tehty_ - luokka-rakenne
+- _tehty_ - graafinen käyttöliittymä
+- _tehty_ - luokka-rakenne
+- _tehty_ - avaa kokoelma ja käy läpi sen kortit
+- _tehty_ - luokka-rakenne
+- _tehty_ - tekstimuotoinen käyttöliittymä
+- _tehty_ tiedon tallennus tiedostoiksi 
 
 
 # Jatkokehitysideat
-- input-kansion tiedostoista sovellus näyttää vain .txt ja .csv-päätteisiä tiedostoja  
+- _tehty_ -  input-kansion tiedostoista sovellus näyttää vain .txt ja .csv-päätteisiä tiedostoja  
 - ajastettu läpikäynti missä kullakin kysymyksellä aikaraja
+- luo tyhjä opettelukorttikokoelma
+- lisää kokoelmaan opettelukortti tai opettelukortteja
 - kysymyksillä on tila - ratkaistu/ei-ratkaistu, ohjelman lopetuksen yhteydessä näytetään kuinka monta kysymystä oli käyty läpi, kuinka moneen vastattu onnistuneesti ja kuinka monta jäi läpikäymättä
 - vastaavasti ohjelma voisi rekisteröidä kunkin kysymyksen vastaamiseen käytettävän ajan, jolloin jälkikäteen voisi nähdä mitkä kysymykset veivät eniten aikaa ja mitkä olivat helppoja. Tai voi lisätä aikarajan kullekin kysymykselle.
 - vastausmuotona kuva, video tai ääni, jolloin tekstivastauksen sijaan kortti sisältää linkin vastaustiedostoon, joka avataan oletussovelluksella
