@@ -63,10 +63,32 @@ classDiagram
         input_path 
         data
         filelist
+        get_input_data()
+        shuffle_questions()
     }
     class Play{
         ask()
+        ask_with_answers()
+        save_results_to_csv()
+        save_results()
+        
     }
+    
+    class Database{
+        make_new_sql_db_file()
+        make_db_dir()
+        tell_db_colnames()
+        make_new_db_file()
+        write_to_db()
+        write_to_sql_db()
+        write_file()
+        get_db_data()
+        give_summary_data()
+        print_summary()
+        give_summary_of_last_session()
+        give_summary_of_db()
+    }
+    
     class UI{
         show_output()
         ask_for_input()
