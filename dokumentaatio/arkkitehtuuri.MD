@@ -8,10 +8,10 @@ Ohjelman rakenne on jäsennelty kahteen kerrokseen. Koodin pakkausrakenne on seu
 ```mermaid
 classDiagram
     main "1" --> "1" processes 
-    ui "1" --> "1" processes 
-    processes "1" --> "1" ui 
     processes "1" --> "1" repositories 
     repositories "1" --> "1" processes 
+    ui "1" --> "1" processes 
+    processes "1" --> "1" ui 
     ui "1" --> "1" repositories 
     repositories "1" --> "1" ui 
 
