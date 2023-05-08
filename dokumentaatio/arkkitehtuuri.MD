@@ -42,6 +42,8 @@ Luokkadiagrammi:
 ```mermaid
 classDiagram
     Play "1" --> "1" App 
+    Play "1" --> "1" Database
+    Database "1" --> "1" Ui 
     Play "1" --> "1" UI 
     App "1" --> "1" UI
     App "1" --> "1" Play
