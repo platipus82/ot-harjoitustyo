@@ -15,9 +15,9 @@
 | 28.4 | 5 | GUI päivitys, tkinterin testaukset |
 | 29.4 | 4 | ohjelman prosessilogiikan päivitys (kysymysten järjestyksen satunnaistaminen) |
 | 30.4 | 6 | pakkausrakenteen päivitys single responsibility-periaatteen mukaiseksi |
-| 7.5 | 8 | tiedon pysyväistallennuksen lisääminen csv-muodossa |
-| 8.5 | 8 | käyttökerron yhteenvedon kokoaminen ja näyttäminen käyttäjälle |
-| 9.5| 8 | lisätty tiedon tallennus SQL-tietokantaan |
+| 6.5 | 8 | tiedon pysyväistallennuksen lisääminen csv-muodossa |
+| 7.5 | 8 | käyttökerron yhteenvedon kokoaminen ja näyttäminen käyttäjälle |
+| 8.5| 8 | lisätty tiedon tallennus SQL-tietokantaan |
 | KOKONAISAIKA | 86 | |
 
 
