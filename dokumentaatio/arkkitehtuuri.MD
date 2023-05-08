@@ -43,7 +43,7 @@ Luokkadiagrammi:
 classDiagram
     Play "1" --> "1" App 
     Play "1" --> "1" Database
-    Database "1" --> "1" Ui 
+    Database "1" --> "1" UI 
     Play "1" --> "1" UI 
     App "1" --> "1" UI
     App "1" --> "1" Play
