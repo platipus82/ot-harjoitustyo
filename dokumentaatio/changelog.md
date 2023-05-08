@@ -33,3 +33,10 @@
 - pakkausta parannettu niin että kukin luokka on omana tiedostonaan, käyttäjävuorovaikutuksesta ja muista prosesseista vastaavat skriptit eriytetty omiin kansioihin 
 - testattu että toimii Windows- ja Linux ympäristöissä 
 - testattu että toimii myös `poetry invoke` syntaksilla
+
+## Viikko 7
+- flashcards-sovelluksen viides toimiva versio
+- sovellukseen lisätty tiedon pysyväistallennus _.csv_ formaatissa
+- ohjelman päätytyttyä käyttäjälle näytetään yhteenveto päättyneestä käyttökerrasta sekä koko käyttöhistoriasta
+- sovellukseen lisätty tiedon tallennus SQL-tietokantaan
+
