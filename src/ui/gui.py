@@ -25,7 +25,8 @@ class GUI:
         self.root = tk.Tk()
         self.default_input=use_default_input
         self.output_allowed = output_allowed
-        
+        self.result = None
+
         # set window size
         self.window = Window_parameters()
         self.width = self.window.width
@@ -81,10 +82,39 @@ class GUI:
         input_entry.pack()
         proceed_button = tk.Button(self.root, text="Proceed", command=lambda: self.set_text_result(input_entry.get(), self.root))
         proceed_button.pack(side="left")
-        exit_button = tk.Button(self.root, text="Exit", command=lambda: self.set_text_result(None, self.root))
+        exit_button = tk.Button(self.root, text="Exit", command=lambda: self.set_text_result("x", self.root))
         exit_button.pack(side="right")
         self.root.wait_window()
         return self.result
+
+    
+    def ask_for_text_timed(self, output_text, timeout):
+        self.root.title("Input")
+        input_label = tk.Label(self.root, text=output_text)
+        input_label.pack()
+        input_entry = tk.Entry(self.root)
+        input_entry.pack()
+        proceed_button = tk.Button(self.root, text="Proceed", command=lambda: self.set_text_result(input_entry.get(), self.root))
+        proceed_button.pack(side="left")
+        exit_button = tk.Button(self.root, text="Exit", command=lambda: self.set_text_result("timeout", self.root))
+        exit_button.pack(side="right")
+        self.time_label = tk.Label(self.root, text="Time remaining: {}s".format(timeout))
+        self.time_label.pack()
+
+        self.update_time_label(timeout)
+    
+        self.root.wait_window()
+        return self.result
+    
+    def update_time_label(self, timeout):
+        self.time_label.configure(text="Time remaining: {}s".format(timeout))
+        if timeout > 0:
+            self.root.after(1000, self.update_time_label, timeout - 1)
+        else:
+            self.set_text_result("timeout", self.root)
+
+
+
 
     def set_result(self, result, window):
         self.result = result
