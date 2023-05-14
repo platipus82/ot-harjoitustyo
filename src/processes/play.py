@@ -144,4 +144,3 @@ class Play:
         if self.output_allowed:
             self.db.write_to_db(output_csv_file="", rows_to_write=dat, mode="a")  
             self.db.write_to_sql_db(rows_to_write=dat)  
-
