@@ -11,7 +11,7 @@ classDiagram
     processes "1" --> "1" repositories 
     repositories "1" --> "1" processes 
     processes "1" --> "1" inputs 
-    repositories "1" --> "1" inputs 
+    inputs "1" --> "1" processes 
     ui "1" --> "1" processes 
     processes "1" --> "1" ui 
     ui "1" --> "1" repositories 
