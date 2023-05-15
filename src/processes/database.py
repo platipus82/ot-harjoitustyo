@@ -38,7 +38,8 @@ class Database:
         self.make_summary()
 
     def make_summary(self):
-        results = self.give_summary_data()
+        #results = self.give_summary_data()
+        self.give_summary_data()
         last_session = self.give_summary_of_last_session()
         whole_database = self.give_summary_of_db()
         msg = last_session + whole_database
@@ -80,7 +81,7 @@ class Database:
                         rows_to_write=self.tell_db_colnames(), mode="w")
 
     def write_to_db(self, output_csv_file="", rows_to_write=None, mode="a"):
-        self.write_file(output_csv_file=self.db_path,
+        self.write_file(output_csv_file=output_csv_file,
                         rows_to_write=rows_to_write, mode=mode)  # mode="a"
 
     def write_to_sql_db(self, rows_to_write=None):
@@ -178,7 +179,7 @@ class Database:
             msg = msg + cols[i] + ": " + entry + "\n"
         return msg
 
-    def describe_n_of_users(self, dat):
+    def __describe_n_of_users(self, dat):
         # n of users
         users = []
         for i, entry in enumerate(dat):
@@ -189,7 +190,7 @@ class Database:
         msg = str(len(users)) + " different users" + "\n"
         return msg
 
-    def describe_n_of_input_files(self, dat):
+    def __describe_n_of_input_files(self, dat):
         # n of input files
         infiles = []
         for i, entry in enumerate(dat):
@@ -201,7 +202,7 @@ class Database:
             " different decks (input files) have been used" + "\n"
         return msg
 
-    def describe_total_time(self, dat):
+    def __describe_total_time(self, dat):
         # total time
         times = []
         for i, entry in enumerate(dat):
@@ -210,10 +211,9 @@ class Database:
                 times.append(int(used_time))
         total_time = sum(times)
         msg = str(total_time) + " seconds has been spent in total"+"\n"
-        # cols = [["user", "deck", "start_time","end_time", "elapsed_time", "questions_n_total", "questions_n_checked", "questions_n_answered", "questions_n_correct","questions_percent_correct"]]
         return msg
 
-    def total_checked_questions(self, dat):
+    def __total_checked_questions(self, dat):
         # total checked questions
         questions = []
         for i, entry in enumerate(dat):
@@ -224,7 +224,7 @@ class Database:
             " questions have been viewed in total"+"\n"
         return msg
 
-    def total_answered_questions(self, dat):
+    def __total_answered_questions(self, dat):
         # total answered questions
         questions = []
         for i, entry in enumerate(dat):
@@ -235,7 +235,7 @@ class Database:
             " questions have been answered in total"+"\n"
         return msg
 
-    def correctly_answered_questions(self, dat):
+    def __correctly_answered_questions(self, dat):
         # correctly answered questions
         questions = []
         for i, entry in enumerate(dat):
@@ -246,7 +246,7 @@ class Database:
             " questions have been answered correctly"+"\n"
         return msg
 
-    def percentage_of_correct(self, dat):
+    def __percentage_of_correct(self, dat):
         # percentage of correct
         results = []
         for i, entry in enumerate(dat):
@@ -262,35 +262,12 @@ class Database:
         msg = "Currently database contains: " + "\n"
 
         # Sessions
-        """
         msg = msg + str(len(dat)) + " recorded sessions" + "\n" + \
-            describe_n_of_users(dat) + \
-            describe_n_of_input_files(dat) + \
-            describe_total_time(dat) + \
-            total_checked_questions(dat) + \
-            total_answered_questions(dat) + \
-            correctly_answered_questions(dat)
-        """
-
-        # Function names
-        #my_functions = [describe_n_of_users.__name__, describe_n_of_input_files.__name__, describe_total_time.__name__, total_checked_questions.__name__,total_answered_questions.__name__, correctly_answered_questions.__name__]
-        #my_functions = [ describe_n_of_users(), \
-        #    describe_n_of_input_files(), \
-        #    describe_total_time(),  \
-        #    total_checked_questions(),\
-        #    total_answered_questions(), \
-        #    correctly_answered_questions()]
-        #for x in my_functions:
-        # https://stackoverflow.com/questions/5461571/call-list-of-function-using-list-comprehension
-        # [f() for f in fl]
-        msg = msg + str(len(dat)) + " recorded sessions" + "\n" + \
-            self.describe_n_of_users(dat) + \
-            self.describe_n_of_input_files(dat) + \
-            self.describe_total_time(dat) + \
-            self.total_checked_questions(dat) + \
-            self.total_answered_questions(dat) + \
-            self.correctly_answered_questions(dat)
-
-        #msg = [msg+f() for f in my_functions]
-
+            self.__describe_n_of_users(dat) + \
+            self.__describe_n_of_input_files(dat) + \
+            self.__describe_total_time(dat) + \
+            self.__total_checked_questions(dat) + \
+            self.__total_answered_questions(dat) + \
+            self.__correctly_answered_questions(dat) + \
+            self.__percentage_of_correct(dat)
         return msg

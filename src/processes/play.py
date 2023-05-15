@@ -145,6 +145,6 @@ class Play:
         dat = [[usr_name, infile, tstart, tend,
                 telaps, qntot, qnche, qnans, qncor, qpcor]]
         if self.output_allowed:
-            self.db.write_to_db(output_csv_file="",
+            self.db.write_to_db(output_csv_file=self.db.db_path,
                                 rows_to_write=dat, mode="a")
             self.db.write_to_sql_db(rows_to_write=dat)
