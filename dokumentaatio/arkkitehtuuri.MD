@@ -69,6 +69,11 @@ classDiagram
         input_path 
         data
         filelist
+        set_input_dir()
+        set_parameters()
+        get_input_filelist()
+        set_input_path()
+        set_input_path_default()
         get_input_data()
         shuffle_questions()
     }
