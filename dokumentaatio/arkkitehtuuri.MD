@@ -68,11 +68,10 @@ classDiagram
         shuffle_questions()
     }
     class Play{
+        set_mode()
+        update_question_counters()
         ask()
-        ask_with_answers()
-        save_results_to_csv()
-        save_results()
-        
+        save_results()       
     }
     
     class Database{
