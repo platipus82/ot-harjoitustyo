@@ -58,9 +58,12 @@ class App:
 
     def set_input_dir(self):
         """Function setting input directory."""
-        self.input_dir = os.getcwd() + "\inputs\\"
+        # self.input_dir = os.getcwd() + "\inputs\\"
+        # if not os.path.isdir(self.input_dir):
+        #    self.input_dir = os.getcwd() + "/src/inputs//"
+        self.input_dir = os.path.join(os.getcwd(), "inputs")
         if not os.path.isdir(self.input_dir):
-            self.input_dir = os.getcwd() + "/src/inputs//"
+            self.input_dir = os.path.join(os.getcwd(), "src", "inputs")
 
     def get_input_filelist(self):
         """Function getting input file list."""

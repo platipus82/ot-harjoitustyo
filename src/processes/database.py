@@ -15,13 +15,16 @@ import sqlite3
 class Database:
     def __init__(self, output_allowed=True):
         # print("Class Database")
-        self.db_dir = os.getcwd() + "\src\repositories\\"
-        if not os.path.isfile(self.db_dir):
-            self.db_dir = os.getcwd() + "/src/repositories/"
+        # self.db_dir = os.getcwd() + "\src\repositories\\"
+        # if not os.path.isfile(self.db_dir):
+        #    self.db_dir = os.getcwd() + "/src/repositories/"
+        self.db_dir = os.path.join(os.getcwd(), "src", "repositories")
+        # print(self.db_dir)
         self.output_allowed = output_allowed
 
         # .csv database
-        self.db_path = self.db_dir + "csv_database.csv"
+        # self.db_path = self.db_dir + "csv_database.csv"
+        self.db_path = os.path.join(self.db_dir, "csv_database.csv")
         self.data = []
         if not os.path.isfile(self.db_path):
             self.make_new_db_file()
@@ -29,7 +32,8 @@ class Database:
         # print(self.db_path)
 
         # SQL-database
-        self.sql_db_path = self.db_dir + "database.db"
+        # self.sql_db_path = self.db_dir + "database.db"
+        self.sql_db_path = os.path.join(self.db_dir, "database.db")
         if not os.path.isfile(self.sql_db_path):
             self.make_new_sql_db_file()
 
@@ -38,7 +42,7 @@ class Database:
         self.make_summary()
 
     def make_summary(self):
-        #results = self.give_summary_data()
+        # results = self.give_summary_data()
         self.give_summary_data()
         last_session = self.give_summary_of_last_session()
         whole_database = self.give_summary_of_db()
@@ -170,7 +174,7 @@ class Database:
 
     def give_summary_of_last_session(self):
         msg = ""
-        #print(self.data)
+        # print(self.data)
         last = self.data[-1]
         msg = msg + "Summary of this session:" + "\n"
         cols = self.tell_db_colnames()[0]
