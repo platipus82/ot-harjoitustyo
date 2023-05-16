@@ -65,12 +65,15 @@ classDiagram
     Window_parameters "1" --> "1" GUI_input_file_selection
 
     class App{
+        default_input
+        output_allowed
         input_dir
         input_path 
         data
-        filelist
+        filelist       
         set_input_dir()
         set_parameters()
+        give_input_filename()
         get_input_filelist()
         set_input_path()
         set_input_path_default()
