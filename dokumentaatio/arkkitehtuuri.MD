@@ -101,18 +101,35 @@ classDiagram
     }
     
     class Database{
+        db_dir
+        output_allowed
+        db_path
+        data
+        sql_db_path 
+        summary
+        
+        make_new_db_file()
         make_new_sql_db_file()
         make_db_dir()
         tell_db_colnames()
-        make_new_db_file()
         write_to_db()
         write_to_sql_db()
         write_file()
         get_db_data()
+        get_sql_db_data()
+        make_summary()
         give_summary_data()
         print_summary()
         give_summary_of_last_session()
         give_summary_of_db()
+        give_summary()   
+        __describe_n_of_users()
+        __describe_n_of_input_files()
+        __describe_total_time()
+        __total_checked_questions()
+        __total_answered_questions()
+        __correctly_answered_questions()
+        __percentage_of_correct()
     }
     
     class UI{
