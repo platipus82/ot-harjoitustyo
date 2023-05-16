@@ -81,6 +81,19 @@ classDiagram
         shuffle_questions()
     }
     class Play{
+        use_default_input
+        output_allowed
+        start_time
+        end_time
+        mode
+        __exit 
+        game
+        questions_n_total
+        questions_n_checked
+        questions_n_answered
+        questions_n_correct
+        __ui
+        database      
         set_mode()
         update_question_counters()
         ask()
