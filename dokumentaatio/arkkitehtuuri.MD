@@ -154,7 +154,7 @@ classDiagram
         screen_width
         screen_height
         input_path
-        check_that_input_folder_exists_and_not_empty()
+        check_that_input_folder_exists()
         select_file()
         choose_file()
         choose_directory()
