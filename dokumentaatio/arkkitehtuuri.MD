@@ -147,6 +147,14 @@ classDiagram
     }
     
     class GUI_input_file_selection{
+        window
+        root
+        width
+        height
+        screen_width
+        screen_height
+        input_path
+        check_that_input_folder_exists_and_not_empty()
         select_file()
         choose_file()
         choose_directory()
