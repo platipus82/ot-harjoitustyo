@@ -2,11 +2,7 @@ from unittest.mock import mock_open, patch
 import unittest
 import os
 import sqlite3
-# from src.flashcards import App
-# from src.flashcards import Play
-# from ui.ui import UI
 
-# from flashcards import App
 from processes.app import App
 from processes.play import Play
 from processes.database import Database
@@ -17,13 +13,11 @@ class TestApp(unittest.TestCase):
         self.play = Play()
         self.appi = self.play.game
         self.db = self.play.database
-        # self.appi = App()
 
     def test_that_inputdir_exists_v2(self):
         print("Function test_that_inputdir_exists_v2()")
 
         pth = self.appi.input_dir
-        # print(pth)
         pthExists = os.path.exists(pth)
         self.assertEqual(True, pthExists)
 
@@ -32,7 +26,6 @@ class TestApp(unittest.TestCase):
         self.assertEqual(False, len(lst) == 0)
 
     def test_that_inputfile_exists(self):
-        # pth = "D:\OT23\ot-harjoitustyo\src\inputs\Topic1.txt"
         pth = self.appi.input_path
         pthExists = os.path.isfile(pth)
         self.assertEqual(True, pthExists)

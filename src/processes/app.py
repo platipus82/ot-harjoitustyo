@@ -9,7 +9,7 @@ Created on 30 Apr 2023
 
 import os
 import random
-from ui.ui import UI
+from ui.user_interface import UserInterface
 
 
 class App:
@@ -27,7 +27,7 @@ class App:
         self.input_dir = ""
         self.input_path = ""
         if not self.default_input:
-            self.__ui = UI(use_default_input=self.default_input,
+            self.__ui = UserInterface(use_default_input=self.default_input,
                            output_allowed=output_allowed)
         self.exit = False
         self.data = []

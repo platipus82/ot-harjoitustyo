@@ -13,7 +13,7 @@ import os
 from ui.window_parameters import Window_parameters
 
 
-class GUI_input_file_selection:
+class FileSelectionView:
     """Class responsible for user interactions via graphical interface during the initiation of the program, and input selection."""
 
     def __init__(self):

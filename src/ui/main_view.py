@@ -13,7 +13,7 @@ import os
 from ui.window_parameters import Window_parameters
 
 
-class GUI:
+class MainView:
     """Class responsible for user interactions via graphical interface during the execution of the program """
 
     def __init__(self, use_default_input=True, output_allowed=False):

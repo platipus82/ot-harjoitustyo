@@ -10,7 +10,7 @@ Created on 12 May 2023
 import datetime
 from processes.app import App
 from processes.database import Database
-from ui.ui import UI
+from ui.user_interface import UserInterface
 
 
 class Play:
@@ -39,7 +39,7 @@ class Play:
         self.questions_n_answered = 0
         self.questions_n_correct = 0
 
-        self.__ui = UI(use_default_input=use_default_input,
+        self.__ui = UserInterface(use_default_input=use_default_input,
                        output_allowed=output_allowed)
         self.set_mode()
 
@@ -59,7 +59,7 @@ class Play:
                 self.__ui.show_output(output_text=msg)
 
     def set_mode(self):
-        """Function setting the game mode based on response from UI"""
+        """Function setting the game mode based on response from MainView"""
         if self.output_allowed and not self.use_default_input:
             resp = self.__ui.set_mode()
             if resp == "x":
