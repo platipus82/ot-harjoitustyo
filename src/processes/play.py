@@ -9,7 +9,7 @@ Created on 12 May 2023
 
 import datetime
 from processes.app import App
-from processes.database import Database
+from repositories.database import Database
 from ui.user_interface import UserInterface
 
 

@@ -17,7 +17,7 @@ class Database:
     Handling involves reading, writing and describing the data. """
 
     def __init__(self, output_allowed=True):
-        self.db_dir = os.path.join(os.getcwd(), "src", "repositories")
+        self.db_dir = os.path.join(os.getcwd(), "src", "data")
         self.output_allowed = output_allowed
         self.db_path = os.path.join(self.db_dir, "csv_database.csv")
         self.data = []

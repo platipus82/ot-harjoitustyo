@@ -43,8 +43,6 @@ class MainView:
         Arguments:
             output_text: output text
         """
-        # print("GUI.show_output")
-
         if self.output_allowed == True:
             output_label = tk.Label(self.root, text=output_text).pack()
             self.root.wait_window()
@@ -54,9 +52,6 @@ class MainView:
         Arguments:
             output_text: text which will be showed to the user
         """
-        # print("GUI.ask_for_input")
-
-        # root = tk.Tk()
         self.root.title("Input")
         input_label = tk.Label(self.root, text=output_text)
         input_label.pack()
@@ -71,8 +66,8 @@ class MainView:
         return self.result
 
     def ask_for_file(self):
-        """Function will ask GU-interface to ask user to choose the correct input file."""
-        pth = GUI_input_file_selection()
+        """Function will ask GU-interface ( e.g. class FileSelectionView() ) to ask user to choose the correct input file."""
+        pth = FileSelectionView()
         return pth
 
     def ask_for_text(self, output_text):
