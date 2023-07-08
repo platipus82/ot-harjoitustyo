@@ -10,8 +10,6 @@ Created on 30 Apr 2023
 import os
 import random
 from ui.ui import UI
-# from ui.gui import GUI
-# from ui.gui_input_file_selection import GUI_input_file_selection
 
 
 class App:
@@ -39,6 +37,7 @@ class App:
         self.shuffle_questions()
 
     def give_input_filename(self):
+        """Helper function which will return the full path for the input file"""
         x = self.input_path
         x = x.replace("\\", ";")
         x = x.replace("/", ";")
@@ -49,8 +48,7 @@ class App:
         """Parameter setter allowing input choice based on arguments received by constructor."""
         self.set_input_dir()
         self.get_input_filelist()
-
-        if self.default_input:  # ==True
+        if self.default_input:  
             self.set_input_path_default()
         else:
             self.set_input_path()
@@ -58,9 +56,6 @@ class App:
 
     def set_input_dir(self):
         """Function setting input directory."""
-        # self.input_dir = os.getcwd() + "\inputs\\"
-        # if not os.path.isdir(self.input_dir):
-        #    self.input_dir = os.getcwd() + "/src/inputs//"
         self.input_dir = os.path.join(os.getcwd(), "inputs")
         if not os.path.isdir(self.input_dir):
             self.input_dir = os.path.join(os.getcwd(), "src", "inputs")
@@ -96,7 +91,7 @@ class App:
 
     def set_input_path(self):
         """Function setting the path for input file"""
-        pth = self.__ui.ask_for_input_file()  # GUI_input_file_selection()
+        pth = self.__ui.ask_for_input_file()  
         self.input_path = pth
 
     def get_input_data(self):
@@ -121,9 +116,3 @@ class App:
         self.data = lst
 
 
-# if __name__ == "__main__":
-#    import os
-#    from ui.ui import GUI
-#    from ui.ui import GUI_input_file_selection
-
-#    main()

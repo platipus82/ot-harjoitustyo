@@ -10,7 +10,6 @@ Created on 30 Apr 2023
 import tkinter as tk
 from tkinter import filedialog
 import os
-
 from ui.window_parameters import Window_parameters
 
 
@@ -21,7 +20,6 @@ class GUI_input_file_selection:
         """Class constructor."""
         self.window = Window_parameters()
         self.root = tk.Tk()
-        # self.root = self.window.root()
 
         # set window size
         self.width = self.window.width
@@ -34,16 +32,21 @@ class GUI_input_file_selection:
 
         # texts
         self.root.title("Select a file")
-        self.input_path = os.getcwd() + "\src\inputs\\"
+        self.input_path = os.path.join(os.getcwd(), "src", "inputs")
         if not os.path.isfile(self.input_path):
-            self.input_path = os.getcwd() + "/src/inputs/"
             self.input_file_path = ""
 
-        # check if the input folder exists and has files
+
+        self.check_that_input_folder_exists()
+        self.root.mainloop()
+
+
+    def check_that_input_folder_exists(self):
+        """Function will check that input folder exists and is not empty."""
+
         if os.path.exists(self.input_path) and os.path.isdir(self.input_path) and os.listdir(self.input_path):
             self.files = os.listdir(self.input_path)
             self.files = [x for x in self.files if x != "__init__.py"]
-            # self.file_var = tk.StringVar(value=self.files[0])
             self.file_var = tk.StringVar(value=self.files)
             self.file_listbox = tk.Listbox(
                 self.root, listvariable=self.file_var)
@@ -52,8 +55,6 @@ class GUI_input_file_selection:
             self.file_listbox.configure(yscrollcommand=scrollbar.set)
             scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
             self.file_listbox.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
-
-            # self.file_listbox.pack()
             tk.Button(self.root, text="Select",
                       command=self.select_file).pack()
             tk.Button(self.root, text="Choose another file",
@@ -65,8 +66,6 @@ class GUI_input_file_selection:
             tk.Label(self.root, textvariable=self.file_var).pack()
             tk.Button(self.root, text="Choose another file",
                       command=self.choose_file).pack()
-
-        self.root.mainloop()
 
     def select_file(self):
         """Function will ask user to choose the correct input file from the list."""
@@ -90,9 +89,7 @@ class GUI_input_file_selection:
         path = filedialog.askdirectory()
         if path:
             os.chdir(path)
-            pth = os.getcwd() + "\src\inputs\\"
-            if not os.path.isfile(pth):
-                pth = os.getcwd() + "/src/inputs/"
+            pth = os.path.join(os.getcwd(), "src", "inputs")
             self.input_path = pth
             self.setup_file_listbox()
             if not self.files:

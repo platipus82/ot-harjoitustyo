@@ -13,6 +13,7 @@ def start(ctx):
 def test(ctx): 
     #ctx.run("python src\\tests\\flashcards_test.py", pty=False )  
     ctx.run("pytest -s src", pty=False )  
+    #ctx.run("pytest -s src --full-trace", pty=False )  
 
 @task
 def coverage(ctx):
@@ -28,3 +29,7 @@ def coverage_report(ctx):
 @task
 def lint(ctx):
     ctx.run("pylint src", pty=False)
+
+@task
+def format(ctx):
+    ctx.run("autopep8 --in-place --recursive src", pty=False)

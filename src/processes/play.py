@@ -7,18 +7,25 @@ Created on 12 May 2023
 @author: ok
 '''
 
-# import os
 import datetime
 from processes.app import App
 from processes.database import Database
 from ui.ui import UI
 
-# from ui.gui import GUI
-# from ui.gui_input_file_selection import GUI_input_file_selection
-
 
 class Play:
+    """Class responsible for initiating the program and process logic. """
+
     def __init__(self, use_default_input=True, output_allowed=False):
+        """Class constructor.
+        Arguments: 
+            use_default_input: 
+                - boolean parameter 
+                - tells if proceed with default inputs for testing purposes, or not
+            output_allowed:  
+                - boolean parameter 
+                - tells if (graphical) output is allowed or not
+        """
         self.use_default_input = use_default_input
         self.output_allowed = output_allowed
         self.start_time = datetime.datetime.now()
@@ -40,23 +47,19 @@ class Play:
         self.__exit = self.game.exit
         if self.output_allowed and not self.__exit:
             self.ask()
-            # self.ask_with_answers()
 
-        # print("questions over, saving results")
         if self.mode == 0:
             self.__exit = True
-        # self.save_results2()
         if self.__exit:
             self.end_time = datetime.datetime.now()
             self.elapsed_time = self.end_time-self.start_time
             self.save_results()
-            # self.save_results_to_csv()
-            # self.db.print_summary()
             if self.output_allowed:
                 msg = self.database.give_summary()
                 self.__ui.show_output(output_text=msg)
 
     def set_mode(self):
+        """Function setting the game mode based on response from UI"""
         if self.output_allowed and not self.use_default_input:
             resp = self.__ui.set_mode()
             if resp == "x":
@@ -67,11 +70,13 @@ class Play:
             self.mode = 0
 
     def update_question_counters(self):
+        """Function responsible for updating question counters. """
         if self.__ui.last_question_correct:
             self.questions_n_correct += 1
             self.questions_n_answered += 1
 
     def ask(self):
+        """Function looping over questions and asking them."""
         lst = self.game.data
         while not self.__exit:
             for i, entry in enumerate(lst):
@@ -84,8 +89,6 @@ class Play:
                     last_question = True
                 self.questions_n_checked += 1
                 if self.output_allowed:
-                    # resp = self.__ui.ask(
-                    #    question=question, answer=answer, last_question=last_question)
                     self.__ui.ask(
                         question=question, answer=answer, last_question=last_question)
                     self.__exit = self.__ui.exit
@@ -97,13 +100,9 @@ class Play:
 
 
     def save_results(self):
+        """Function responsible for saving the results in the end of the game. """
         usr_name = self.__ui.ask_for_text(output_text="Please, type your name")
         infile = self.game.input_file_name
-
-        # Output
-        # cols = [["user", "deck", "start_time", "end_time","elapsed_time", \
-        #  "questions_n_total", "questions_n_answered", "questions_n_correct", \
-        # "questions_percent_correct"]]
 
         # time
         tstart = str(self.start_time)
@@ -115,7 +114,7 @@ class Play:
         qnche = self.questions_n_checked
         qnans = self.questions_n_answered
         qncor = self.questions_n_correct
-        qpcor = qncor/(qntot/100)  # "questions_percent_correct"
+        qpcor = qncor/(qntot/100)  
 
         dat = [[usr_name, infile, tstart, tend,
                 telaps, qntot, qnche, qnans, qncor, qpcor]]

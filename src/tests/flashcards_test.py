@@ -16,7 +16,7 @@ class TestApp(unittest.TestCase):
     def setUp(self):
         self.play = Play()
         self.appi = self.play.game
-        self.db = self.play.db
+        self.db = self.play.database
         # self.appi = App()
 
     def test_that_inputdir_exists_v2(self):
