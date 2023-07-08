@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     class DatabaseFileHandling {
         - sql_db_path: str
@@ -77,3 +78,5 @@ classDiagram
     Database o--|> DatabaseFileHandling
     Database o--|> DatabaseInteractions
     Database o--|> DatabaseUserInteractions
+
+```
