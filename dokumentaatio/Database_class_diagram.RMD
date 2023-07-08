@@ -1,6 +1,6 @@
 ```mermaid
 classDiagram
-    class DatabaseFileHandling {
+    class DatabaseFileHandling{
         - sql_db_path: str
         - db_dir: str
         - db_path: str
@@ -14,8 +14,7 @@ classDiagram
         + write_to_sql_db(rows_to_write: list)
         + write_file(output_csv_file: str, rows_to_write: list, mode: str)
     }
-
-    class DatabaseInteractions {
+    class DatabaseInteractions{
         - sql_db_path: str
         - db_path: str
         - data: list
@@ -25,8 +24,7 @@ classDiagram
         + get_db_data(): bool
         + get_sql_db_data()
     }
-
-    class DatabaseUserInteractions {
+    class DatabaseUserInteractions{
         - data: list
         - summary: str
 
@@ -44,8 +42,7 @@ classDiagram
         + give_summary_of_db(): str
         + make_summary()
     }
-
-    class Database {
+    class Database{
         - db_dir: str
         - output_allowed: bool
         - db_path: str
