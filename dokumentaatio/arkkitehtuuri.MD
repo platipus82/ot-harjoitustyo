@@ -10,16 +10,21 @@ classDiagram
     main "1" --> "1" processes 
     processes "1" --> "1" repositories 
     repositories "1" --> "1" processes 
+    processes "1" --> "1" inputs 
+    inputs "1" --> "1" processes 
     ui "1" --> "1" processes 
     processes "1" --> "1" ui 
-    ui "1" --> "1" repositories 
-    repositories "1" --> "1" ui 
+
 
     class processes{
     
     }
     
     class repositories{ 
+    
+    }
+    
+    class inputs{ 
     
     }
     
@@ -31,8 +36,7 @@ classDiagram
     
     }
 ```
-Pakkaus _ui_ sisältää käyttöliittymästä vastaavan koodin. Pakkaus _processes_ sisältää sovelluslogiikasta ja suorituksesta vastaavan koodin. Pakkaus _main_ sisältää ohjelman käynnistyskoodin joka on eriytetty omaksi skriptiksi _flashcards.py_. Pakkaus _repositories_ sisältää tiedon pysyväistallennuksesta vastaavan koodin sekä tallennettavan tiedon _.csv_ tai _sql_ muodossa.
-
+Pakkaus _ui_ sisältää käyttöliittymästä vastaavan koodin. Pakkaus _processes_ sisältää kaiken muun koodin joka vastaa sovelluslogiikasta,  suorituksesta, sekä tiedon pysyväistallennuksesta. Pakkaus _main_ sisältää ohjelman käynnistyskoodin joka on eriytetty omaksi skriptiksi _flashcards.py_. Pakkaus _repositories_ sisältää  pysyväistallennetun tiedon _.csv_ tai _sql_ muodossa. Pakkaus _inputs_ sisältää korttipakat eli syötetiedostot.
 
 
 ## Sovelluslogiikka
@@ -61,34 +65,71 @@ classDiagram
     Window_parameters "1" --> "1" GUI_input_file_selection
 
     class App{
+        default_input
+        output_allowed
         input_dir
         input_path 
         data
-        filelist
+        filelist       
+        set_input_dir()
+        set_parameters()
+        give_input_filename()
+        get_input_filelist()
+        set_input_path()
+        set_input_path_default()
         get_input_data()
         shuffle_questions()
     }
     class Play{
+        use_default_input
+        output_allowed
+        start_time
+        end_time
+        mode
+        __exit 
+        game
+        questions_n_total
+        questions_n_checked
+        questions_n_answered
+        questions_n_correct
+        __ui
+        database      
+        set_mode()
+        update_question_counters()
         ask()
-        ask_with_answers()
-        save_results_to_csv()
-        save_results()
-        
+        save_results()       
     }
     
     class Database{
+        db_dir
+        output_allowed
+        db_path
+        data
+        sql_db_path 
+        summary
+        
+        make_new_db_file()
         make_new_sql_db_file()
         make_db_dir()
         tell_db_colnames()
-        make_new_db_file()
         write_to_db()
         write_to_sql_db()
         write_file()
         get_db_data()
+        get_sql_db_data()
+        make_summary()
         give_summary_data()
         print_summary()
         give_summary_of_last_session()
         give_summary_of_db()
+        give_summary()   
+        __describe_n_of_users()
+        __describe_n_of_input_files()
+        __describe_total_time()
+        __total_checked_questions()
+        __total_answered_questions()
+        __correctly_answered_questions()
+        __percentage_of_correct()
     }
     
     class UI{
@@ -106,6 +147,14 @@ classDiagram
     }
     
     class GUI_input_file_selection{
+        window
+        root
+        width
+        height
+        screen_width
+        screen_height
+        input_path
+        check_that_input_folder_exists()
         select_file()
         choose_file()
         choose_directory()

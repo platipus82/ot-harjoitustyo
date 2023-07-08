@@ -39,4 +39,7 @@
 - sovellukseen lisätty tiedon pysyväistallennus _.csv_ formaatissa
 - ohjelman päätytyttyä käyttäjälle näytetään yhteenveto päättyneestä käyttökerrasta sekä koko käyttöhistoriasta
 - sovellukseen lisätty tiedon tallennus SQL-tietokantaan
+- sovelluksen logiikka muunneltu niin että tietokanta ei tarvitse käyttäjärajapintaa (riippuvuus poistettu)
+- käyttäjärajapinnan prosesseihin liittyviä funktioita ja metodeita siirretty UI-luokkaan
+- koodia päivitetty ja korjattu vastaamaan loppupalautuksen vaatimuksia
 
