@@ -5,7 +5,7 @@ import sqlite3
 
 from processes.app import App
 from processes.play import Play
-from processes.database import Database
+from repositories.database import Database, DatabaseFileHandling, DatabaseInteractions, DatabaseUserInteractions
 
 
 class TestApp(unittest.TestCase):
@@ -67,18 +67,18 @@ class TestDatabase(unittest.TestCase):
         expected_result = [["1", "John", "Doe\n"], [
             "2", "Jane", "Smith\n"], ["3", "Bob", "Johnson\n"]]
         with patch("builtins.open", mock_open(read_data="".join(test_data))):
-            result = self.db.get_db_data()
+            result = self.db.database_interactions.get_db_data()
 
         self.assertTrue(result)
-        self.assertEqual(self.db.data, expected_result)
+        self.assertEqual(self.db.database_interactions.data, expected_result)
 
     def test_get_db_data_failure(self):
         with patch("builtins.open", side_effect=OSError):
-            result = self.db.get_db_data()
+            result = self.db.database_interactions.get_db_data()
 
         self.assertFalse(result)
-        self.assertIsNone(self.db.data)
-
+        #self.assertIsNone(self.db.data)
+        self.assertEqual(self.db.data, [])
 
 """
     def tearDown(self):

@@ -55,7 +55,7 @@ class Play:
             self.elapsed_time = self.end_time-self.start_time
             self.save_results()
             if self.output_allowed:
-                msg = self.database.give_summary()
+                msg = self.database.database_user_interactions.give_summary()
                 self.__ui.show_output(output_text=msg)
 
     def set_mode(self):
@@ -119,6 +119,6 @@ class Play:
         dat = [[usr_name, infile, tstart, tend,
                 telaps, qntot, qnche, qnans, qncor, qpcor]]
         if self.output_allowed:
-            self.database.write_to_db(output_csv_file=self.database.db_path,
+            self.database.database_file_handling.write_to_db(output_csv_file=self.database.db_path,
                                       rows_to_write=dat, mode="a")
-            self.database.write_to_sql_db(rows_to_write=dat)
+            self.database.database_file_handling.write_to_sql_db(rows_to_write=dat)

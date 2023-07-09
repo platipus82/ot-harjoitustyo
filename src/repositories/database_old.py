@@ -12,28 +12,34 @@ import csv
 import sqlite3
 
 
-class DatabaseFileHandling:
-    """Class responsible for handling the database files"""
+class Database:
+    """Class responsible for handling the storage information. 
+    Handling involves reading, writing and describing the data. """
 
-    def __init__(self, sql_db_path, db_dir, db_path, database_interactions):
-        """The constructor takes three parameters:
-            - sql_db_path: The path to the SQL database file.
-            - db_dir: The directory where the database files are stored.
-            - db_path: The path to the CSV database file.
-            - These attributes are then assigned to the corresponding instance variables self.sql_db_path, self.db_dir, and self.db_path. The self.data attribute is initialized as an empty list.
-        """
-
-        self.sql_db_path = sql_db_path
-        self.db_dir = db_dir
-        self.db_path = db_path
+    def __init__(self, output_allowed=True):
+        self.db_dir = os.path.join(os.getcwd(), "src", "data")
+        self.output_allowed = output_allowed
+        self.db_path = os.path.join(self.db_dir, "csv_database.csv")
         self.data = []
-        self.database_interactions = database_interactions
         if not os.path.isfile(self.db_path):
             self.make_new_db_file()
 
+        # SQL-database
+        self.sql_db_path = os.path.join(self.db_dir, "database.db")
         if not os.path.isfile(self.sql_db_path):
             self.make_new_sql_db_file()
 
+        # Summary
+        self.summary = ""
+        self.make_summary()
+
+    def make_summary(self):
+        """Function creating the summary of last session and database."""
+        self.give_summary_data()
+        last_session = self.give_summary_of_last_session()
+        whole_database = self.give_summary_of_db()
+        msg = last_session + whole_database
+        self.summary = msg
 
     def make_new_sql_db_file(self):
         """Function creating the new SQL database file."""
@@ -56,10 +62,18 @@ class DatabaseFileHandling:
         else:
             os.mkdir(self.db_dir)
 
+    def tell_db_colnames(self):
+        """Function will return the column names for the database"""
+        cols = [["user", "deck", "start_time", "end_time", \
+                "elapsed_time", "questions_n_total", \
+                "questions_n_checked", "questions_n_answered", \
+                "questions_n_correct", "questions_percent_correct"]]
+        return cols
+
     def make_new_db_file(self):
         """Function make a new .csv database file with column names"""
         self.write_file(output_csv_file=self.db_path,
-                        rows_to_write=self.database_interactions.tell_db_colnames(), mode="w")
+                        rows_to_write=self.tell_db_colnames(), mode="w")
 
     def write_to_db(self, output_csv_file="", rows_to_write=None, mode="a"):
         """Function will write to a existing .csv database file"""
@@ -92,7 +106,6 @@ class DatabaseFileHandling:
         cursor.executemany(whole_command, data)
         cursor.execute("COMMIT")
 
-
     def write_file(self, output_csv_file="", rows_to_write=None, mode="a"):
         """Function will write test to separate .csv file"""
         try:
@@ -105,47 +118,24 @@ class DatabaseFileHandling:
         except OSError:
             return False
 
-
-class DatabaseInteractions:
-    """Class responsible for handling the storage information. 
-    Handling involves reading, writing and describing the data. """
-
-    def __init__(self, sql_db_path, db_path):
-        """
-        Class constructor. The constructor takes two input arguments/parameters:
-                sql_db_path: The path to the SQL database file.
-                db_path: The path to the CSV database file.
-                These values are assigned to the corresponding instance variables self.sql_db_path and self.db_path. 
-                The self.data attribute is initialized as an empty list. 
-        """
-        self.sql_db_path = sql_db_path
-        self.db_path = db_path
-        self.data = []
-
-    def tell_db_colnames(self):
-        """Function will return the column names for the database"""
-        cols = [["user", "deck", "start_time", "end_time", \
-                "elapsed_time", "questions_n_total", \
-                "questions_n_checked", "questions_n_answered", \
-                "questions_n_correct", "questions_percent_correct"]]
-        return cols
-
     def get_db_data(self):
         """Function will extract and save the data from the csv-database"""
 
         try:
             with open(self.db_path, "r", encoding="utf-8") as infile:
                 lines = []
+                i = 0
                 for line in infile:
                     if line != "":
-                        items = line.split(";") 
+                        items = line.split(";")
                         lines.append(items)
+                        i += 1
                 self.data = lines
                 return True
         except OSError:
-            self.data = [] # None
+            self.data = None
             return False
-    '''
+
     def get_sql_db_data(self):
         """Function will extract and save the data from the SQL-database"""
         database = sqlite3.connect(self.sql_db_path)
@@ -162,51 +152,10 @@ class DatabaseInteractions:
             lista.pop(0)
             listat.append(lista)
         self.data = listat
-    '''
-
-    def get_sql_db_data(self):
-        """Function will extract and save the data from the SQL-database"""
-        database = sqlite3.connect(self.sql_db_path)
-        database.isolation_level = None
-        cursor = database.cursor()
-        cursor.execute("BEGIN")
-        data = cursor.execute("SELECT * FROM Records;").fetchall()
-        database.close()
-        listat = []
-        for x in data:
-            lista = []
-            for y in x:
-                lista.append(str(y))
-            lista.pop(0)
-            listat.append(lista)
-        self.data = listat  # Update self.data
-        return self.data
-
-class DatabaseUserInteractions:
-    """Class responsible for describing the data for user. """
-
-    def __init__(self, database_interactions):
-        """
-        Class constructor
-        - no input parameters
-        - initializes two instance variables:
-            self.database_interactions: An instance of DatabaseInteractions.
-            self.summary: An empty string that will hold the summary information.
-        """
-        self.database_interactions = database_interactions
-        self.data = self.database_interactions.data #[]
-        self.summary = ""
-
-   
-    #def give_summary_data(self):
-    #    """Function will return the data from SQL-database"""
-    #    self.database_interactions.get_sql_db_data()
-    #    all_results = self.data
-    #    return all_results
 
     def give_summary_data(self):
         """Function will return the data from SQL-database"""
-        self.data = self.database_interactions.get_sql_db_data()  # Update self.data
+        self.get_sql_db_data()
         all_results = self.data
         return all_results
 
@@ -218,10 +167,9 @@ class DatabaseUserInteractions:
         """Function will return the summary of the last session"""
 
         msg = ""
-        print(len(self.data))
         last = self.data[-1]
         msg = msg + "Summary of this session:" + "\n"
-        cols = self.database_interactions.tell_db_colnames()[0]
+        cols = self.tell_db_colnames()[0]
         for i, entry in enumerate(last):
             msg = msg + cols[i] + ": " + entry + "\n"
         return msg
@@ -317,39 +265,3 @@ class DatabaseUserInteractions:
             self.__correctly_answered_questions(dat) + \
             self.__percentage_of_correct(dat)
         return msg
-
-    def make_summary(self):
-        """Function creating the summary of last session and database."""
-        self.give_summary_data()
-        last_session = self.give_summary_of_last_session()
-        whole_database = self.give_summary_of_db()
-        msg = last_session + whole_database
-        self.summary = msg
-
-class Database:
-    def __init__(self, output_allowed=True):
-        self.db_dir = os.path.join(os.getcwd(), "src", "data")
-        self.output_allowed = output_allowed
-        self.db_path = os.path.join(self.db_dir, "csv_database.csv")
-
-
-        # SQL-database
-        self.sql_db_path = os.path.join(self.db_dir, "database.db")
-
-
-        self.database_interactions =  DatabaseInteractions(self.sql_db_path, self.db_path)
-        self.database_file_handling =  DatabaseFileHandling(self.sql_db_path, self.db_dir, self.db_path, self.database_interactions)
-        self.database_user_interactions = DatabaseUserInteractions(self.database_interactions)
-
-        self.data = self.database_interactions.data[:]
-        # Summary
-        #self.summary = ""
-        self.database_user_interactions.make_summary()
-
-
-
-
-
-
-
-
