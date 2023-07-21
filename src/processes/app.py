@@ -28,7 +28,7 @@ class App:
         self.input_path = ""
         if not self.default_input:
             self.__ui = UserInterface(use_default_input=self.default_input,
-                           output_allowed=output_allowed)
+                                      output_allowed=output_allowed)
         self.exit = False
         self.data = []
         self.filelist = []
@@ -48,7 +48,7 @@ class App:
         """Parameter setter allowing input choice based on arguments received by constructor."""
         self.set_input_dir()
         self.get_input_filelist()
-        if self.default_input:  
+        if self.default_input:
             self.set_input_path_default()
         else:
             self.set_input_path()
@@ -91,7 +91,7 @@ class App:
 
     def set_input_path(self):
         """Function setting the path for input file"""
-        pth = self.__ui.ask_for_input_file()  
+        pth = self.__ui.ask_for_input_file()
         self.input_path = pth
 
     def get_input_data(self):
@@ -114,5 +114,3 @@ class App:
         lst = self.data
         random.shuffle(lst)
         self.data = lst
-
-

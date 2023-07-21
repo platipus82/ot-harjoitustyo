@@ -1,5 +1,6 @@
 from invoke import task
 import os
+
 @task
 def start(ctx):
     #ctx.run("python src\\flashcards.py", pty=False )                                       # pty=True doesnt work for windows
@@ -11,9 +12,7 @@ def start(ctx):
 
 @task
 def test(ctx): 
-    #ctx.run("python src\\tests\\flashcards_test.py", pty=False )  
     ctx.run("pytest -s src", pty=False )  
-    #ctx.run("pytest -s src --full-trace", pty=False )  
 
 @task
 def coverage(ctx):
@@ -21,7 +20,6 @@ def coverage(ctx):
 
 @task
 def coverage_report(ctx):
-    #ctx.run("coverage run --branch -m pytest -s src", pty=False) 
     ctx.run("coverage run --branch -m pytest -s src", pty=False) 
     ctx.run("coverage report -m", pty=False)  
     ctx.run("coverage html", pty=False)  

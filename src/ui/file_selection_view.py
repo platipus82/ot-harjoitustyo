@@ -36,10 +36,8 @@ class FileSelectionView:
         if not os.path.isfile(self.input_path):
             self.input_file_path = ""
 
-
         self.check_that_input_folder_exists()
         self.root.mainloop()
-
 
     def check_that_input_folder_exists(self):
         """Function will check that input folder exists and is not empty."""

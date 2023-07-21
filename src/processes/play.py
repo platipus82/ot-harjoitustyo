@@ -40,7 +40,7 @@ class Play:
         self.questions_n_correct = 0
 
         self.__ui = UserInterface(use_default_input=use_default_input,
-                       output_allowed=output_allowed)
+                                  output_allowed=output_allowed)
         self.set_mode()
 
         self.database = Database(output_allowed=output_allowed)
@@ -54,6 +54,8 @@ class Play:
             self.end_time = datetime.datetime.now()
             self.elapsed_time = self.end_time-self.start_time
             self.save_results()
+            self.database.data = self.database.database_interactions.data[:]
+            self.database.database_user_interactions.make_summary()
             if self.output_allowed:
                 msg = self.database.database_user_interactions.give_summary()
                 self.__ui.show_output(output_text=msg)
@@ -73,7 +75,7 @@ class Play:
         """Function responsible for updating question counters. """
         if self.__ui.last_question_correct:
             self.questions_n_correct += 1
-            self.questions_n_answered += 1
+        self.questions_n_answered += 1
 
     def ask(self):
         """Function looping over questions and asking them."""
@@ -95,9 +97,8 @@ class Play:
                     self.update_question_counters()
                 if self.__exit:
                     break
+
             self.__exit = True
-
-
 
     def save_results(self):
         """Function responsible for saving the results in the end of the game. """
@@ -114,11 +115,13 @@ class Play:
         qnche = self.questions_n_checked
         qnans = self.questions_n_answered
         qncor = self.questions_n_correct
-        qpcor = qncor/(qntot/100)  
+        qpcor = qncor/(qntot/100)
 
         dat = [[usr_name, infile, tstart, tend,
                 telaps, qntot, qnche, qnans, qncor, qpcor]]
         if self.output_allowed:
             self.database.database_file_handling.write_to_db(output_csv_file=self.database.db_path,
-                                      rows_to_write=dat, mode="a")
-            self.database.database_file_handling.write_to_sql_db(rows_to_write=dat)
+                                                             rows_to_write=dat, mode="a")
+            self.database.database_file_handling.write_to_sql_db(
+                rows_to_write=dat)
+        return dat

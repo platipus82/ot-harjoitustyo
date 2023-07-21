@@ -2,10 +2,37 @@ from unittest.mock import mock_open, patch
 import unittest
 import os
 import sqlite3
+import tempfile
 
 from processes.app import App
 from processes.play import Play
+from ui.user_interface import UserInterface
 from repositories.database import Database, DatabaseFileHandling, DatabaseInteractions, DatabaseUserInteractions
+from flashcards import main
+
+
+class TestPlay(unittest.TestCase):
+    def test_update_question_counters(self):
+        """ Creating an instance of the class which contains the update_question_counters function"""
+        obj = Play()
+
+        # Set up the necessary preconditions
+        obj.questions_n_correct = 0
+        obj.questions_n_answered = 0
+        obj._Play__ui.last_question_correct = True
+
+        # Call the function to be tested
+        obj.update_question_counters()
+
+        # Assert the expected results
+        self.assertEqual(obj.questions_n_correct, 1)
+        self.assertEqual(obj.questions_n_answered, 1)
+
+        # Test with another scenario
+        obj._Play__ui.last_question_correct = False
+        obj.update_question_counters()
+        self.assertEqual(obj.questions_n_correct, 1)
+        self.assertEqual(obj.questions_n_answered, 2)
 
 
 class TestApp(unittest.TestCase):
@@ -15,8 +42,6 @@ class TestApp(unittest.TestCase):
         self.db = self.play.database
 
     def test_that_inputdir_exists_v2(self):
-        print("Function test_that_inputdir_exists_v2()")
-
         pth = self.appi.input_dir
         pthExists = os.path.exists(pth)
         self.assertEqual(True, pthExists)
@@ -55,9 +80,7 @@ class TestApp(unittest.TestCase):
 
 
 class TestDatabase(unittest.TestCase):
-
     def setUp(self):
-        # self.database = Database()
         self.db = Database()
         self.test_data = [['user1', 'deck1', '2023-05-12 12:00:00',
                            '2023-05-12 12:10:00', '00:10:00', 10, 10, 10, 10, 100.0]]
@@ -77,31 +100,34 @@ class TestDatabase(unittest.TestCase):
             result = self.db.database_interactions.get_db_data()
 
         self.assertFalse(result)
-        #self.assertIsNone(self.db.data)
         self.assertEqual(self.db.data, [])
 
-"""
+
+class TestDatabaseFileHandling(unittest.TestCase):
+    def setUp(self):
+        self.db_path = "test.db"
+        self.db_file_handling = DatabaseFileHandling(sql_db_path=self.db_path, db_dir="", db_path="",
+                                                     database_interactions=DatabaseInteractions(sql_db_path="", db_path=""))
+
     def tearDown(self):
-        # Delete the test data from the database
-        db = sqlite3.connect(self.db.sql_db_path)
-        c = db.cursor()
-        c.execute("DELETE FROM Records WHERE user='user1' AND deck='deck1'")
-        db.commit()
+        if os.path.exists(self.db_path):
+            os.remove(self.db_path)
+
+    def test_make_new_sql_db_file(self):
+        # Call the function to create the new SQL database file
+        self.db_file_handling.make_new_sql_db_file()
+
+        # Verify that the table is created in the database file
+        db = sqlite3.connect(self.db_path)
+        cursor = db.cursor()
+        cursor.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name='Records';")
+        result = cursor.fetchone()
         db.close()
 
-    def test_write_to_sql_db(self):
-        # Write the test data to the database
-        self.db.write_to_sql_db(self.test_data)
+        self.assertIsNotNone(result)
+        self.assertEqual(result[0], "Records")
 
-        # Verify that the data was correctly inserted into the database
-        db = sqlite3.connect(self.db.sql_db_path)
-        c = db.cursor()
-        c.execute("SELECT * FROM Records WHERE user='user1' AND deck='deck1'")
-        rows = c.fetchall()
-        self.assertEqual(len(rows), 1)        
-        self.assertEqual(rows[0][1:], self.test_data[0])
-        db.close()
-"""
 
 if __name__ == '__main__':
     unittest.main()
