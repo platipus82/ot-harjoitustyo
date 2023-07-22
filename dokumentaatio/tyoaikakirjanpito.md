@@ -27,7 +27,7 @@
 | 21.7| 4 | koodin siistiminen ja virheiden korjaaminen |
 | 22.7| 4 | dokumentaatio|
 
-| KOKONAISAIKA | 116 | |
+| KOKONAISAIKA | 116 |  |
 
 
 
