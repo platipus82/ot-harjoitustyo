@@ -2,8 +2,6 @@
 # Testausdokumentti
 
 ## Yksikkö- ja integraatiotestaus
-### Sovelluslogiikka
-### Repositories
 
 ### Testikattavuus
 Käyttöliittymäkerrosta ei ole testattu. Muuilta osin sovelluksen testauksen haarautumakattavuus on 71%
