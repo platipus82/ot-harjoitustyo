@@ -43,3 +43,15 @@
 - käyttäjärajapinnan prosesseihin liittyviä funktioita ja metodeita siirretty UI-luokkaan
 - koodia päivitetty ja korjattu vastaamaan loppupalautuksen vaatimuksia
 
+## Viikko 8+
+- _Database_-luokka eriytetty neljäksi osaksi: 1. _DatabaseInteractions_ (tietokannan kanssa keskusteleva koodi) 2. _DatabaseFileHandling_ (tiedostojen käsittely) 3. _DatabaseUserInteractions_ (Käyttäjälle tehtävistä tulostuksista huolehtiva koodi) ja 4. Näitä hallinnoiva _Database_-luokka.  _DatabaseUserInteractions_-luokka on siirretty _ui_-kansioon ja muut _repositories_-kansioon
+- ui-hakemiston tiedostot nimetty paremmin (ui.py, gui.py jne.), samoin niiden sisältämät luokat
+- data poistettu koodikansioista
+- testit korjattu ja täydennetty
+- lisätty heikkouksien käsittely arkkitehtuuri.MD-tiedostoon
+- dokumentaatio päivitetty (luokkadiagrammit, arkkitehtuuri.MD, vaatimusmäärittely.md)
+- docstrings lisätty kaikkiin luokkiin ja metodeihin
+- poiskommentoitu koodi siivottu pois
+
+
+
