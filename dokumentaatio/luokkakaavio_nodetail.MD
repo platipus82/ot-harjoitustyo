@@ -1,12 +1,12 @@
 ```mermaid
-classDiagram
-    class App
-    class Play
-    class UserInterface
-    class Database
-    class DatabaseUserInteractions
-    class DatabaseFileHandling
-    class DatabaseInteractions
+    classDiagram
+        class App
+        class Play
+        class UserInterface
+        class Database
+        class DatabaseUserInteractions
+        class DatabaseFileHandling
+        class DatabaseInteractions
     
     App --> UserInterface
     App --> Play
