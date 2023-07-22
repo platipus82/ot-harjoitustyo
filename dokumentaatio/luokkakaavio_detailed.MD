@@ -37,7 +37,13 @@ classDiagram
         + ask_for_input(output_text: str) : str
         + ask_for_input_file() : str
         + ask_for_text(output_text: str) : str
+        + ask_for_text_timed(output_text: str, timeout: int) : str
         + show_output(output_text: str)
+        - ask_mode1(question: str, answer: str, last_question: bool) : str
+        - ask_mode2(question: str, answer: str, last_question: bool) : str
+        - ask_mode3(question: str, answer: str, last_question: bool) : str
+        - ask_mode4(question: str, answer: str, last_question: bool) : str
+        - set_mode()
     }
 
     class Database {
@@ -70,6 +76,19 @@ classDiagram
         + make_summary()
     }
 
+    class MainView {
+        + __init__(use_default_input: bool, output_allowed: bool)
+        + show_output(output_text: str)
+        + ask_for_input(output_text: str) : str
+        + ask_for_text(output_text: str) : str
+        + ask_for_text_timed(output_text: str, timeout: int) : str
+    }
+
+    class FileSelectionView {
+        + __init__()
+        + input_file_path : str
+    }
+
     App --> UserInterface
     App --> Play
     Play --> UserInterface
@@ -79,4 +98,6 @@ classDiagram
     Database --> DatabaseUserInteractions
     DatabaseUserInteractions --> DatabaseInteractions
     DatabaseFileHandling --> DatabaseInteractions
+    UserInterface --> MainView
+    UserInterface --> FileSelectionView
 ```
