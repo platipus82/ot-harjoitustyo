@@ -14,7 +14,6 @@ classDiagram
     UserInterface --|> MainView
     MainView --|> WindowParameters
     FileSelectionView --|> WindowParameters
-    FileSelectionView -- tk
     Database --|> DatabaseInteractions
     Database --|> DatabaseFileHandling
     Database --|> DatabaseUserInteractions
