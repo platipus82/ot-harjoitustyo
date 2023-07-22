@@ -18,7 +18,17 @@
 | 6.5 | 8 | tiedon pysyväistallennuksen lisääminen csv-muodossa |
 | 7.5 | 8 | käyttökerron yhteenvedon kokoaminen ja näyttäminen käyttäjälle |
 | 8.5| 8 | lisätty tiedon tallennus SQL-tietokantaan |
-| KOKONAISAIKA | 86 | |
+
+| 8.7| 4 | tulevien päivitysten suunnittelut ja vaatimusmäärittely |
+| 9.7| 4 | tietokantakoodin päivitys ja muokkaus|
+| 10.7| 4 | tietokantakoodin päivitys ja muokkaus |
+| 11.7| 4 | tietokantakoodin päivitys ja muokkaus |
+| 12.7| 4 | testien korjaus ja täydennys |
+| 20.7| 4 | koodin siistiminen |
+| 21.7| 4 | koodin siistiminen ja virheiden korjaaminen |
+| 22.7| 4 | dokumentaatio|
+
+| KOKONAISAIKA | 116 | |
 
 
 
