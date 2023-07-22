@@ -79,5 +79,4 @@ classDiagram
     Database --> DatabaseUserInteractions
     DatabaseUserInteractions --> DatabaseInteractions
     DatabaseFileHandling --> DatabaseInteractions
-
 ```
