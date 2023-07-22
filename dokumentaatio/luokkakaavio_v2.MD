@@ -24,14 +24,14 @@ classDiagram
     }   
 
 
-    DatabaseFileHandling o-- DatabaseInteractions
-    DatabaseInteractions o-- DatabaseUserInteractions
-    Database o--|> DatabaseFileHandling
-    Database o--|> DatabaseInteractions
-    Database o--|> DatabaseUserInteractions
-    DatabaseInteractions o--|> DatabaseUserInteractions
-    DatabaseUserInteractions o--|> DatabaseInteractions
-    DatabaseUserInteractions o--|> Database
+    DatabaseFileHandling --> DatabaseInteractions
+    DatabaseInteractions --> DatabaseUserInteractions
+    Database --> DatabaseFileHandling
+    Database --> DatabaseInteractions
+    Database --> DatabaseUserInteractions
+    DatabaseInteractions --> DatabaseUserInteractions
+    DatabaseUserInteractions --> DatabaseInteractions
+    DatabaseUserInteractions --> Database
 
     Play "1" --> "1" Database 
     Database "1" --> "1" Play
