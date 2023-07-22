@@ -26,6 +26,8 @@ classDiagram
     Database o--|> DatabaseInteractions
     Database o--|> DatabaseUserInteractions
 
+    Play "1" --> "1" Database 
+    Database "1" --> "1" Play
     Play "1" --> "1" App 
     Play "1" --> "1" UI 
     App "1" --> "1" UI
