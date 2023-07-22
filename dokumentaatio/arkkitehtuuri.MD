@@ -71,7 +71,7 @@ classDiagram
     Play --|> App
 ```
 
-Yksityiskohtaisempi versio missä näkyy myös luokkien attribuutit ja metodit löytyy täältä. 
+Yksityiskohtaisempi versio missä näkyy myös luokkien attribuutit ja metodit löytyy [täältä](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/class_diagram_detailed.md). 
 
 
 ## Päätoiminnallisuudet
