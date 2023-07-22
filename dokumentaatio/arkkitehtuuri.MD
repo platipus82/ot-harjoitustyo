@@ -230,7 +230,7 @@ sequenceDiagram
     Play->>UserInterface: The question is: 1+1=? Proceed or exit?
     UserInterface-->>MainView: The question is: 1+1=? Proceed or exit?
     MainView-->>Window_parameters: what are correct window dimensions?
-    Window_parameters-->> GUI: 400 x 300
+    Window_parameters-->> MainView: 400 x 300
     actor User
     MainView-->>User: The question is: 1+1=? Proceed or exit?
     User-->>MainView: Proceed
