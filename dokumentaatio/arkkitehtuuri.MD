@@ -10,6 +10,10 @@ classDiagram
     main "1" --> "1" processes 
     processes "1" --> "1" repositories 
     repositories "1" --> "1" processes 
+    repositories "1" --> "1" data
+    data "1" --> "1" repositories 
+    ui "1" --> "1" repositories 
+    repositories "1" --> "1" ui
     processes "1" --> "1" inputs 
     inputs "1" --> "1" processes 
     ui "1" --> "1" processes 
@@ -17,23 +21,21 @@ classDiagram
 
 
     class processes{
-    
     }
     
     class repositories{ 
-    
     }
     
     class inputs{ 
-    
     }
     
     class ui{ 
-    
     }
     
     class main{ 
-    
+    }
+
+    class data{
     }
 ```
 Pakkaus _ui_ sisältää käyttöliittymästä vastaavan koodin. Pakkaus _processes_ sisältää kaiken muun koodin joka vastaa sovelluslogiikasta,  suorituksesta, sekä tiedon pysyväistallennuksesta. Pakkaus _main_ sisältää ohjelman käynnistyskoodin joka on eriytetty omaksi skriptiksi _flashcards.py_. Pakkaus _repositories_ sisältää  pysyväistallennetun tiedon _.csv_ tai _sql_ muodossa. Pakkaus _inputs_ sisältää korttipakat eli syötetiedostot.
