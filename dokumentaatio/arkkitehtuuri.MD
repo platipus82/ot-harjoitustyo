@@ -66,11 +66,11 @@ classDiagram
     FileSelectionView "1" --> "1" UserInterface
     FileSelectionView "1" --> "1" MainView
     MainView "1" --> "1" UserInterface
-    FileSelectionView "1" --> "1" Window_parameters
-    MainView "1" --> "1" Window_parameters
+    FileSelectionView "1" --> "1" WindowParameters
+    MainView "1" --> "1" WindowParameters
     
-    Window_parameters "1" --> "1" MainView
-    Window_parameters "1" --> "1" FileSelectionView
+    WindowParameters "1" --> "1" MainView
+    WindowParameters "1" --> "1" FileSelectionView
 
     class App{
         default_input
@@ -208,7 +208,7 @@ classDiagram
         choose_directory()
     }    
     
-    class Window_parameters{
+    class WindowParameters{
         width
         height 
     }
