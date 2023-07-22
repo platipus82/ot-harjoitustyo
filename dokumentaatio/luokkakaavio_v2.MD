@@ -1,14 +1,23 @@
 ```mermaid
 classDiagram
-    class DatabaseFileHandling{}
-    class DatabaseInteractions{}
-    class DatabaseUserInteractions{}
-    class Database{}
-    class App{}
-    class Play{}
-    class UI{}
-    class GUI{}  
-    class GUI_input_file_selection{}   
+    class DatabaseFileHandling{
+    }
+    class DatabaseInteractions{
+    }
+    class DatabaseUserInteractions{
+    }
+    class Database{
+    }
+    class App{
+    }
+    class Play{
+    }
+    class UI{
+    }
+    class GUI{
+    }  
+    class GUI_input_file_selection{
+    }   
 
 
     DatabaseFileHandling o-- DatabaseInteractions
