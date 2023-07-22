@@ -12,11 +12,15 @@ classDiagram
     }
     class Play{
     }
-    class UI{
+    class UserInterface{
     }
-    class GUI{
+    class MainView{
     }  
-    class GUI_input_file_selection{
+    class FileSelectionView{
+    }   
+    class WindowsParameters{
+    }   
+    class DatabaseUserInteractions{
     }   
 
 
@@ -25,16 +29,22 @@ classDiagram
     Database o--|> DatabaseFileHandling
     Database o--|> DatabaseInteractions
     Database o--|> DatabaseUserInteractions
+    DatabaseInteractions o--|> DatabaseUserInteractions
+    DatabaseUserInteractions o--|> DatabaseInteractions
+    DatabaseUserInteractions o--|> Database
 
     Play "1" --> "1" Database 
     Database "1" --> "1" Play
+    Database "1" --> "1" DatabaseUserInteractions
     Play "1" --> "1" App 
-    Play "1" --> "1" UI 
-    App "1" --> "1" UI
+    Play "1" --> "1" UserInterface 
+    App "1" --> "1" UserInterface
     App "1" --> "1" Play
-    UI "1" --> "1" App
-    UI "1" --> "1" GUI
-    UI "1" --> "1" GUI_input_file_selection
-    GUI_input_file_selection "1" --> "1" UI
-    GUI "1" --> "1" UI
+    UserInterface "1" --> "1" App
+    UserInterface "1" --> "1" MainView
+    WindowsParameters "1" --> "1" MainView
+    MainView "1" --> "1" WindowsParameters
+    UserInterface "1" --> "1" FileSelectionView
+    FileSelectionView "1" --> "1" UserInterface
+    MainView "1" --> "1" UserInterface
 ```
