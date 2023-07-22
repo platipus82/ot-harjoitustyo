@@ -1,22 +1,18 @@
 ```mermaid
 classDiagram
-    class App
-    class Play
     class UserInterface
-    class Database
+    class MainView
+    class DatabaseUserInteractions
     class DatabaseInteractions
     class DatabaseFileHandling
-    class DatabaseUserInteractions
+    class Window_parameters
 
-    App --> UserInterface
-    App --> Play
-    Play --> UserInterface
-    Play --> Database
-    Database --> DatabaseInteractions
-    Database --> DatabaseFileHandling
-    Database --> DatabaseUserInteractions
-    DatabaseUserInteractions --> DatabaseInteractions
-    DatabaseFileHandling --> DatabaseInteractions
-    UserInterface --> MainView
-    UserInterface --> FileSelectionView
+    UserInterface --|> MainView
+    UserInterface --|> DatabaseUserInteractions
+    MainView --|> DatabaseInteractions
+    DatabaseUserInteractions --|> DatabaseInteractions
+    DatabaseFileHandling --|> DatabaseInteractions
+    DatabaseUserInteractions --|> DatabaseFileHandling
+    UserInterface --|> Window_parameters
+    MainView --|> Window_parameters
 ```
