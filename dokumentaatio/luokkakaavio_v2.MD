@@ -29,7 +29,6 @@ classDiagram
     Database --> DatabaseFileHandling
     Database --> DatabaseInteractions
     Database --> DatabaseUserInteractions
-    DatabaseInteractions --> DatabaseUserInteractions
     DatabaseUserInteractions --> DatabaseInteractions
     DatabaseUserInteractions --> Database
 
