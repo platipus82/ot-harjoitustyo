@@ -1,103 +1,97 @@
 ```mermaid
 classDiagram
-    class App {
-        + __init__(use_default_input: bool, output_allowed: bool)
-        + set_mode()
-        + update_question_counters()
-        + ask()
-        + save_results()
-        - set_input_dir()
-        - get_input_filelist()
-        - set_input_path_default()
-        - set_input_path()
-        - get_input_data()
-        - give_input_filename()
-        - shuffle_questions()
-    }
-
-    class Play {
-        + __init__(use_default_input: bool, output_allowed: bool)
-        + set_mode()
-        + update_question_counters()
-        + ask()
-        + save_results()
-        - set_input_dir()
-        - get_input_filelist()
-        - set_input_path_default()
-        - set_input_path()
-        - get_input_data()
-        - give_input_filename()
-        - shuffle_questions()
-    }
-
     class UserInterface {
-        + __init__(use_default_input: bool, output_allowed: bool)
-        + set_mode() : str
-        + ask(question: str, answer: str, last_question: bool)
-        + ask_for_input(output_text: str) : str
-        + ask_for_input_file() : str
-        + ask_for_text(output_text: str) : str
-        + ask_for_text_timed(output_text: str, timeout: int) : str
-        + show_output(output_text: str)
-        - ask_mode1(question: str, answer: str, last_question: bool) : str
-        - ask_mode2(question: str, answer: str, last_question: bool) : str
-        - ask_mode3(question: str, answer: str, last_question: bool) : str
-        - ask_mode4(question: str, answer: str, last_question: bool) : str
-        - set_mode()
-    }
-
-    class Database {
-        + __init__(output_allowed: bool)
-    }
-
-    class DatabaseInteractions {
-        + __init__(sql_db_path: str, db_path: str)
-        + tell_db_colnames() : List[List[str]]
-        + get_db_data() : bool
-        + get_sql_db_data() : List[List[str]]
-    }
-
-    class DatabaseFileHandling {
-        + __init__(sql_db_path: str, db_dir: str, db_path: str, database_interactions: DatabaseInteractions)
-        + make_new_sql_db_file(alternative_pth: Optional[str] = None)
-        + make_db_dir()
-        + make_new_db_file()
-        + write_to_db(output_csv_file: str, rows_to_write: List[List[str]], mode: str)
-        + write_to_sql_db(rows_to_write: List[List[str]], alternative_pth: Optional[str] = None)
-        + write_file(output_csv_file: str, rows_to_write: List[List[str]], mode: str)
-    }
-
-    class DatabaseUserInteractions {
-        + __init__(database_interactions: DatabaseInteractions)
-        + give_summary_data() : List[List[str]]
-        + give_summary() : str
-        + give_summary_of_last_session() : str
-        + give_summary_of_db() : str
-        + make_summary()
+        - default_input: bool
+        - output_allowed: bool
+        - __gu: MainView
+        - mode: int
+        - last_question_correct: bool
+        - last_question_answered: bool
+        - exit: bool
+        + show_output(output_text: str): None
+        + ask_for_input(output_text: str): str
+        + ask_for_input_file(): str
+        + ask_for_text(output_text: str): str
+        + ask_for_text_timed(output_text: str, timeout: int): str
+        + set_mode(): int or str
+        + ask(question: str, answer: str, last_question: bool): str or None
+        + ask_mode1(question: str, answer: str, last_question: bool): None
+        + ask_mode2(question: str, answer: str, last_question: bool): None
+        + ask_mode3(question: str, answer: str, last_question: bool): None
+        + ask_mode4(question: str, answer: str, last_question: bool): None
     }
 
     class MainView {
-        + __init__(use_default_input: bool, output_allowed: bool)
-        + show_output(output_text: str)
-        + ask_for_input(output_text: str) : str
-        + ask_for_text(output_text: str) : str
-        + ask_for_text_timed(output_text: str, timeout: int) : str
+        - root: tk.Tk
+        - default_input: bool
+        - output_allowed: bool
+        - result: str
+        - window: WindowParameters
+        - width: int
+        - height: int
+        - screen_width: int
+        - screen_height: int
+        + show_output(output_text: str): None
+        + ask_for_input(output_text: str): str
+        + ask_for_file(): str
+        + ask_for_text(output_text: str): str
+        + ask_for_text_timed(output_text: str, timeout: int): str
+        + update_time_label(timeout: int): None
+        + set_result(result: str, window: tk.Tk): None
+        + set_text_result(result: str, window: tk.Tk): None
     }
 
-    class FileSelectionView {
-        + __init__()
-        + input_file_path : str
+    class DatabaseUserInteractions {
+        - database_interactions: DatabaseInteractions
+        - data: list
+        - summary: str
+        + give_summary_data(): list
+        + give_summary(): str
+        + give_summary_of_last_session(): str
+        + give_summary_of_db(): str
+        + __describe_n_of_users(dat: list): str
+        + __describe_n_of_input_files(dat: list): str
+        + __describe_total_time(dat: list): str
+        + __total_checked_questions(dat: list): str
+        + __total_answered_questions(dat: list): str
+        + __correctly_answered_questions(dat: list): str
+        + __percentage_of_correct(dat: list): str
+        + make_summary(): None
     }
 
-    App --> UserInterface
-    App --> Play
-    Play --> UserInterface
-    Play --> Database
-    Database --> DatabaseInteractions
-    Database --> DatabaseFileHandling
-    Database --> DatabaseUserInteractions
-    DatabaseUserInteractions --> DatabaseInteractions
-    DatabaseFileHandling --> DatabaseInteractions
-    UserInterface --> MainView
-    UserInterface --> FileSelectionView
+    class DatabaseInteractions {
+        - sql_db_path: str
+        - db_path: str
+        - data: list
+        + tell_db_colnames(): list
+        + get_db_data(): bool
+        + get_sql_db_data(): list
+    }
+
+    class DatabaseFileHandling {
+        - sql_db_path: str
+        - db_dir: str
+        - db_path: str
+        - data: list
+        - database_interactions: DatabaseInteractions
+        + make_new_sql_db_file(): None
+        + make_db_dir(): None
+        + make_new_db_file(): None
+        + write_to_db(output_csv_file: str, rows_to_write: list, mode: str): bool
+        + write_to_sql_db(rows_to_write: list, alternative_pth: str): None
+        + write_file(output_csv_file: str, rows_to_write: list, mode: str): bool
+    }
+
+    class WindowParameters {
+        - width: int
+        - height: int
+    }
+
+    UserInterface --|> MainView
+    UserInterface --|> DatabaseUserInteractions
+    MainView --|> DatabaseInteractions
+    DatabaseUserInteractions --|> DatabaseInteractions
+    DatabaseFileHandling --|> DatabaseInteractions
+    DatabaseUserInteractions --|> DatabaseFileHandling
+    UserInterface --|> WindowParameters
 ```
