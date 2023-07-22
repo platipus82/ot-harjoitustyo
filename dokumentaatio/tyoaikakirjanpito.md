@@ -18,7 +18,6 @@
 | 6.5 | 8 | tiedon pysyväistallennuksen lisääminen csv-muodossa |
 | 7.5 | 8 | käyttökerron yhteenvedon kokoaminen ja näyttäminen käyttäjälle |
 | 8.5| 8 | lisätty tiedon tallennus SQL-tietokantaan |
-
 | 8.7| 4 | tulevien päivitysten suunnittelut ja vaatimusmäärittely |
 | 9.7| 4 | tietokantakoodin päivitys ja muokkaus|
 | 10.7| 4 | tietokantakoodin päivitys ja muokkaus |
