@@ -32,17 +32,17 @@ classDiagram
     DatabaseUserInteractions --> DatabaseInteractions
     DatabaseUserInteractions --> Database
 
-    Play "1" --> "1" Database 
-    Database "1" --> "1" Play
-    Play "1" --> "1" App 
-    Play "1" --> "1" UserInterface 
-    App "1" --> "1" UserInterface
-    App "1" --> "1" Play
-    UserInterface "1" --> "1" App
-    UserInterface "1" --> "1" MainView
-    WindowsParameters "1" --> "1" MainView
-    MainView "1" --> "1" WindowsParameters
-    UserInterface "1" --> "1" FileSelectionView
-    FileSelectionView "1" --> "1" UserInterface
-    MainView "1" --> "1" UserInterface
+    Play --> Database 
+    Database --> Play
+    Play --> App 
+    Play --> UserInterface 
+    App --> UserInterface
+    App --> Play
+    UserInterface --> App
+    UserInterface --> MainView
+    WindowsParameters --> MainView
+    MainView --> WindowsParameters
+    UserInterface --> FileSelectionView
+    FileSelectionView --> UserInterface
+    MainView --> UserInterface
 ```
