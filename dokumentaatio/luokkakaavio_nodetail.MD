@@ -14,13 +14,13 @@ classDiagram
     UserInterface --|> MainView
     MainView --|> WindowParameters
     FileSelectionView --|> WindowParameters
+    FileSelectionView -- tk
     Database --|> DatabaseInteractions
     Database --|> DatabaseFileHandling
     Database --|> DatabaseUserInteractions
     App --|> UserInterface
-    App --|> WindowParameters
     App --|> FileSelectionView
     Play --|> UserInterface
-    Play --|> Database
-
+    App --|> Database
+    Play --|> App
 ```
