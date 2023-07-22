@@ -1,3 +1,4 @@
+```mermaid
 classDiagram
     class App
     class Play
@@ -15,3 +16,4 @@ classDiagram
     Database --> DatabaseInteractions
     Database --> DatabaseFileHandling
     Database --> DatabaseUserInteractions
+```
