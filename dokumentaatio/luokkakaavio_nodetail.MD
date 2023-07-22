@@ -8,6 +8,8 @@ classDiagram
     class WindowParameters
     class FileSelectionView
     class Database
+    class App
+    class Play
 
     UserInterface --|> MainView
     MainView --|> WindowParameters
@@ -15,4 +17,10 @@ classDiagram
     Database --|> DatabaseInteractions
     Database --|> DatabaseFileHandling
     Database --|> DatabaseUserInteractions
+    App --|> UserInterface
+    App --|> WindowParameters
+    App --|> FileSelectionView
+    Play --|> UserInterface
+    Play --|> Database
+
 ```
