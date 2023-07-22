@@ -229,8 +229,8 @@ sequenceDiagram
 
     Play->>UserInterface: The question is: 1+1=? Proceed or exit?
     UserInterface-->>MainView: The question is: 1+1=? Proceed or exit?
-    MainView-->>Window_parameters: what are correct window dimensions?
-    Window_parameters-->> MainView: 400 x 300
+    MainView-->>WindowParameters: what are correct window dimensions?
+    WindowParameters-->> MainView: 400 x 300
     actor User
     MainView-->>User: The question is: 1+1=? Proceed or exit?
     User-->>MainView: Proceed
@@ -238,15 +238,15 @@ sequenceDiagram
     UserInterface-->>Play: Proceed
     Play->>UserInterface: Question: 2+2=? Answer: 4.  Proceed or exit?
     UserInterface-->>MainView: Question: 2+2=? Answer: 4.  Proceed or exit?
-    MainView-->>Window_parameters: what are correct window dimensions?
-    Window_parameters-->> MainView: 400 x 300
+    MainView-->>WindowParameters: what are correct window dimensions?
+    WindowParameters-->> MainView: 400 x 300
     MainView-->>User: Question: 2+2=? Answer: 4.  Proceed or exit?
     User-->>MainView: exit
     MainView-->>UserInterface: exit
     UserInterface-->>Play: exit
     Play->>UserInterface: Game over
     UserInterface-->>MainView: Game over
-    MainView-->>Window_parameters: what are correct window dimensions?
-    Window_parameters-->> MainView: 400 x 300
+    MainView-->>WindowParameters: what are correct window dimensions?
+    WindowParameters-->> MainView: 400 x 300
     MainView-->>User: Game over
 ```    
