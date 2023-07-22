@@ -17,4 +17,6 @@ classDiagram
     Database --> DatabaseUserInteractions
     DatabaseUserInteractions --> DatabaseInteractions
     DatabaseFileHandling --> DatabaseInteractions
+    UserInterface --> MainView
+    UserInterface --> FileSelectionView
 ```
