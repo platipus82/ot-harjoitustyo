@@ -35,7 +35,6 @@ classDiagram
 
     Play "1" --> "1" Database 
     Database "1" --> "1" Play
-    Database "1" --> "1" DatabaseUserInteractions
     Play "1" --> "1" App 
     Play "1" --> "1" UserInterface 
     App "1" --> "1" UserInterface
