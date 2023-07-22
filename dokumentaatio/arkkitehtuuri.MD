@@ -38,33 +38,39 @@ classDiagram
     class data{
     }
 ```
-Pakkaus _ui_ sisältää käyttöliittymästä vastaavan koodin. Pakkaus _processes_ sisältää kaiken muun koodin joka vastaa sovelluslogiikasta,  suorituksesta, sekä tiedon pysyväistallennuksesta. Pakkaus _main_ sisältää ohjelman käynnistyskoodin joka on eriytetty omaksi skriptiksi _flashcards.py_. Pakkaus _repositories_ sisältää  pysyväistallennetun tiedon _.csv_ tai _sql_ muodossa. Pakkaus _inputs_ sisältää korttipakat eli syötetiedostot.
+Pakkaus _ui_ sisältää käyttöliittymästä vastaavan koodin. Pakkaus _processes_ sisältää kaiken muun koodin joka vastaa sovelluslogiikasta,  suorituksesta, sekä tiedon pysyväistallennuksesta. Pakkaus _main_ sisältää ohjelman käynnistyskoodin joka on eriytetty omaksi skriptiksi _flashcards.py_. Pakkaus _repositories_ sisältää tietokantaa käsittelevän koodin. Pakkaus _data_ sisältää  pysyväistallennetun tiedon _.csv_ tai _sql_ muodossa. Pakkaus _inputs_ sisältää korttipakat eli syötetiedostot.
 
 
 ## Sovelluslogiikka
-Sovelluksen rakenne modostuu seitsemästä luokasta: _Play_, _Database_, _App_, _UI_, _GUI_, _GUI_input_file_selection_ ja _Window_parameters_. Luokat kuvaavat sovelluksen toiminnallisia kokonaisuuksia ja niiden keskinäiset suhteet voidaan kuvata luokkadiagrammin avulla: 
+Sovelluksen rakenne modostuu seitsemästä luokasta: _Play_, _Database_, _DatabaseFileHandling_, _DatabaseInteractions_, _App_, _UserInterface_, _MainView_, _FileSelectionView_, _DatabaseUserInteractions_ ja _Window_parameters_. Luokat kuvaavat sovelluksen toiminnallisia kokonaisuuksia ja niiden keskinäiset suhteet voidaan kuvata luokkadiagrammin avulla: 
 Luokkadiagrammi: 
 
 ```mermaid
 classDiagram
     Play "1" --> "1" App 
     Play "1" --> "1" Database
-    Database "1" --> "1" UI 
-    Play "1" --> "1" UI 
-    App "1" --> "1" UI
+    Database "1" --> "1" UserInterface 
+    DatabaseFileHandling o-- DatabaseInteractions
+    DatabaseInteractions o-- DatabaseUserInteractions
+    Database o--|> DatabaseFileHandling
+    Database o--|> DatabaseInteractions
+    Database o--|> DatabaseUserInteractions
+
+    Play "1" --> "1" UserInterface 
+    App "1" --> "1" UserInterface
     App "1" --> "1" Play
-    UI "1" --> "1" App
-    UI "1" --> "1" GUI
-    UI "1" --> "1" GUI_input_file_selection
-    GUI "1" --> "1" GUI_input_file_selection
-    GUI_input_file_selection "1" --> "1" UI
-    GUI_input_file_selection "1" --> "1" GUI
-    GUI "1" --> "1" UI
-    GUI_input_file_selection "1" --> "1" Window_parameters
-    GUI "1" --> "1" Window_parameters
+    UserInterface "1" --> "1" App
+    UserInterface "1" --> "1" MainView
+    UserInterface "1" --> "1" FileSelectionView
+    MainView "1" --> "1" FileSelectionView
+    FileSelectionView "1" --> "1" UserInterface
+    FileSelectionView "1" --> "1" MainView
+    MainView "1" --> "1" UserInterface
+    FileSelectionView "1" --> "1" Window_parameters
+    MainView "1" --> "1" Window_parameters
     
-    Window_parameters "1" --> "1" GUI
-    Window_parameters "1" --> "1" GUI_input_file_selection
+    Window_parameters "1" --> "1" MainView
+    Window_parameters "1" --> "1" FileSelectionView
 
     class App{
         default_input
@@ -102,45 +108,85 @@ classDiagram
         save_results()       
     }
     
-    class Database{
-        db_dir
-        output_allowed
-        db_path
-        data
-        sql_db_path 
-        summary
-        
-        make_new_db_file()
-        make_new_sql_db_file()
-        make_db_dir()
-        tell_db_colnames()
-        write_to_db()
-        write_to_sql_db()
-        write_file()
-        get_db_data()
-        get_sql_db_data()
-        make_summary()
-        give_summary_data()
-        print_summary()
-        give_summary_of_last_session()
-        give_summary_of_db()
-        give_summary()   
-        __describe_n_of_users()
-        __describe_n_of_input_files()
-        __describe_total_time()
-        __total_checked_questions()
-        __total_answered_questions()
-        __correctly_answered_questions()
-        __percentage_of_correct()
+    class DatabaseFileHandling{
+        - sql_db_path: str
+        - db_dir: str
+        - db_path: str
+        - data: list
+
+        + __init__(sql_db_path: str, db_dir: str, db_path: str)
+        + make_new_sql_db_file()
+        + make_db_dir()
+        + make_new_db_file()
+        + write_to_db(output_csv_file: str, rows_to_write: list, mode: str)
+        + write_to_sql_db(rows_to_write: list)
+        + write_file(output_csv_file: str, rows_to_write: list, mode: str)
     }
+    class DatabaseInteractions{
+        - sql_db_path: str
+        - db_path: str
+        - data: list
+
+        + __init__(sql_db_path: str, db_path: str)
+        + tell_db_colnames(): list
+        + get_db_data(): bool
+        + get_sql_db_data()
+    }
+    class DatabaseUserInteractions{
+        - data: list
+        - summary: str
+
+        + __init__()
+        + give_summary_data(): list
+        + give_summary(): str
+        + give_summary_of_last_session(): str
+        + __describe_n_of_users(dat: list): str
+        + __describe_n_of_input_files(dat: list): str
+        + __describe_total_time(dat: list): str
+        + __total_checked_questions(dat: list): str
+        + __total_answered_questions(dat: list): str
+        + __correctly_answered_questions(dat: list): str
+        + __percentage_of_correct(dat: list): str
+        + give_summary_of_db(): str
+        + make_summary()
+    }
+    class Database{
+        - db_dir: str
+        - output_allowed: bool
+        - db_path: str
+        - data: list
+        - sql_db_path: str
+        - summary: str
+
+        + __init__(output_allowed: bool)
+        + make_new_db_file()
+        + make_new_sql_db_file()
+        + write_file(output_csv_file: str, rows_to_write: list, mode: str)
+        + get_db_data(): bool
+        + get_sql_db_data()
+        + give_summary_data(): list
+        + give_summary(): str
+        + give_summary_of_last_session(): str
+        + __describe_n_of_users(dat: list): str
+        + __describe_n_of_input_files(dat: list): str
+        + __describe_total_time(dat: list): str
+        + __total_checked_questions(dat: list): str
+        + __total_answered_questions(dat: list): str
+        + __correctly_answered_questions(dat: list): str
+        + __percentage_of_correct(dat: list): str
+        + give_summary_of_db(): str
+        + make_summary()
+    }
+
+
     
-    class UI{
+    class UserInterface{
         show_output()
         ask_for_input()
         ask_for_input_file()
     }
 
-    class GUI{
+    class MainView{
         show_output()
         ask_for_input()
         ask_for_file()
@@ -148,7 +194,7 @@ classDiagram
 
     }
     
-    class GUI_input_file_selection{
+    class FileSelectionView{
         window
         root
         width
@@ -181,26 +227,26 @@ Tämä prosessi voidaan havainnollistaa sekvenssidiagrammin avulla:
 ```mermaid
 sequenceDiagram
 
-    Play->>UI: The question is: 1+1=? Proceed or exit?
-    UI-->>GUI: The question is: 1+1=? Proceed or exit?
-    GUI-->>Window_parameters: what are correct window dimensions?
+    Play->>UserInterface: The question is: 1+1=? Proceed or exit?
+    UserInterface-->>MainView: The question is: 1+1=? Proceed or exit?
+    MainView-->>Window_parameters: what are correct window dimensions?
     Window_parameters-->> GUI: 400 x 300
     actor User
-    GUI-->>User: The question is: 1+1=? Proceed or exit?
-    User-->>GUI: Proceed
-    GUI-->>UI: Proceed
-    UI-->>Play: Proceed
-    Play->>UI: Question: 2+2=? Answer: 4.  Proceed or exit?
-    UI-->>GUI: Question: 2+2=? Answer: 4.  Proceed or exit?
-    GUI-->>Window_parameters: what are correct window dimensions?
-    Window_parameters-->> GUI: 400 x 300
-    GUI-->>User: Question: 2+2=? Answer: 4.  Proceed or exit?
-    User-->>GUI: exit
-    GUI-->>UI: exit
-    UI-->>Play: exit
-    Play->>UI: Game over
-    UI-->>GUI: Game over
-    GUI-->>Window_parameters: what are correct window dimensions?
-    Window_parameters-->> GUI: 400 x 300
-    GUI-->>User: Game over
+    MainView-->>User: The question is: 1+1=? Proceed or exit?
+    User-->>MainView: Proceed
+    MainView-->>UserInterface: Proceed
+    UserInterface-->>Play: Proceed
+    Play->>UserInterface: Question: 2+2=? Answer: 4.  Proceed or exit?
+    UserInterface-->>MainView: Question: 2+2=? Answer: 4.  Proceed or exit?
+    MainView-->>Window_parameters: what are correct window dimensions?
+    Window_parameters-->> MainView: 400 x 300
+    MainView-->>User: Question: 2+2=? Answer: 4.  Proceed or exit?
+    User-->>MainView: exit
+    MainView-->>UserInterface: exit
+    UserInterface-->>Play: exit
+    Play->>UserInterface: Game over
+    UserInterface-->>MainView: Game over
+    MainView-->>Window_parameters: what are correct window dimensions?
+    Window_parameters-->> MainView: 400 x 300
+    MainView-->>User: Game over
 ```    
