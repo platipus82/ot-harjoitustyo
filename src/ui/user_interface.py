@@ -35,7 +35,7 @@ class UserInterface:
         Arguments:
             output_text: output text
         """
-        if self.output_allowed:  # == True:
+        if self.output_allowed:  
             self.__gu = MainView(use_default_input=False, output_allowed=True)
             self.__gu.show_output(output_text)
 
@@ -45,7 +45,7 @@ class UserInterface:
             output_text: text which will be showed to the user
         """
         resp = None
-        if self.output_allowed:  # == True
+        if self.output_allowed:  
             self.__gu = MainView(use_default_input=False, output_allowed=True)
             resp = self.__gu.ask_for_input(output_text)
         return resp
@@ -53,22 +53,31 @@ class UserInterface:
     def ask_for_input_file(self):
         """Function will MainView to ask user to choose the correct input file. Selected file will be sent back for processing to the calling function."""
 
-        if self.output_allowed:  # == True:
+        if self.output_allowed:  
             self.__gu = FileSelectionView()
             resp = self.__gu.input_file_path
         return resp
 
     def ask_for_text(self, output_text=""):
-        # print("UI.ask_for_input")
-
         resp = None
         if self.output_allowed == True:
-            # resp = input(output_text)
             gu = MainView(use_default_input=False, output_allowed=True)
             resp = gu.ask_for_text(output_text)
         return resp
 
     def ask_for_text_timed(self, output_text="", timeout=0):
+        """
+        Ask the user for input based on the current game mode.
+
+        Args:
+            question (str): The question to be displayed to the user.
+            answer (str): The correct answer to the question.
+            last_question (bool): Whether the current question is the last question.
+
+        Returns:
+            str or None: If the user chooses to exit the application, "x" is returned. Otherwise, None is returned.
+        """
+
         resp = None
         if self.output_allowed == True:
             gu = MainView(use_default_input=False, output_allowed=True)
@@ -76,12 +85,16 @@ class UserInterface:
         return resp
 
     def set_mode(self):
+        """
+        Set the game mode based on user input.
+        Returns:
+            int or str: The selected game mode (1, 2, 3, 4) or "x" if the user chooses to exit the application.
+        """
+
         if not self.output_allowed:
             self.mode = 0
             return 0
         if self.output_allowed == True:
-            # print("UI.set_mode()")
-
             msg0 = "Please, choose game mode: \n"
             msg1 = "  1. green: show question and answer simultaneously\n"
             msg2 = "  2. blue: show question first, then the correct answer\n"
@@ -122,7 +135,18 @@ class UserInterface:
         return resp
 
     def ask_mode1(self, question="", answer="", last_question=False):
-        # print("Function ask_mode1()")
+        """
+        Ask the user for input in Mode 1 (Green).
+
+        Args:
+            question (str): The question to be displayed to the user.
+            answer (str): The correct answer to the question.
+            last_question (bool): Whether the current question is the last question.
+
+        Returns:
+            str or None: If the user chooses to exit the application, "x" is returned. Otherwise, None is returned.
+        """
+
         msg = "Question: " + question + "\n" + "Correct answer: " + answer + "\n"
         if last_question == False:
             msg = msg + "Proceed to the next question? "
@@ -138,6 +162,16 @@ class UserInterface:
             return "x"
 
     def ask_mode2(self, question="", answer="", last_question=False):
+        """
+        Ask the user for input in Mode 2 (Blue).
+        Args:
+            question (str): The question to be displayed to the user.
+            answer (str): The correct answer to the question.
+            last_question (bool): Whether the current question is the last question.
+        Returns:
+            str or None: If the user chooses to exit the application, "x" is returned. Otherwise, None is returned.
+        """
+
         msg_pt1 = "Please, press proceed to see the correct answer" + "\n"
         msg_pt2 = "Press exit to exit the application" + "\n"
         msg = "Question: " + question + "\n" + msg_pt1 + msg_pt2
@@ -168,12 +202,21 @@ class UserInterface:
             return "x"
 
     def ask_mode3(self, question="", answer="", last_question=False):
+        """
+        Ask the user for input in Mode 3 (Red).
+        Args:
+            question (str): The question to be displayed to the user.
+            answer (str): The correct answer to the question.
+            last_question (bool): Whether the current question is the last question.
+
+        Returns:
+            str or None: If the user chooses to exit the application, "x" is returned. Otherwise, None is returned.
+        """
+
         msg_pt1 = "Please, write your answer and press Submit" + "\n"
         msg_pt2 = "Press X to eXit the application" + "\n"
         msg = "Question: " + question + "\n" + msg_pt1 + msg_pt2
         resp = self.ask_for_text(output_text=msg)
-
-        # removing trailing and leading empty spaces
         answer = str(answer).strip()
         resp = str(resp).strip()
         if resp == "x":
@@ -210,13 +253,23 @@ class UserInterface:
             return "x"
 
     def ask_mode4(self, question="", answer="", last_question=False):
+        """
+        Ask the user for input in Mode 4 (Black).
+
+        Args:
+            question (str): The question to be displayed to the user.
+            answer (str): The correct answer to the question.
+            last_question (bool): Whether the current question is the last question.
+
+        Returns:
+            str or None: If the user chooses to exit the application, "x" is returned. Otherwise, None is returned.
+        """
+
         timeout = 10
         msg_pt1 = "Please, write your answer and press Proceed" + "\n"
         msg_pt2 = "Press X to eXit the application" + "\n"
         msg = "Question: " + question + "\n" + msg_pt1 + msg_pt2
         resp = self.ask_for_text_timed(output_text=msg, timeout=timeout)
-
-        # removing trailing and leading empty spaces
         answer = str(answer).strip()
         resp = str(resp).strip()
 
@@ -257,7 +310,6 @@ class UserInterface:
             self.show_output(output_text=msg)
             self.exit = True
             return "x"
-
         elif resp == "timeout":
             msg = "You ran out of time. GAME OVER."
             self.show_output(output_text=msg)

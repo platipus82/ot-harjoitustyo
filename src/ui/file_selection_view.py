@@ -10,18 +10,24 @@ Created on 30 Apr 2023
 import tkinter as tk
 from tkinter import filedialog
 import os
-from ui.window_parameters import Window_parameters
+from ui.window_parameters import WindowParameters
 
 
 class FileSelectionView:
     """Class responsible for user interactions via graphical interface during the initiation of the program, and input selection."""
 
     def __init__(self):
-        """Class constructor."""
-        self.window = Window_parameters()
+        """
+        Class constructor.
+        Function will
+            - intialize Tkinter and WindowParameter instances   
+            - set window size
+          -    set text labels
+        """
+        self.window = WindowParameters()
         self.root = tk.Tk()
 
-        # set window size
+
         self.width = self.window.width
         self.height = self.window.height
         self.screen_width = self.root.winfo_screenwidth()
@@ -30,7 +36,6 @@ class FileSelectionView:
         y = int((self.screen_height - self.height) / 2)
         self.root.geometry(f"{self.width}x{self.height}+{x}+{y}")
 
-        # texts
         self.root.title("Select a file")
         self.input_path = os.path.join(os.getcwd(), "src", "inputs")
         if not os.path.isfile(self.input_path):

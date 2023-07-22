@@ -27,12 +27,6 @@ class DatabaseUserInteractions:
         self.data = self.database_interactions.data
         self.summary = ""
 
-    # def give_summary_data(self):
-    #    """Function will return the data from SQL-database"""
-    #    self.database_interactions.get_sql_db_data()
-    #    all_results = self.data
-    #    return all_results
-
     def give_summary_data(self):
         """Function will return the data from SQL-database"""
         self.data = self.database_interactions.get_sql_db_data()  # Update self.data
@@ -46,7 +40,6 @@ class DatabaseUserInteractions:
     def give_summary_of_last_session(self):
         """Function will return the summary of the last session"""
         msg = ""
-        # last = self.data[-1]
         last = self.give_summary_data()[-1]
         msg = msg + "Summary of this session:" + "\n"
         cols = self.database_interactions.tell_db_colnames()[0]
@@ -148,7 +141,6 @@ class DatabaseUserInteractions:
 
     def make_summary(self):
         """Function creating the summary of last session and database."""
-        # self.give_summary_data()
         last_session = self.give_summary_of_last_session()
         whole_database = self.give_summary_of_db()
         msg = last_session + whole_database

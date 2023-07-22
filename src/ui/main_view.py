@@ -10,7 +10,7 @@ Created on 30 Apr 2023
 import tkinter as tk
 from tkinter import filedialog
 import os
-from ui.window_parameters import Window_parameters
+from ui.window_parameters import WindowParameters
 
 
 class MainView:
@@ -21,6 +21,7 @@ class MainView:
         Arguments: 
             use_default_input: boolean parameter telling whether we want to proceed with default inputs for testing purposes, or not
             output_allowed:  boolean parameter telling whether (graphical) output is allowed or should be omitted
+        Function will initialize necessary attributes and set window size and geometry.
         """
 
         self.root = tk.Tk()
@@ -28,8 +29,8 @@ class MainView:
         self.output_allowed = output_allowed
         self.result = None
 
-        # set window size
-        self.window = Window_parameters()
+
+        self.window = WindowParameters()
         self.width = self.window.width
         self.height = self.window.height
         self.screen_width = self.root.winfo_screenwidth()
@@ -66,12 +67,16 @@ class MainView:
         return self.result
 
     def ask_for_file(self):
-        """Function will ask GU-interface ( e.g. class FileSelectionView() ) to ask user to choose the correct input file."""
+        """Function will ask graphic user interface ( e.g. class FileSelectionView() ) to ask user to choose the correct input file."""
         pth = FileSelectionView()
         return pth
 
     def ask_for_text(self, output_text):
-        # Create text input window with same dimensions and position as ask_for_input
+        """ 
+        Function will ask the user for textual input via the tkinter window.
+        Text input window will have the exact same dimensions and position as in method ask_for_input().
+        """
+
         self.root.title("Input")
         input_label = tk.Label(self.root, text=output_text)
         input_label.pack()
@@ -87,6 +92,7 @@ class MainView:
         return self.result
 
     def ask_for_text_timed(self, output_text, timeout):
+        """Function to ask the user for textual input with a time limit via the tkinter window."""
         self.root.title("Input")
         input_label = tk.Label(self.root, text=output_text)
         input_label.pack()
@@ -108,6 +114,7 @@ class MainView:
         return self.result
 
     def update_time_label(self, timeout):
+        """ Function to update the time label in timed input mode."""
         self.time_label.configure(text="Time remaining: {}s".format(timeout))
         if timeout > 0:
             self.root.after(1000, self.update_time_label, timeout - 1)
@@ -115,9 +122,11 @@ class MainView:
             self.set_text_result("timeout", self.root)
 
     def set_result(self, result, window):
+        """Function to set the result and close the tkinter window."""
         self.result = result
         window.destroy()
 
     def set_text_result(self, result, window):
+        """Function to set the text result and close the tkinter window."""
         self.result = result
         window.destroy()

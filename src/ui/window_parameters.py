@@ -11,7 +11,7 @@ import tkinter as tk
 from tkinter import filedialog
 
 
-class Window_parameters:
+class WindowParameters:
     """Class responsible for maintaining parameters for graphic interface windows."""
 
     def __init__(self):
