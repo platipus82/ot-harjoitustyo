@@ -5,7 +5,7 @@ classDiagram
     class DatabaseUserInteractions
     class DatabaseInteractions
     class DatabaseFileHandling
-    class Window_parameters
+    class WindowParameters
 
     UserInterface --|> MainView
     UserInterface --|> DatabaseUserInteractions
@@ -13,6 +13,6 @@ classDiagram
     DatabaseUserInteractions --|> DatabaseInteractions
     DatabaseFileHandling --|> DatabaseInteractions
     DatabaseUserInteractions --|> DatabaseFileHandling
-    UserInterface --|> Window_parameters
-    MainView --|> Window_parameters
+    UserInterface --|> WindowParameters
+    MainView --|> WindowParameters
 ```
