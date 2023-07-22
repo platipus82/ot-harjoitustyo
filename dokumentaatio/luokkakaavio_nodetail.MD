@@ -2,17 +2,17 @@
 classDiagram
     class UserInterface
     class MainView
-    class DatabaseUserInteractions
     class DatabaseInteractions
     class DatabaseFileHandling
+    class DatabaseUserInteractions
     class WindowParameters
+    class FileSelectionView
+    class Database
 
     UserInterface --|> MainView
-    UserInterface --|> DatabaseUserInteractions
-    MainView --|> DatabaseInteractions
-    DatabaseUserInteractions --|> DatabaseInteractions
-    DatabaseFileHandling --|> DatabaseInteractions
-    DatabaseUserInteractions --|> DatabaseFileHandling
-    UserInterface --|> WindowParameters
     MainView --|> WindowParameters
+    FileSelectionView --|> WindowParameters
+    Database --|> DatabaseInteractions
+    Database --|> DatabaseFileHandling
+    Database --|> DatabaseUserInteractions
 ```
