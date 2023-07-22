@@ -74,7 +74,8 @@ classDiagram
 Yksityiskohtaisempi versio missä näkyy myös luokkien attribuutit ja metodit löytyy [täältä](https://github.com/platipus82/ot-harjoitustyo/blob/main/dokumentaatio/class_diagram_detailed.MD). 
 
 
-## Päätoiminnallisuudet
+Ohjelman rakenteeseen jääneet heikkoudet
+
 Päätoiminnallisuuksiin kuuluu korttipakan valinta, kysymysten järjestäminen sekä kysymysten kysyminen.
 
 ### Korttipakan valinta
@@ -113,3 +114,16 @@ sequenceDiagram
     WindowParameters-->> MainView: 400 x 300
     MainView-->>User: Game over
 ```    
+
+## Sovelluksen heikkoudet ja rajoitukset 
+### Käyttöliittymä
+Tällä hetkellä sovellus mahdollistaa tietojen tallentamisen myös ihmisluettavassa muodossa .csv-formaattiin, mutta sitä ei ole tuettu käyttöliittymän tasolla. Myös käyttäjälle näytettävä ikkuna voisi toteuttaa visuaalisesti miellyttävämmällä tavalla. 
+
+### Tietoturva
+Käyttäjätietoja tai syötetiedostoja ei ole suojattu millään lailla, vaikka niiden suojaaminen esim. salasanalla olisi  helppoa toteuttaa.
+
+### Datan käsittely
+Datan käsittely olisi voinut luontevammin eriyttää omaksi luokaksi. Nyt sitä tehdään useassa luokassa ja koodissa on päällekkäisyyksiä. Myös käyttäjälle näytettävä pelin yhteenveto voisi olla visuaalisesti viimeistellympi ja sisältää esimerkiksi edistystä ja kehitystä näyttäviä kuvaajia.
+
+### Kysymysten järjestys
+Tällä hetkellä ainoa tuettu kysymysten järjestys on satunnaisjärjestys. Kuitenkin myös muunlaiset järjestykset olisi mahdollista toteuttaa ja niiden avulla säädellä kysymysten vaikeusastetta. 
