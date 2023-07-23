@@ -41,7 +41,7 @@ class TestApp(unittest.TestCase):
         self.appi = self.play.game
         self.db = self.play.database
 
-    def test_that_inputdir_exists_v2(self):
+    def test_that_inputdir_exists(self):
         pth = self.appi.input_dir
         pthExists = os.path.exists(pth)
         self.assertEqual(True, pthExists)
