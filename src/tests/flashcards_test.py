@@ -74,10 +74,6 @@ class TestApp(unittest.TestCase):
                     correct = False
         self.assertEqual(True, correct)
 
-    # def test_that_inputfile_rows_are_identical(self):
-
-    # def test_that_give_summary_of_last_session(self):
-
 
 class TestDatabase(unittest.TestCase):
     def setUp(self):
