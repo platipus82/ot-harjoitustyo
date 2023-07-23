@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 '''
-Created on 7 May 2023
+Created on 20 July 2023
 
 @author: ok
 '''
@@ -13,7 +13,7 @@ import sqlite3
 import time
 
 
-class DatabaseFileHandling:    
+class DatabaseFileHandling:
     """Class responsible for handling the database files.
 
     Attributes:
@@ -24,20 +24,38 @@ class DatabaseFileHandling:
         database_interactions (DatabaseInteractions): An instance of DatabaseInteractions class.
 
     Methods:
-        __init__(sql_db_path: str, db_dir: str, db_path: str, database_interactions: DatabaseInteractions):
+        __init__():
             Class constructor that initializes the attributes.
-        make_new_sql_db_file(alternative_pth: str=None):
+            Args:             
+                sql_db_path: str, 
+                db_dir: str, 
+                db_path: str, 
+                database_interactions: DatabaseInteractions
+        make_new_sql_db_file():
             Creates a new SQL database file.
+            Args: 
+                alternative_pth: str=None
         make_db_dir():
             Checks if the input folder exists and has files. Creates it if needed.
         make_new_db_file():
             Creates a new .csv database file with column names.
-        write_to_db(output_csv_file: str="", rows_to_write: list=None, mode: str="a"):
+        write_to_db():
             Writes data to an existing .csv database file.
-        write_to_sql_db(rows_to_write: list=None, alternative_pth: str=None):
+            Args: 
+                output_csv_file: str="",
+                rows_to_write: list=None, 
+                mode: str="a"
+        write_to_sql_db():
             Writes data to the SQL database file.
-        write_file(output_csv_file: str="", rows_to_write: list=None, mode: str="a"):
+            Args: 
+                rows_to_write: list=None, 
+                alternative_pth: str=None
+        write_file():
             Writes data to a separate .csv file.
+            Args: 
+                output_csv_file: str="", 
+                rows_to_write: list=None, 
+                mode: str="a"
 
     """
 
@@ -100,21 +118,32 @@ class DatabaseFileHandling:
                         rows_to_write=self.database_interactions.tell_db_colnames(), mode="w")
 
     def write_to_db(self, output_csv_file="", rows_to_write=None, mode="a"):
-        """Function will write to a existing .csv database file
-              Args:
-                  output_csv_file (str, optional): The path to the existing .csv database file. Default is an empty string.
-                  rows_to_write (list, optional): The list of rows to be written to the database. Default is None.
-                  mode (str, optional): The writing mode for the file ("a" for append, "w" for write). Default is "a".
+        """ Function will write to a existing .csv database file
+            Args:
+                output_csv_file (str, optional):
+                    The path to the existing .csv database file. 
+                    Default is an empty string.
+                rows_to_write (list, optional): 
+                    The list of rows to be written to the database. 
+                    Default is None.
+                mode (str, optional): 
+                    The writing mode for the file 
+                    Modes: "a" for append, "w" for write
+                    Default is "a".
         """
 
         self.write_file(output_csv_file=output_csv_file,
                         rows_to_write=rows_to_write, mode=mode)  # mode="a"
 
     def write_to_sql_db(self, rows_to_write=None,  alternative_pth=None):
-        """Function will write to SQL-database file. 
-              Args:
-                  rows_to_write (list, optional): The list of rows to be written to the SQL database. Default is None.
-                  alternative_pth (str, optional): An alternative path to the SQL database file. Default is None.
+        """ Function will write to SQL-database file. 
+            Args:
+                rows_to_write (list, optional): 
+                    The list of rows to be written to the SQL database. 
+                    Default is None.
+                alternative_pth (str, optional): 
+                    An alternative path to the SQL database file. 
+                    Default is None.
         """
         if alternative_pth is None:
             pth = self.sql_db_path
@@ -148,8 +177,13 @@ class DatabaseFileHandling:
         cursor.execute("COMMIT")
 
     def write_file(self, output_csv_file="", rows_to_write=None, mode="a"):
-        """Function will write  text to separate .csv file and return True, if list of text string is provided as argument. 
-              It will return False if no text is provided, or it is in wrong format.
+        """Function will write text to .csv file. 
+            Function expects text to write and file name. 
+            If these are provided as an argument function:
+                will write text to separate .csv file
+                return True
+            If no text is provided or it is in wrong format: 
+                will return False.
         """
         try:
             with open(output_csv_file, mode, newline='', encoding="utf-8") as myfile:

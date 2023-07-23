@@ -27,7 +27,6 @@ class FileSelectionView:
         self.window = WindowParameters()
         self.root = tk.Tk()
 
-
         self.width = self.window.width
         self.height = self.window.height
         self.screen_width = self.root.winfo_screenwidth()

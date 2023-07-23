@@ -23,10 +23,17 @@ class Database:
         output_allowed (bool): Flag indicating if (graphical) output is allowed or not.
         db_path (str): The path to the CSV database file.
         sql_db_path (str): The path to the SQL database file.
-        database_interactions (DatabaseInteractions): An instance of DatabaseInteractions for handling SQL database interactions.
-        database_file_handling (DatabaseFileHandling): An instance of DatabaseFileHandling for handling CSV database interactions.
-        database_user_interactions (DatabaseUserInteractions): An instance of DatabaseUserInteractions for describing data for the user.
-        data (list): A list to store the data from the user interactions.
+        
+        database_interactions (DatabaseInteractions): 
+            An instance of DatabaseInteractions for handling SQL database interactions.
+        
+        database_file_handling (DatabaseFileHandling): 
+            An instance of DatabaseFileHandling for handling CSV database interactions.
+        
+        database_user_interactions (DatabaseUserInteractions): 
+            An instance of DatabaseUserInteractions for describing data for the user.
+        data (list): 
+            A list to store the data from the user interactions.
     """
 
     def __init__(self, output_allowed=True):

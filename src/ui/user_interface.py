@@ -35,7 +35,7 @@ class UserInterface:
         Arguments:
             output_text: output text
         """
-        if self.output_allowed:  
+        if self.output_allowed:
             self.__gu = MainView(use_default_input=False, output_allowed=True)
             self.__gu.show_output(output_text)
 
@@ -45,7 +45,7 @@ class UserInterface:
             output_text: text which will be showed to the user
         """
         resp = None
-        if self.output_allowed:  
+        if self.output_allowed:
             self.__gu = MainView(use_default_input=False, output_allowed=True)
             resp = self.__gu.ask_for_input(output_text)
         return resp
@@ -53,7 +53,7 @@ class UserInterface:
     def ask_for_input_file(self):
         """Function will MainView to ask user to choose the correct input file. Selected file will be sent back for processing to the calling function."""
 
-        if self.output_allowed:  
+        if self.output_allowed:
             self.__gu = FileSelectionView()
             resp = self.__gu.input_file_path
         return resp

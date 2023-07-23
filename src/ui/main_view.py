@@ -29,7 +29,6 @@ class MainView:
         self.output_allowed = output_allowed
         self.result = None
 
-
         self.window = WindowParameters()
         self.width = self.window.width
         self.height = self.window.height
