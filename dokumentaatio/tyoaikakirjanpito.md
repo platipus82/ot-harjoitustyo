@@ -26,8 +26,10 @@
 | 20.7| 4 | koodin siistiminen |
 | 21.7| 4 | koodin siistiminen ja virheiden korjaaminen |
 | 22.7| 4 | dokumentaatio|
+| 23.7| 4 | testaus linux-käyttöjärjestelmällä|
+| 24.7| 4 | release|
 
-| KOKONAISAIKA | 116 |  |
+| KOKONAISAIKA | 132 |  |
 
 
 
