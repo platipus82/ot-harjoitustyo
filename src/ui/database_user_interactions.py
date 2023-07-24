@@ -139,7 +139,7 @@ class DatabaseUserInteractions:
         for i, entry in enumerate(last):
             row = "    " + cols[i] + ": " + entry + "\n"
             msg = msg + row
-        return msg_header + msg #padded_last_session
+        return msg_header + msg
 
 
     def give_summary_of_db(self):
