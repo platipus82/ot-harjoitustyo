@@ -16,7 +16,7 @@ Sovelluslogiikasta vastaavat `Play`- ja `App`-luokat testataan [TestPlay](https:
 Näiden testien tarkoituksena on varmistaa että sovelluksen toiminnan kannalta kriittisten `Play`, `App`, `Database`, ja `DatabaseFileHandling`- luokkien toiminta ja vuorovaikutus on odotetun kaltainen ja robusti. Testeillä varmistetaan tärkeimpien metodien ja attribuuttien toiminta erilaisissa käyttö- ja virhe-skenaarioissa. Lisäksi testit toimivat sovelluksen laatudokumentaationa niitä voidaan hyödyntää sovelluksen jatkokehityksessä varmistamaan tulevien päivitysten toimivuutta. 
 
 ### Testikattavuus
-Käyttöliittymäkerrosta ei ole testattu. Muuilta osin sovelluksen testauksen haarautumakattavuus on 71%
+Käyttöliittymäkerrosta ei ole testattu. Muuilta osin sovelluksen testauksen haarautumakattavuus on 70%
 ![](./kuvat/coverage_report.JPG)
 
 ## Järjestelmätestaus
