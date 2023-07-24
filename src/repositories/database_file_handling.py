@@ -133,7 +133,7 @@ class DatabaseFileHandling:
         """
 
         self.write_file(output_csv_file=output_csv_file,
-                        rows_to_write=rows_to_write, mode=mode)  # mode="a"
+                        rows_to_write=rows_to_write, mode=mode)  
 
     def write_to_sql_db(self, rows_to_write=None,  alternative_pth=None):
         """ Function will write to SQL-database file. 
@@ -152,12 +152,10 @@ class DatabaseFileHandling:
 
         data = []
         for x in rows_to_write:
-            # primary_key = x[2]
-            # Append a timestamp to ensure uniqueness
             primary_key = f"{x[2]}_{int(time.time())}"
             x = [primary_key] + x
             data.append(x)
-        database = sqlite3.connect(pth)  # self.sql_db_path
+        database = sqlite3.connect(pth)
         database.isolation_level = None
         cursor = database.cursor()
         cursor.execute("BEGIN")
