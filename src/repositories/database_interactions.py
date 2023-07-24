@@ -49,7 +49,7 @@ class DatabaseInteractions:
                 self.data = lines
                 return True
         except OSError:
-            self.data = []  # None
+            self.data = []
             return False
 
     def get_sql_db_data(self):
