@@ -23,7 +23,6 @@ class App:
         """
 
         self.default_input = use_default_input
-        self.output_allowed = output_allowed
         self.input_dir = ""
         self.input_path = ""
         if not self.default_input:

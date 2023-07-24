@@ -25,6 +25,7 @@ class MainView:
         """
 
         self.root = tk.Tk()
+        self.root.title("Flashcards")
         self.default_input = use_default_input
         self.output_allowed = output_allowed
         self.result = None
@@ -38,7 +39,7 @@ class MainView:
         y = int((self.screen_height - self.height) / 2)
         self.root.geometry(f"{self.width}x{self.height}+{x}+{y}")
 
-    def show_output(self, output_text=""):
+    def show_output_v1(self, output_text=""):
         """Function which will show the textual output via tkinter window
         Arguments:
             output_text: output text
@@ -46,13 +47,24 @@ class MainView:
         if self.output_allowed == True:
             output_label = tk.Label(self.root, text=output_text).pack()
             self.root.wait_window()
+            
+    def show_output(self, output_text=""):
+        """Function which will show the textual output via tkinter window
+        Arguments:
+            output_text: output text
+        """
+        if self.output_allowed:
+            output_label = tk.Label(self.root, text=output_text, anchor="w", justify="left", wraplength=500)
+            output_label.pack()
+            self.root.wait_window()
+
 
     def ask_for_input(self, output_text):
         """Function which will show user the text asking for user input. User input will be sent back for processing to the calling function.
         Arguments:
             output_text: text which will be showed to the user
         """
-        self.root.title("Input")
+        self.root.title("Flashcards")
         input_label = tk.Label(self.root, text=output_text)
         input_label.pack()
         proceed_button = tk.Button(
@@ -76,8 +88,8 @@ class MainView:
         Text input window will have the exact same dimensions and position as in method ask_for_input().
         """
 
-        self.root.title("Input")
-        input_label = tk.Label(self.root, text=output_text)
+        self.root.title("Flashcards")
+        input_label = tk.Label(self.root, text=output_text, anchor="w", justify="left", wraplength=500)
         input_label.pack()
         input_entry = tk.Entry(self.root)
         input_entry.pack()
@@ -92,7 +104,7 @@ class MainView:
 
     def ask_for_text_timed(self, output_text, timeout):
         """Function to ask the user for textual input with a time limit via the tkinter window."""
-        self.root.title("Input")
+        self.root.title("Flashcards")
         input_label = tk.Label(self.root, text=output_text)
         input_label.pack()
         input_entry = tk.Entry(self.root)

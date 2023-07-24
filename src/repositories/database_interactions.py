@@ -64,7 +64,10 @@ class DatabaseInteractions:
         for x in data:
             lista = []
             for y in x:
-                lista.append(str(y))
+                if isinstance(x, float):
+                    lista.append(str(round(y, 2)))
+                else:
+                    lista.append(str(y))
             lista.pop(0)
             listat.append(lista)
         self.data = listat

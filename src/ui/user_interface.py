@@ -96,11 +96,11 @@ class UserInterface:
             return 0
         if self.output_allowed == True:
             msg0 = "Please, choose game mode: \n"
-            msg1 = "  1. green: show question and answer simultaneously\n"
-            msg2 = "  2. blue: show question first, then the correct answer\n"
-            msg3 = "  3. red: show question first, than you can answer, then the program will evaluate your answer and show the correct answer\n"
+            msg1 = "  1. green: app shows question AND answer\n"
+            msg2 = "  2. blue: app shows question THEN answer\n"
+            msg3 = "  3. red: app shows question, user answers, app evaluates the answer\n"
             msg4 = "  4. black: same as red but with time-limit for each answer\n"
-            msg5 = "  ....choose 1, 2, 3 or 4\n"
+            msg5 = "....choose 1, 2, 3 or 4\n"
 
             msg = msg0+msg1+msg2+msg3+msg4+msg5
             resp = self.ask_for_text(output_text=msg)
@@ -155,7 +155,7 @@ class UserInterface:
             msg = msg + "This was the last question! Well done!"
             self.show_output(output_text=msg)
             return "x"
-        if resp == "x":
+        if resp == "x" or resp == "X":
             msg = "GAME OVER"
             self.show_output(output_text=msg)
             self.exit = True
@@ -177,7 +177,7 @@ class UserInterface:
         msg = "Question: " + question + "\n" + msg_pt1 + msg_pt2
         resp = self.ask_for_input(output_text=msg)
 
-        if resp == "x":
+        if resp == "x" or resp == "X":
             msg = "GAME OVER"
             self.show_output(output_text=msg)
             self.exit = True
@@ -195,7 +195,7 @@ class UserInterface:
             self.exit = True
             return "x"
 
-        if resp == "x":
+        if resp == "x" or resp == "X":
             msg = "GAME OVER"
             self.show_output(output_text=msg)
             self.exit = True
@@ -219,7 +219,7 @@ class UserInterface:
         resp = self.ask_for_text(output_text=msg)
         answer = str(answer).strip()
         resp = str(resp).strip()
-        if resp == "x":
+        if resp == "x" or resp == "X":
             msg = "GAME OVER"
             self.show_output(output_text=msg)
             self.exit = True
@@ -246,7 +246,7 @@ class UserInterface:
             self.exit = True
             return "x"
 
-        if resp == "x":
+        if resp == "x" or resp == "X":
             msg = "GAME OVER"
             self.show_output(output_text=msg)
             self.exit = True
@@ -273,7 +273,7 @@ class UserInterface:
         answer = str(answer).strip()
         resp = str(resp).strip()
 
-        if resp == "x":
+        if resp == "x" or resp == "X":
             msg = "GAME OVER"
             self.show_output(output_text=msg)
             self.exit = True
@@ -305,7 +305,7 @@ class UserInterface:
             self.exit = True
             return
 
-        if resp == "x":
+        if resp == "x" or resp == "X":
             msg = "GAME OVER"
             self.show_output(output_text=msg)
             self.exit = True

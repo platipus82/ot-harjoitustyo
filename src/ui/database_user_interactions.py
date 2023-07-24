@@ -27,26 +27,6 @@ class DatabaseUserInteractions:
         self.data = self.database_interactions.data
         self.summary = ""
 
-    def give_summary_data(self):
-        """Function will return the data from SQL-database"""
-        self.data = self.database_interactions.get_sql_db_data()  # Update self.data
-        all_results = self.data
-        return all_results
-
-    def give_summary(self):
-        """Function will return the summary"""
-        return self.summary
-
-    def give_summary_of_last_session(self):
-        """Function will return the summary of the last session"""
-        msg = ""
-        last = self.give_summary_data()[-1]
-        msg = msg + "Summary of this session:" + "\n"
-        cols = self.database_interactions.tell_db_colnames()[0]
-        for i, entry in enumerate(last):
-            msg = msg + cols[i] + ": " + entry + "\n"
-        return msg
-
     def __describe_n_of_users(self, dat):
         """Function will return the description of n of users"""
         users = []
@@ -121,27 +101,64 @@ class DatabaseUserInteractions:
             if i != 0:
                 x = entry[9]
                 results.append(float(x))
-        msg = str(sum(results)/len(results)) + \
+        if len(results)==0:
+            msg = "0" 
+        else:
+            msg = str(round(sum(results)/len(results), 2))     
+        msg = msg + \
             " was the average percent of correct answers"+"\n"
         return msg
+
+
+
+    def give_summary_data(self):
+        """Function will return the data from SQL-database"""
+        self.data = self.database_interactions.get_sql_db_data()  
+        all_results = self.data
+        return all_results
+
+    def give_summary(self):
+        """Function will return the summary"""
+        return self.summary
+
+    def give_summary_of_last_session_old(self):
+        """Function will return the summary of the last session"""
+        last = self.give_summary_data()[-1]
+        msg = "\n" +"Summary of this session" + "\n"
+        cols = self.database_interactions.tell_db_colnames()[0]
+        for i, entry in enumerate(last):
+            msg = "    " + msg + cols[i] + ": " + entry + "\n"
+        return msg
+
+    def give_summary_of_last_session(self):
+        """Function will return the summary of the last session"""
+        last = self.give_summary_data()[-1]
+        msg_header = "\n" +"Summary of this session" + "\n"
+        msg = ""
+        cols = self.database_interactions.tell_db_colnames()[0]
+        for i, entry in enumerate(last):
+            row = "    " + cols[i] + ": " + entry + "\n"
+            msg = msg + row
+        return msg_header + msg #padded_last_session
+
 
     def give_summary_of_db(self):
         """Function will return the description of the database"""
         dat = self.data
-        msg = "Currently database contains: " + "\n"
-        msg = msg + str(len(dat)) + " recorded sessions" + "\n" + \
-            self.__describe_n_of_users(dat) + \
-            self.__describe_n_of_input_files(dat) + \
-            self.__describe_total_time(dat) + \
-            self.__total_checked_questions(dat) + \
-            self.__total_answered_questions(dat) + \
-            self.__correctly_answered_questions(dat) + \
-            self.__percentage_of_correct(dat)
+        msg = "\n" + "Historical summary. Currently database contains:" + "\n"
+        msg =  msg + "    " + str(len(dat)) + " recorded sessions" + "\n" + \
+            "    " + self.__describe_n_of_users(dat) + \
+            "    " + self.__describe_n_of_input_files(dat) + \
+            "    " + self.__describe_total_time(dat) + \
+            "    " + self.__total_checked_questions(dat) + \
+            "    " + self.__total_answered_questions(dat) + \
+            "    " + self.__correctly_answered_questions(dat) + \
+            "    " + self.__percentage_of_correct(dat)
         return msg
 
     def make_summary(self):
         """Function creating the summary of last session and database."""
         last_session = self.give_summary_of_last_session()
-        whole_database = self.give_summary_of_db()
-        msg = last_session + whole_database
+        whole_database = self.give_summary_of_db()[:]
+        msg = last_session + "\n" + whole_database
         self.summary = msg

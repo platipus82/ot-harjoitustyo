@@ -16,5 +16,5 @@ class WindowParameters:
 
     def __init__(self):
         """Class constructor."""
-        self.width = 400
-        self.height = 300
+        self.width = 500
+        self.height = 400

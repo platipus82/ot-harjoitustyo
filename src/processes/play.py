@@ -28,7 +28,7 @@ class Play:
         """
         self.use_default_input = use_default_input
         self.output_allowed = output_allowed
-        self.start_time = datetime.datetime.now()
+        self.start_time = datetime.datetime.now().replace(microsecond=0)
         self.end_time = ""
         self.mode = None
         self.__exit = False
@@ -51,7 +51,7 @@ class Play:
         if self.mode == 0:
             self.__exit = True
         if self.__exit:
-            self.end_time = datetime.datetime.now()
+            self.end_time = datetime.datetime.now().replace(microsecond=0)
             self.elapsed_time = self.end_time-self.start_time
             self.save_results()
             self.database.data = self.database.database_interactions.data[:]
