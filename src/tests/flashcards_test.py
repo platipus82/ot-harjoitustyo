@@ -13,7 +13,12 @@ from flashcards import main
 
 class TestPlay(unittest.TestCase):
     def test_update_question_counters(self):
-        """ Creating an instance of the class which contains the update_question_counters function"""
+        """Test the update_question_counters method of the Play class.
+
+        Creating an instance of the class which contains the update_question_counters function.
+
+        It sets up the necessary preconditions, calls the function to be tested, and asserts the expected results.
+        """
         obj = Play()
 
         # Set up the necessary preconditions
@@ -42,20 +47,36 @@ class TestApp(unittest.TestCase):
         self.db = self.play.database
 
     def test_that_inputdir_exists(self):
+        """Test if the input directory exists.
+
+        Checks if the input directory exists or not.
+        """
         pth = self.appi.input_dir
         pthExists = os.path.exists(pth)
         self.assertEqual(True, pthExists)
 
     def test_that_inputfilelist_not_empty(self):
+        """Test if the input file list is not empty.
+
+        Checks if the list of input files is not empty.
+        """
         lst = self.appi.filelist
         self.assertEqual(False, len(lst) == 0)
 
     def test_that_inputfile_exists(self):
+        """Test if the input file exists.
+
+        Checks if the input file specified by the input path exists or not.
+        """
         pth = self.appi.input_path
         pthExists = os.path.isfile(pth)
         self.assertEqual(True, pthExists)
 
     def test_that_inputfile_is_not_empty(self):
+        """Test if the input file is not empty.
+
+        Checks if the input file specified by the input path is not empty.
+        """
         pth = self.appi.input_path
         fl = open(pth)
         empty = True
@@ -65,6 +86,10 @@ class TestApp(unittest.TestCase):
         self.assertEqual(False, empty)
 
     def test_that_inputfile_is_formatted_correctly(self):
+        """Test if the input file is formatted correctly.
+
+        Checks if the input file specified by the input path is correctly formatted.
+        """
         pth = self.appi.input_path
         infile = open(pth)
         correct = True
@@ -82,6 +107,10 @@ class TestDatabase(unittest.TestCase):
                            '2023-05-12 12:10:00', '00:10:00', 10, 10, 10, 10, 100.0]]
 
     def test_get_db_data_success(self):
+        """Test the get_db_data method of the Database class.
+
+        Test the scenario where getting data from the database is successful.
+        """
         test_data = ["1;John;Doe\n", "2;Jane;Smith\n", "3;Bob;Johnson\n"]
         expected_result = [["1", "John", "Doe\n"], [
             "2", "Jane", "Smith\n"], ["3", "Bob", "Johnson\n"]]
@@ -92,6 +121,10 @@ class TestDatabase(unittest.TestCase):
         self.assertEqual(self.db.database_interactions.data, expected_result)
 
     def test_get_db_data_failure(self):
+        """Test the get_db_data method of the Database class.
+
+        Test the scenario where getting data from the database fails.
+        """
         with patch("builtins.open", side_effect=OSError):
             result = self.db.database_interactions.get_db_data()
 
@@ -110,6 +143,10 @@ class TestDatabaseFileHandling(unittest.TestCase):
             os.remove(self.db_path)
 
     def test_make_new_sql_db_file(self):
+        """Test the make_new_sql_db_file method of the DatabaseFileHandling class.
+
+        Test creating a new SQL database file and verify that the table is created.
+        """
         # Call the function to create the new SQL database file
         self.db_file_handling.make_new_sql_db_file()
 
